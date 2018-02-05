@@ -1,7 +1,7 @@
 require_relative 'window.rb'
 
-WindowWidth = 1280
-WindowHeight = 640
+WindowWidth = 620
+WindowHeight = 800
 
 window = Window.new(WindowWidth, WindowHeight)
 window.show
