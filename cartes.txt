@@ -1,0 +1,8 @@
+#pr = présence , no = notes, po = popularité, mo = moral
+
+id 1
+desc Il y a une soirée qui vient de s'organisée ce soir!
+ch1 Y aller
+csq1 no-2 po+2 mo+5
+ch2 Réviser
+csq2 no+2 po-2 mo-3
