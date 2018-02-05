@@ -16,10 +16,10 @@ class Window < Gosu::Window
   ESC = Gosu::Button::KbEscape
 
   def initialize (width, height)
-    @Width = width #1280
-    @Height = height #640
-    @font = Gosu::Font.new(20)
+    @Width = width
+    @Height = height
     super width,height # Crée une fenêtre de taille height * width
+    @font = Gosu::Font.new(self, "Arial", 20)
     self.caption = "Jeu Ruby" # Nom de la fenêtre
     @gamestarted = false
   @creditstarted = false
@@ -85,7 +85,7 @@ class Window < Gosu::Window
 
         puts "Clique start enfoncé."
       when mouse_x > BUTTONCREDITPOS[0] && mouse_y > BUTTONCREDITPOS[1] && mouse_x < BUTTONCREDITPOS[0]+BUTTONCREDITSIZE[0] && mouse_y < BUTTONCREDITPOS[1]+BUTTONCREDITSIZE[1]
-      
+
         @creditbutton = @creditbuttonpressed
         puts "Bouton crédit enfoncé"
 
