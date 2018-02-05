@@ -36,6 +36,35 @@ class Statut
     puts "popularité : #{@popularite}"
     puts "moral : #{@moral}"
   end
+
+  def setNotes(notes)
+    @notes=notes
+  end
+  def getNotes
+    return notes
+ end
+
+  def setPresence(presence)
+    @presence = presence
+  end
+  def getPresence
+    return presence
+  end
+
+  def setPopularite(popularite)
+    @popularite = popularite
+  end
+  def getPopularite
+    return popularite
+  end
+
+  def setMoral(moral)
+    @moral = moral
+  end
+  def getMoral
+    return moral
+  end
+  
 end
 
 #test
