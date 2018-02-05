@@ -1,5 +1,5 @@
 require 'gosu'
-
+require_relative 'cartes.rb'
 
 class Window < Gosu::Window
 
@@ -19,15 +19,15 @@ class Window < Gosu::Window
     @Width = width
     @Height = height
     super width,height # Crée une fenêtre de taille height * width
-    @font = Gosu::Font.new(self, "Arial", 20)
-    self.caption = "Jeu Ruby" # Nom de la fenêtre
+    @font = Gosu::Font.new(self, "C:/Users/jessy/GameJamBambouCuivre/SpaceFont.ttf", 20)
+    self.caption = "Etudiant Simulator 3003" # Nom de la fenêtre
     @gamestarted = false
-  @creditstarted = false
+    @creditstarted = false
     @startbutton = Gosu::Image.new('startbutton.png')
     @creditbutton = Gosu::Image.new('buttonLong_brown.png')
     @creditbuttonpressed = Gosu::Image.new('buttonLong_brown_pressed.png')
 
-
+    @carteTest = Carte.new()
   end
 
   def update
@@ -37,10 +37,10 @@ class Window < Gosu::Window
   def draw
 
     if @gamestarted
-
+      @carteTest.draw()
     elsif @creditstarted
       @font.draw_rel("Crédits", @Width / 2, 150, 1, 0.5, 0.5)
-      @font.draw_rel("Luca Deslot", @Width / 2, 175, 1, 0.5, 0.5)
+      @font.draw_rel("LUCA Deslot", @Width / 2, 175, 1, 0.5, 0.5)
       @font.draw_rel("Fabien Behra", @Width / 2, 200, 1, 0.5, 0.5)
       @font.draw_rel("Adrien Prat", @Width / 2, 225, 1, 0.5, 0.5)
       @font.draw_rel("Jessy Chenavas", @Width / 2, 250, 1, 0.5, 0.5)
