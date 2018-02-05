@@ -3,10 +3,63 @@
 id 1
 desc Il y a une soirée qui vient de s'organisée ce soir!
 ch1 Y aller
-csq1 no-2 po+2 mo+5
+csq1 no-6 po+7 mo+5
 ch2 Réviser
-csq2 no+2 po-2 mo-3
+csq2 no+8 po-6 mo-5
 fincarte
+
 id 2
-desc bokl
-csq no-2 po+2 mo+5
+desc Le professeur qui te faisait cours vient d'être annoncé comme absent
+ch1 Go réviser!
+csq1 no+7 po-6
+ch2 Jouer à l'HTC Vive
+csq2 mo+8 po+9 no-8
+fincarte
+
+id 3
+desc Demain tu commences à 8h avec un CM!
+ch1 Soupirer et programmer le réveil
+csq1 no+9 mo-7 pr+10
+ch2 Grosse flemme!
+csq2 mo+8 no-8 pr-10
+fincarte
+
+id 4
+desc Sortez seulement de quoi écrire, Contrôle surprise!
+ch1 Joyeux Hunger Games...
+csq1 no-5 mo-5
+ch2 Devenir le maître de la triche
+csq2 no-15 mo-10 po+6
+fincarte
+
+id 5
+desc Il est midi, t'as sacrément faim mais le Crous est fermé
+ch1 Manger de l'air
+csq1 mo-5
+ch2 Oh une pizzeria là-bas
+csq2 mo+5
+fincarte
+
+id 6
+desc Après avoir fait Top 1 sur Fortnite, tu te rends compte que tu n'as rien révisé pour les partiels de la semaine prochaine...
+ch1 Tant pis t'aura un avenir dans l'E-Sport!
+csq1 no-30 po+12 mo+12
+ch2 Go Ouvrir tes cours
+csq2 no+30 po-12 mo-12
+fincarte
+
+id 7
+desc Tu attends ton tram, et soudain les hauts-parleurs de l'arrêt annoncent qu'il a percuté une voiture
+ch1 Fais du sport et vas en cours à pied
+csq1 mo-6 pr+5 no+5
+ch2 Franchement, t'étais mieux dans ton lit...
+csq2 mo+6 pr-10 no-6
+fincarte
+
+id 8
+desc Tu viens de te réveiller, tu ouvres les volets et tu vois qu'il pleut dehors
+ch1 Il n'est pas trop tard pour te recoucher...
+csq1 mo+10 no-5 pr-10
+ch2 Tant pis c'est pas la mort non plus
+csq2 mo-10 pr+10 no+7
+fincarte
