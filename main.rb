@@ -23,8 +23,10 @@ def chargerCarte
   end
 end
 
+uneConsequence = false
+
 for i in 0..array.length()-1
-  puts array[i]
+  #puts array[i]
   case array[i]
   when "id"
     id = array[i+1]
@@ -32,11 +34,43 @@ for i in 0..array.length()-1
     desc = ""
     k = i+1
     while array[k] != "ch1"
-      desc.to_s + array[k].to_s
+      desc << " " <<  array[k]
       k = k+1
     end
-    puts "@@@@@@@@@@@@@@@"
-    puts desc
+  when "ch1"
+    ch1 = ""
+    k = i+1
+    while array[k] != "csq1"
+      ch1 << " " <<  array[k]
+      k = k+1
+    end
+  when "csq"
+    csq = ""
+    k = i+1
+    while array[k] != "fincarte"
+      csq << " " <<  array[k]
+      k = k+1
+    end
+  when "csq1"
+    csq1 = ""
+    k = i+1
+    while array[k] != "csq2"
+      csq1 << " " <<  array[k]
+      k = k+1
+    end
+  when "csq2"
+    csq2 = ""
+    k = i+1
+    while array[k] != "fincarte"
+      csq2 << " " <<  array[k]
+      k = k+1
+    end
+  when "fincarte"
+    if uneConsequence
+      carte.new(id,desc,[],[csq])
+    else
+      carte.new(id,desc,[ch1,ch2],[csq1,csq2])
+    end 
   end
 end
 end
