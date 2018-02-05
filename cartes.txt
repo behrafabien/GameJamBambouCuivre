@@ -6,3 +6,7 @@ ch1 Y aller
 csq1 no-2 po+2 mo+5
 ch2 Réviser
 csq2 no+2 po-2 mo-3
+fincarte
+id 2
+desc bokl
+csq no-2 po+2 mo+5
