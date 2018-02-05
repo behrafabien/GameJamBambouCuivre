@@ -1,6 +1,4 @@
 
-
-
 def chargerCarte
   array = []
   File.open("cartes.txt") do |file|
@@ -33,3 +31,9 @@ end
 
 
 chargerCarte()
+
+def aleaCartes #return une carte
+  cartes = ["test1","test2","test3"] #à remplacer
+  i = rand(cartes.size)
+  return cartes[i]
+end
