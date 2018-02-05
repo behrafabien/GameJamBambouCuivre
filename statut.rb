@@ -64,7 +64,7 @@ class Statut
   def getMoral
     return moral
   end
-  
+
 end
 
 #test
