@@ -1,13 +1,11 @@
 class Carte
   attr_reader :id, :desc, :choix, :consequence
-  def initialize
+  def initialize(id, desc, choix, consequence)
         @id = id
         @desc = desc
-        @choix = choix
-        @consequence = consequence
-
         @button = Gosu::Image.new('buttonLong_brown.png')
-
+        @choix = []
+        @consequence = []
   end
 
   def draw
@@ -25,11 +23,11 @@ class Carte
   end
 
   def choix=(new_choix)
-        @choix = new_choix
+        @choix = new_choix[]
   end
 
   def consequence=(new_consequence)
-        @consequence = new_consequence
+        @consequence = new_consequence[]
   end
 
 end
