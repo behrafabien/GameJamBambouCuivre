@@ -1,7 +1,6 @@
-require_relative 'window.rb'
 
-WindowWidth = 1280
-WindowHeight = 640
-
-window = Window.new(WindowWidth, WindowHeight)
-window.show
+def aleaCartes #return une carte
+  cartes = ["test1","test2","test3"] #à remplacer
+  i = rand(cartes.size)
+  return cartes[i]
+end
