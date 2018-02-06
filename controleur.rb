@@ -1,9 +1,14 @@
 class Controleur
 
-attr_reader :cartes
+attr_reader :cartes, :cartepioche, :statut
 
 def initialize
-  super
+  @cartes = self.chargerCarte()
+  for i in 0..@cartes.length-1
+    puts i
+    @cartes[i].retourLigne()
+  end
+  @statut = Statut.new(54,1,99,24)
 end
 
 def chargerCarte
@@ -22,7 +27,7 @@ def chargerCarte
   uneConsequence = false
 
   for i in 0..array.length()-1
-    #puts array[i]
+    puts array[i]
     case array[i]
     when "id"
       id = array[i+1]
@@ -101,9 +106,40 @@ def chargerCarte
   return cartes
 end
 
-  def aleaCartes #return une carte
-    cartes = ["test1","test2","test3"] #à remplacer
-    i = rand(cartes.size)
+  def aleaCartes(array) #return une carte
+    cartes = @cartes #à remplacer
+    i = rand(cartes.length)
     return cartes[i]
   end
+
+
+
+def gamestarted
+  #charge les cartes
+
+  puts "test1"
+
+  i = 1
+  @choixchoisi = false
+  #while i == 1
+    puts "test2"
+    @cartepioche = self.aleaCartes(@cartes)
+    puts @cartepioche.desc
+    i = i+1
+    while @choixchoisi == true
+      #On attends
+    end
+    #Exécuter les conséquences de la cartes, puis on réitère
+
+    @choixchoisi = false
+#  end
+end
+
+
+
+
+
+
+
+
 end
