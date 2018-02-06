@@ -126,6 +126,3 @@ class Statut
 
 end
 #test
-stat = Statut.new(50,50,50,50)
-stat.modifStatut("no+5 po-6 pr+10")
-stat.affiche()
