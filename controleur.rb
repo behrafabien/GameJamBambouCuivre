@@ -5,10 +5,11 @@ attr_reader :cartes, :cartepioche, :statut
 def initialize
   @cartes = self.chargerCarte()
   for i in 0..@cartes.length-1
-    puts i
+
     @cartes[i].retourLigne()
+    @cartes[i].retourLigneChoix()
   end
-  @statut = Statut.new(54,1,99,24)
+  @statut = Statut.new(50,50,50,50)
 end
 
 def chargerCarte
@@ -28,24 +29,25 @@ def chargerCarte
   sortie = false
 
   for i in 0..array.length()-1
-    puts array[i]
+
     case array[i]
     when "id"
       id = array[i+1]
     when "desc"
       desc = ""
       k = i+1
-      while array[k] != "ch1" && array[k] != "csq"        
+      while array[k] != "ch1" && array[k] != "csq"
         desc.to_s << " " <<  array[k].to_s
         k = k+1
       end
     when "ch1"
-      ch1 = ""
+      @ch1 = ""
       k = i+1
       while array[k] != "csq1"
-        ch1 << " " <<  array[k]
+        @ch1 << " " <<  array[k]
         k = k+1
       end
+
     when "csq1"
       csq1 = ""
       k = i+1
@@ -61,10 +63,10 @@ def chargerCarte
         k = k+1
       end
     when "ch2"
-      ch2 = ""
+      @ch2 = ""
       k = i+1
       while array[k] != "csq2"
-        ch2 << " " <<  array[k]
+        @ch2 << " " <<  array[k]
         k = k+1
       end
     when "csq2"
@@ -98,11 +100,20 @@ def chargerCarte
       end
     when "fincarte"
       if uneConsequence
-        cartes.push(Carte.new(id,desc,[],[csq],[exp]))
+        cartes.push(Carte.new(id,desc,@ch1,@ch2,csq,csq,exp,exp))
       else
-        cartes.push(Carte.new(id,desc,[ch1,ch2],[csq1,csq2],[exp1,exp2]))
+        cartes.push(Carte.new(id,desc,@ch1,@ch2,csq1,csq2,exp1,exp2))
       end
       uneConsequence = false
+      desc = ""
+      @ch1 = ""
+      @ch2 = ""
+      csq = ""
+      exp = ""
+      csq1 = ""
+      csq2 = ""
+      exp2 = ""
+      exp1 = ""
     end
   end
   return cartes
@@ -119,21 +130,10 @@ end
 def gamestarted
   #charge les cartes
 
-  puts "test1"
 
-  i = 1
-  @choixchoisi = false
-  #while i == 1
-    puts "test2"
     @cartepioche = self.aleaCartes(@cartes)
-    puts @cartepioche.desc
-    i = i+1
-    while @choixchoisi == true
-      #On attends
-    end
-    #Exécuter les conséquences de la cartes, puis on réitère
 
-    @choixchoisi = false
+
 #  end
 end
 

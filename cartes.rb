@@ -1,57 +1,78 @@
 class Carte
 
-  attr_reader :id, :desc, :choix, :consequence, :explications, :texte
-  def initialize(id, desc, choix, consequence, explications)
-
-        @id = id
-        @desc = desc
-        @choix = []
-        @consequence = []
-        @explications = []
+  attr_reader :id, :desc, :choix1, :consequence1, :explications1, :texte, :choix2, :consequence2, :explication2, :textechoix1, :textechoix2
+  def initialize(id, desc, choix1, choix2, consequence1, consequence2, explications1,explications2)
+    @textechoix1 = ""
+    @textechoix2 = ""
+    @id = id
+    @desc = desc
+    @choix1 = choix1
+    @consequence1 = consequence1
+    @explications1 = explications1
+    @choix2 = choix2
+    @consequence2 = consequence2
+    @explications2 = explications2
 
   end
 
-def retourLigne
-  descRetourLigne=""
-  longueur = 0
-  i = 0
-  @desc.split.each do |word|
-    puts longueur
-  case
-  when longueur != 6
-      descRetourLigne = descRetourLigne+word+' '
-      longueur = longueur+1
+  def retourLigne
+    descRetourLigne=""
+    longueur = 0
+    i = 0
+    @desc.split.each do |word|
 
-  when longueur = 6
-    descRetourLigne = descRetourLigne+word+' '
+      case
+      when longueur != 6
+        descRetourLigne = descRetourLigne+word+' '
+        longueur = longueur+1
+      when longueur = 6
+        descRetourLigne = descRetourLigne+word
+        longueur = 0
+        descRetourLigne = descRetourLigne+" \n "
+      end
+    end
+    @texte = Gosu::Image.from_text(descRetourLigne, 22)
+  end
 
+
+
+  def retourLigneChoix
+    if choix1 != ""
+      choix1RetourLigne = ""
       longueur = 0
-      descRetourLigne = descRetourLigne+" \n "
-  end
+      @choix1.split.each do |word|
+        case
+        when longueur != 5
+          choix1RetourLigne = choix1RetourLigne+word+' '
+          longueur = longueur +1
+        when longueur = 5
+          choix1RetourLigne = choix1RetourLigne+word
+          longueur = 0
+          choix1RetourLigne=choix1RetourLigne + " \n "
+        end
+      end
+      @textechoix1 = Gosu::Image.from_text(choix1RetourLigne,16)
+      choix2RetourLigne = ""
+      longueur = 0
 
-  end
+      @choix2.split.each do |word|
+        case
+        when longueur != 5
+          choix2RetourLigne = choix2RetourLigne+word+' '
+          longueur = longueur +1
+        when longueur = 5
+          choix2RetourLigne = choix2RetourLigne+word
+          longueur = 0
+          choix2RetourLigne=choix2RetourLigne + " \n "
+        end
+      end
+      @textechoix2 = Gosu::Image.from_text(choix2RetourLigne,16)
 
-  @texte = Gosu::Image.from_text(descRetourLigne, 26)
-end
+    else
+      choixuniquetest = " OK ! "
+      @textechoix1 = Gosu::Image.from_text(choixuniquetest,28)
+    end
 
-  def id=(new_id)
-        @id = new_id
-  end
-
-  def getdesc=(new_desc)
-        @desc = new_desc
-  end
-
-  def choix=(new_choix)
-        @choix = new_choix[]
-  end
-
-  def consequence=(new_consequence)
-        @consequence = new_consequence[]
-  end
-
-  def explications=(new_explications)
-    @explications = new_explications[]
   end
 
 end
