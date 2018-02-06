@@ -25,7 +25,7 @@ csq2 mo+8 no-8 pr-10
 fincarte
 
 id 4
-desc Sortez seulement de quoi écrire, Contrôle surprise!
+desc "Sortez seulement de quoi écrire, Contrôle surprise!"
 ch1 Joyeux Hunger Games...
 csq1 no-5 mo-5
 ch2 Devenir le maître de la triche
@@ -62,4 +62,104 @@ ch1 Il n'est pas trop tard pour te recoucher...
 csq1 mo+10 no-5 pr-10
 ch2 Tant pis c'est pas la mort non plus
 csq2 mo-10 pr+10 no+7
+fincarte
+
+id 9
+desc Un mec t’as renversé de la bière dessus dans le tram alors que tu allais en cours
+ch1 Tu grognes et tu rentres chez toi afin de te changer
+csq1 mo-10 pr-5
+ch2 Tant pis, tu ne vas pas rentrer pour si peu!
+csq2 no+5 pr+5 mo-20 po-10
+fincarte
+
+id 10
+desc Tes yeux viennent de s'ouvrir, et tu remarque que tu as 45 minutes de retard!
+ch1 C'était pas en cours important de toute façon...
+csq1 pr-10 mo+7
+ch2 C'est parti pour manger ton pitch en prenant ta douche
+csq2 pr+10 mo-10
+fincarte
+
+id 11
+desc Le ciel est bleu, les oiseaux chantent, tout est parfait! A l'exception de cette fiente de pigeon qui vient d'attérir sur ton épaule...
+ch1 Impossible d'aller en cours comme ça!
+csq1 mo-5 pr-10 no-5 po+5
+ch2 Tu n'es déjà pas en avance...
+csq2 mo-10 pr+10 po-10
+fincarte
+
+id 12
+desc Tu sais que demain t'as contrôle de Système d'Exploitation?
+ch1 Oh m*rde... aller OSEF!
+csq1 mo+10 no-20
+ch2 Euh... c'est quoi une fragmentation externe?
+csq2 no+5 mo-10
+fincarte
+
+id 13
+desc Tu organises une soirée chez toi pour fêter la fin de partiels!
+csq1 po+20 mo+20
+fincarte
+
+id 14
+desc Un SDF te demande une pièce, tu ne vas quand même pas lui refuser ça!
+csq1 mo+10 po+10
+fincarte
+
+id 15
+desc Un ami sur vient de te donné l'annale du partiel de l'année dernière sur le sujet que tu as demain!
+ch1 Tu partages à tes amis!
+csq1 po+7 mo-10 no+10
+ch2 Tu gardes ça pour toi, tu veux être majeur de promo!
+csq2 po-7 mo-10 no+10
+fincarte
+
+id 16
+desc T'as faim? Tant mieux! Y a de la purée au Crous :D
+ch1 Tu pleurs en mangeant ta pizza...
+csq1 mo-10
+ch2 Tu te prends pour Bear Grylls et tu y vas!
+csq2 mo-40
+fincarte
+
+id 17
+desc Changement de salle au dernier moment, tu arrives en retard car tu attendais dans l'autre salle depuis 20 minutes
+csq1 mo-5 pr-10
+fincarte
+
+id 18
+desc Tu n'as rien à faire
+ch1 tu fais des paris de skins CS:GO
+csq1 mo+10
+ch2 tu joues à League of Legends!
+csq2 mo-10
+fincarte
+
+id 19
+desc Tu as dépensé trop d'argent cette semaine
+csq1 mo-10 po-10
+fincarte
+
+id 20
+desc Tu n'as plus de pâtes chez toi
+ch1 Fait les courses feignasse!!!
+csq1 mo-5
+ch2 Domino's font pas une promo en ce moment?
+csq2 mo+0
+fincarte
+
+id 21
+desc Tu as CM vendredi à 15h...
+ch1 J'ai un bus aussi...
+csq1 pr-10 mo+5 no-5 po+5
+ch2 Nan, j'ai vraiment un bus!
+csq2 pr-10 mo+5 no-5 po+5
+fincarte
+
+id 22
+desc Tu as malencontreusement avalé une madeleine de travers
+ch1 tant pis, tu toussera s'il le faut! Rates pas les cours!
+csq1 pr+10 no+10 mo-15
+ch2 Ca t'apprendra à vouloir gratter des certificats médicaux! Repose-toi...
+csq2 pr-10 no-5 mo-10
 fincarte
