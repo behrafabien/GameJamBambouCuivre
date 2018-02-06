@@ -124,5 +124,22 @@ class Statut
     return moral
   end
 
+  def truncate(text, length = 160)
+    words = text.split
+    susp  = "..."
+    result = words.inject([]) do |memo, word|
+      if (memo + [word]).join(" ").length < length
+        memo << word
+      else
+        memo
+      end
+    end
+    if result.last =~ /[[:punct:]]/
+      result.pop
+      result.join(" ").concat(susp)
+    else
+      result.join(" ").concat(susp)
+    end
+  end
+
 end
-#test

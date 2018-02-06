@@ -203,3 +203,142 @@ ch2 Ca t'apprendra à vouloir gratter des certificats médicaux! Repose-toi...
 csq2 pr-10 no-5 mo-10
 exp2 Ptdr l'excuse.
 fincarte
+
+id 23
+desc Tes potes organisent un week-end à la montagne.
+ch1 Tu révises pour les partiels qui vont arrivés.
+csq1 pop-5 mo-10 no+10
+exp1 Tu as joué la moitié du temps au lieu de réviser.
+ch2 Tu vas t'éclater avec eux.
+csq2 pop+5 mo-10
+exp2 Tu t'es blessé en skiant.
+fincarte
+
+id 24
+desc Il neige, les trams pour aller à l'IUT sont en retard.
+csq pr-5 no-5
+exp Tu es content :))
+fincarte
+
+id 25
+desc Une commande Amazon vient d'arriver dans ton relais colis préféré, impatient tu te demandes si les cours sont plus important que ce colis
+ch1 Secher les ocurs et récupérer le colis
+csq1 pr-10 mo+5
+exp1 Tu vas pouvoir t'amuser avec ca que tu as commandé
+ch2 Attendre la fin des cours
+csq2 pr+10 mo-5
+exp2 Tu penses à ton colis pendant toute l'après-midi...
+fincarte
+
+id 26
+desc Séance de AA de 17h à 19h. L'uitilité de cette séance te semble limitée.
+ch1 Y aller
+csq1 pr+5 mo-20
+exp1 Il n'y avait personne :/ et tu n'as rien appris
+ch2 Tu rentres chez toi et te détends devant une vidéo.
+csq2 pr-5 mo+10 no-5
+exp2 Tu t'es bien détendu
+fincarte
+
+id 27
+desc Monsieur Blanchon te donne un devoir facultatif.
+ch1 Tu le fais ça te fera progresser.
+csq1 mo-5 no+10
+exp1 Tu as pu t'entrainer sur des notion que tu n'avais pas compris.
+ch2 Tu oublie de le faire, de toute façon c'est facultatif.
+csq2 no-10 mo+15
+exp2 Tu as pu jouer à GTA à la place.
+
+id 28
+desc Tu as gagné à la loterie.
+ch1 C'est bien tu auras nourriture illimitée au Crous
+csq1 mo+25 po+30
+exp1 Tu continues ton DUT.
+ch2 Tu pars au Bahamas
+csq2 pr-100
+exp2 Tu as perdu, tu n'as paseu ton semestre.
+fincarte
+
+id 29
+desc Sylvain Pierre Durif, te propose de monter dans sa camionnette pour rencontrer le Christ Cosmique.
+ch1 Je monte dans la camionnette
+csq1 mo-70
+exp1 Sylvain abuse de toi.
+ch2 Je refuse poliment
+csq2 mo-30
+exp2 Sylvain emporte un de tes amis à la place. Tu ne reverras plus jamais ton ami
+fincarte
+
+id 30
+desc C'est la Saint-Valentin et tu es en DUT Info...
+ch1 Tu es un homme.
+csq1 mo-10 pop-5
+exp1 Tu as passé ta soirée à baver sur les photos de profil des femmes sur Tinder.
+ch2 Tu es une femme.
+csq2 pop+20
+exp2 Tu as de la chance, il y a beaucoup de mec dans la promo...
+fincarte
+
+id 31
+desc Le prof d'architecture est absent le jour du controle
+csq mo+25
+exp Tu en profite pour rentrer chez toi et regarder un live
+fincarte
+
+id 32
+desc Tu trouves un billet de 500 par terre.
+csq mo+30
+exp Tu vas pouvoir t'acheter des skins CS:GO
+fincarte
+
+id 33
+desc DavidLafargePokémon fait un live durant le cours.
+ch1 C'est ton youtuber préféré tu peux pas rater son live
+csq1 no-10 mo+15 po-15
+exp1 Il a ouvert des boosters avec des cartes hypers rares. En plus y avait MissJiarachi
+ch2 Ce mec est un déchet.
+csq2 no+5
+exp2 Le cours s'est bien passé
+fincarte
+
+id 34
+desc Tu as un projet à rendre la semaine prochaine et tu n'es pas forcément en avance.
+ch1 Sacrifier le jeudi aprèm pour taffer le projet.
+csq1 no+5 mo-5
+exp1 Tu as réussit une partie sur laquelle tu bloquais la veille
+ch2 Le jeudi aprèm c'est fait pour s'amuser
+csq2 no-5 mo+10 po+5
+exp2 Tu as joué à Fortnite avec tes potes et tu as fait 5 Top1
+fincarte
+
+#id 35
+
+#id 36
+
+#id 37
+
+#id 38
+
+#id 39
+
+#id 40
+
+#id 41
+
+#id 42
+
+#id 43
+
+#id 44
+
+#id 45
+
+#id 46
+
+#id 47
+
+#id 48
+
+#id 49
+
+#id 50
