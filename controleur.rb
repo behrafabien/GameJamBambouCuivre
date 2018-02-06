@@ -4,6 +4,10 @@ attr_reader :cartes, :cartepioche, :statut
 
 def initialize
   @cartes = self.chargerCarte()
+  for i in 0..@cartes.length-1
+    puts i
+    @cartes[i].retourLigne()
+  end
   @statut = Statut.new(54,1,99,24)
 end
 

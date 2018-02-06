@@ -7,13 +7,32 @@ class Carte
         @desc = desc
         @choix = []
         @consequence = []
-
-        @texte = Gosu::Image.from_text(desc, 16)
-
-
         @explications = []
 
   end
+
+def retourLigne
+  descRetourLigne=""
+  longueur = 0
+  i = 0
+  @desc.split.each do |word|
+    puts longueur
+  case
+  when longueur != 6
+      descRetourLigne = descRetourLigne+word+' '
+      longueur = longueur+1
+
+  when longueur = 6
+    descRetourLigne = descRetourLigne+word+' '
+
+      longueur = 0
+      descRetourLigne = descRetourLigne+" \n "
+  end
+
+  end
+
+  @texte = Gosu::Image.from_text(descRetourLigne, 26)
+end
 
   def id=(new_id)
         @id = new_id
@@ -34,4 +53,5 @@ class Carte
   def explications=(new_explications)
     @explications = new_explications[]
   end
+
 end

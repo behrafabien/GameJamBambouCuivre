@@ -120,16 +120,9 @@ class Statut
   def setMoral(moral)
     @moral = moral
   end
-<<<<<<< HEAD
-
-=======
->>>>>>> d9c9eea2d85253971339336517bec89701994d91
   def getMoral
     return moral
   end
 
 end
 #test
-stat = Statut.new(50,50,50,50)
-stat.modifStatut("no+5 po-6 pr+10")
-stat.affiche()

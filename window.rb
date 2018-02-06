@@ -26,11 +26,11 @@ class Window < Gosu::Window
 
   ESC = Gosu::Button::KbEscape
 
-  def initialize (width, height, update_interval = 33.332)
-    @controleur = Controleur.new()
+  def initialize (width, height, controleur)
+
     #@cartes = @controleur.chargerCarte()
 
-
+    @controleur = controleur
     @Width = width
     @Height = height
     super width,height # Crée une fenêtre de taille height * width
@@ -77,8 +77,8 @@ class Window < Gosu::Window
     if @gamestarted
 
       Gosu::draw_rect(0, 0, 640, 800, COLORS[:blue])
-      @buttonexit.draw(560,20,2)
-    #  @buttonretour.draw(25,20,2)
+      #@buttonexit.draw(560,20,2)
+    @buttonretour.draw(25,20,2)
      #AFFICHAGE DU STATUT
       @statutbackground.draw(40,40,0)
       #AFFICHAGE DU STATUT MORAL
@@ -138,7 +138,6 @@ class Window < Gosu::Window
       @cardbackground.draw(40,200,0)
       @cardpanelset.draw(60,220,1)
       #texteDesc = @controleur.cartepioche.desc
-      texteDesc = "breht htret r;t bkjnzkr abtk jthre jnt bre \n brtkretnjz tbrzbtzr tbrztb klrkrtjztjrjztjrztrz \n rbeyrear keb raehj hkjaevjr ae rrae hrae rh"
       #@fontdesc.draw(texteDesc,80,500,3,1,1,COLORS[:white], mode = :default)
       @controleur.cartepioche.texte.draw(80,500,3)
       #@image = Gosu::Image.new('images/1.jpg')
@@ -208,17 +207,13 @@ class Window < Gosu::Window
         puts "Bouton crédit enfoncé"
       when mouse_x > BUTTONCROIXPOS[0] && mouse_y > BUTTONCROIXPOS[1] && mouse_x < BUTTONCROIXPOS[0]+BUTTONCROIXSIZE[0] && mouse_y < BUTTONCROIXPOS[1]+BUTTONCROIXSIZE[1]
         puts "Bouton CROIX enfoncé"
-        @menu = true
-        @gamestarted = false
+        close
       end
       end
     end
     if button == Gosu::MS_LEFT
       if @gamestarted
       case
-      when mouse_x > BUTTONCROIXPOS[0] && mouse_y > BUTTONCROIXPOS[1] && mouse_x < BUTTONCROIXPOS[0]+BUTTONCROIXSIZE[0] && mouse_y < BUTTONCROIXPOS[1]+BUTTONCROIXSIZE[1]
-        puts "Bouton CROIX enfoncé"
-        close
       when mouse_x > BUTTONRETOURPOS[0] && mouse_y > BUTTONRETOURPOS[1] && mouse_x < BUTTONRETOURPOS[0]+BUTTONRETOURSIZE[0] && mouse_y < BUTTONRETOURPOS[1]+BUTTONRETOURSIZE[1]
         puts "Bouton rettour enfoncé"
         @menu = true
