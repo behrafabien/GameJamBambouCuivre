@@ -154,7 +154,7 @@ fincarte
 
 id 17
 desc Changement de salle au dernier moment, tu arrives en retard car tu attendais dans l'autre salle depuis 20 minutes
-csq1 mo-5 pr-10
+csq mo-5 pr-10
 exp Tu te sens con car tout le monde le savait
 fincarte
 
@@ -170,7 +170,7 @@ fincarte
 
 id 19
 desc Tu as dépensé trop d'argent cette semaine
-csq1 mo-10 po-10
+csq mo-10 po-10
 exp Tu es obligé de manger des pates et des céréales.
 fincarte
 

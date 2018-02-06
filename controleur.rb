@@ -25,6 +25,7 @@ def chargerCarte
   end
 
   uneConsequence = false
+  sortie = false
 
   for i in 0..array.length()-1
     puts array[i]
@@ -34,8 +35,8 @@ def chargerCarte
     when "desc"
       desc = ""
       k = i+1
-      while array[k] != "ch1"
-        desc << " " <<  array[k]
+      while array[k] != "ch1" && array[k] != "csq"        
+        desc.to_s << " " <<  array[k].to_s
         k = k+1
       end
     when "ch1"
@@ -101,6 +102,7 @@ def chargerCarte
       else
         cartes.push(Carte.new(id,desc,[ch1,ch2],[csq1,csq2],[exp1,exp2]))
       end
+      uneConsequence = false
     end
   end
   return cartes
