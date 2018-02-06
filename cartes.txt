@@ -358,30 +358,3 @@ desc Tu as une semaine de concours Jeux-vidéo la semaine prochaine! En plus, el
 csq mo-5 pr-5 no-5
 exp Faut pas croire tes potes... Elle était pas facultative...
 fincarte
-
-id 41
-desc Il y a une soirée médecine ce soir !
-ch1 Tu ne vas quand même pas rater cette belle occasion!
-csq1 mo+10 po+10 pr-10
-exp1 Tu as ramené un coup chez toi, mais tu t'es en retard...
-ch2 N'y vas pas! tu as CM demain!
-csq2 mo-10 po-5 pr+10
-exp2 Tu as bien fait! il ne fallait surtout pas rater ce cours sur les Arbres Binaires de Recherche
-fincarte
-#id 42
-
-#id 43
-
-#id 44
-
-#id 45
-
-#id 46
-
-#id 47
-
-#id 48
-
-#id 49
-
-#id 50

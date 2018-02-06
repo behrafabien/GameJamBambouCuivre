@@ -115,7 +115,7 @@ class Window < Gosu::Window
       @controleur.cartepioche.texte.draw(80,480,3)
 
     #  @image.draw_as_quad(80,240,COLORS[:white],80,500,COLORS[:white],550,500,COLORS[:white],550,240,COLORS[:white],5)
-      @controleur.cartepioche.image.draw_as_quad(540,240,COLORS[:white],80,240,COLORS[:white],80,460,COLORS[:white],540,460,COLORS[:white],5)
+      @controleur.cartepioche.image.draw_as_quad(80,240,COLORS[:white],540,240,COLORS[:white],540,460,COLORS[:white],80,460,COLORS[:white],5)
 
 
       #AFFICHAGE DES CHOIX
@@ -272,15 +272,31 @@ end
       when mouse_x > BUTTONCHOIX1POS[0] && mouse_y > BUTTONCHOIX1POS[1] && mouse_x < BUTTONCHOIX1POS[0]+BUTTONCHOIXSIZE[0] && mouse_y < BUTTONCHOIX1POS[1]+BUTTONCHOIXSIZE[1]
         puts "Bouton choix1 enfoncé"
         @controleur.statut.modifStatut(@controleur.cartepioche.consequence1)
+        @time = Gosu::milliseconds
+        @ttl = @time+5000
+        while @time < @ttl
+          @time = Gosu::milliseconds
+        end
         @controleur.gamestarted()
 
       when mouse_x > BUTTONCHOIX2POS[0] && mouse_y > BUTTONCHOIX2POS[1] && mouse_x < BUTTONCHOIX2POS[0]+BUTTONCHOIXSIZE[0] && mouse_y < BUTTONCHOIX2POS[1]+BUTTONCHOIXSIZE[1]
         @controleur.statut.modifStatut(@controleur.cartepioche.consequence2)
+        @time = Gosu::milliseconds
+        @ttl = @time+5000
+        while @time < @ttl
+          @time = Gosu::milliseconds
+        end
         @controleur.gamestarted()
 
     when mouse_x > BUTTONCHOIXSIMPLEPOS[0] && mouse_y > BUTTONCHOIXSIMPLEPOS[1] && mouse_x < BUTTONCHOIXSIMPLEPOS[0]+BUTTONCHOIXSIMPLESIZE[0] && mouse_y < BUTTONCHOIXSIMPLEPOS[1]+BUTTONCHOIXSIMPLESIZE[1]
           @controleur.statut.modifStatut(@controleur.cartepioche.consequence1)
+          @time = Gosu::milliseconds
+          @ttl = @time+5000
+          while @time < @ttl
+            @time = Gosu::milliseconds
+          end
           @controleur.gamestarted()
+
       end
     end
     end
