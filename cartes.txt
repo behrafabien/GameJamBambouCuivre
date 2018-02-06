@@ -4,8 +4,10 @@ id 1
 desc Il y a une soirée qui vient de s'organisée ce soir!
 ch1 Y aller
 csq1 no-6 po+7 mo+5
+exp1 Tu viens de te réveiller dans le lit d'un autre, tu ne sais vraiment pas où tu es...
 ch2 Réviser
 csq2 no+8 po-6 mo-5
+exp2 Apparemment la soirée était nulle, t'as bien fait de pas y aller
 fincarte
 
 id 2

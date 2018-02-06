@@ -6,18 +6,7 @@ class Statut
     @notes=notes
     @popularite=popularite
     @moral = moral
-
-
-
-
   end
-
-  def draw
-
-  end
-
-
-
 
   def defaite
     if presence >=100
@@ -48,6 +37,27 @@ class Statut
     puts "moral : #{@moral}"
   end
 
+  def analyseConsequencesChar(csq)
+    charCsq = csq.split('')
+
+    for ch in charCsq
+      puts ch
+    end
+  end
+
+  def analyseConsequences(consequences)
+     tabCsqs = []
+    consequences.split.each do |word|
+      tabCsqs.push(word)
+    end # tabCsqs contient tous les mots du type mo+5 no-6 etc...
+
+    #parcour du tableau
+    for csq in tabCsqs
+      analyseConsequencesChar(csq)
+    end
+  end
+
+
   def setNotes(notes)
     @notes=notes
   end
@@ -72,9 +82,11 @@ class Statut
   def setMoral(moral)
     @moral = moral
   end
-  
   def getMoral
     return moral
   end
 
 end
+#test
+stat = Statut.new(50,50,50,50)
+stat.analyseConsequences("mo+5 po-6 pr+10")
