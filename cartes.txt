@@ -323,7 +323,7 @@ fincarte
 
 id 36
 desc Tu suis le mouvement et tu achètes pour 1000€ de Bitcoin! il vient de perdre 50%...
-csp mo-10
+csq mo-10
 exp Tu pleures toutes les larmes de ton corps
 fincarte
 
@@ -333,7 +333,7 @@ ch1 Tu cours pour le rattraper!
 csq1 pr-5 mo-5
 exp1 T'as vraiment oublié que tu est asmathique?
 ch2 Tu vas pas courir pour si peu! Attends le prochain!
-csq1 pr-10 mo-5
+csq2 pr-10 mo-5
 exp2 Le prochain à mis 20 minutes à arriver, tu as eu 30 minutes de retard...
 fincarte
 
@@ -363,25 +363,78 @@ id 41
 desc Il y a une soirée médecine ce soir !
 ch1 Tu ne vas quand même pas rater cette belle occasion!
 csq1 mo+10 po+10 pr-10
-exp1 Tu as ramené un coup chez toi, mais tu t'es en retard...
+exp1 Tu as ramené un coup d'un soir chez toi, mais le lendemain tu ne t'es pas réveillé(e) à l'heure...
 ch2 N'y vas pas! tu as CM demain!
 csq2 mo-10 po-5 pr+10
 exp2 Tu as bien fait! il ne fallait surtout pas rater ce cours sur les Arbres Binaires de Recherche
 fincarte
-#id 42
 
-#id 43
+id 42
+desc Tu t'es fait volé ton goûter !
+csq mo-10 po-5
+exp Ils étaient 10....
+fincarte
 
-#id 44
+id 43
+desc Tu as eu 03/20 sur les limites de fonctions! c'était pourtant trivial!
+csq no-10 mo-5
+exp Tu regettes amèrement ta filière STI2D au bac...
+fincarte
 
-#id 45
+id 44
+desc Tu recherche un stage mais aucune entreprise ne veut te prendre :/
+ch1 Tu t'investis 2 fois plus et tu postules à tout !
+csq1 no+5 mo+5
+exp1 Ta persévérance à finie par payer! Tu as trouvé ton stage, et dans une bonne boîte en plus!
+ch2 Pas grave! Pas de stage si je ne suis pas payé au SMIC!
+csq2 no-5 mo-5
+exp2 Parce que tu as vraiment crû que tu valais le SMIC???
+fincarte
 
-#id 46
+id 45
+desc Tu demandes de l'aide sur le Discord de la GameJam, mais tu te fait instant Ban...
+ch1 Tu portes plainte pour cet abus de pouvoir!
+csq1 mo-5
+exp1 Finalement c'est peut-être pas si mal Carrière Juridiques!
+ch2 Tu créé 26 comptes différents et tu continu d'emm*rder les modos!
+csq2 mo+5
+exp2 Tu t'es fait ban 26 fois! Bien joué!
+fincarte
 
-#id 47
+id 46
+desc Tu vois ton bus arriver mais il est bondé!
+ch1 Tant pis! Il faut que tu ailles en cours!
+csq1 mo-5 pr+5
+exp1 Pas mal la douche à la sueur! Pas mal....
+ch2 C'est mort! Tu tiens à ton odorat et tu ne prends pas le bus.
+csq2 mo+5 pr-5
+exp2 T'as eu raison! Un peu d'air frais ça n'a jamais fait de mal :D
+fincarte
 
-#id 48
+id 47
+desc Tu viens de glisser sur une feuille parterre et tu tombes dans une flaque d'eau!
+csq pr-10 mo-10 po-5
+exp C'est le Karma qui te rattrape! Fallait pas faire full-team sur CS hier soir!
+fincarte
 
-#id 49
+id 48
+desc Tu viens d'apprendre que ton projet scolaire devra être codé en ADA
+csq no+10 mo-10
+exp De toute façon , t'as toujours voulu coder des fusées!
+fincarte
 
-#id 50
+id 49
+desc Tu viens d'avoir 14.5/20 à un QCM de Droit alors que tu avait tout répondu au hasard!
+ch1 A ce niveau là, joues au loto!
+csq1 mo-10
+exp1 T'as vraiment crû que le pourcentage de chance était le même? -_-
+ch2 Go faire des paris CS:GO!!!
+csq2 mo+15
+exp2 Arriver à 1350€ en partant de 50 centimes c'est fort!
+fincarte
+
+id 50
+desc Tu viens de finir ton projet scolaire avec 17/20
+csq mo+10 no+10
+exp Tu as fêté ça comme il le fallait! Bien joué!
+fincarte!
