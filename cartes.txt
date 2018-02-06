@@ -311,20 +311,63 @@ csq2 no-5 mo+10 po+5
 exp2 Tu as joué à Fortnite avec tes potes et tu as fait 5 Top1
 fincarte
 
-#id 35
+id 35
+desc Tu te rends compte que tu as fait ton contrôle de recursivité sans prendre est compte que la liste est triée
+ch1 Oh! c'est pas grave, ça va pas enlever beaucoup de point!
+csq1 no-8 mo-5
+exp1 Finalement ça enlevait quand même pas mal de point...Kappa
+ch2 M*rde! Il faut que tu refasses tout le contrôle!
+csq2 no+2 mo-5
+exp2 Tu n'as pas eu le temps de tout refaire, mais tu as quand même réussi à sauver la mise!
+fincarte
 
-#id 36
+id 36
+desc Tu suis le mouvement et tu achètes pour 1000€ de Bitcoin! il vient de perdre 50%...
+csp mo-10
+exp Tu pleures toutes les larmes de ton corps
+fincarte
 
-#id 37
+id 37
+desc Tu viens de rater ton bus à 5 secondes près!
+ch1 Tu cours pour le rattraper!
+csq1 pr-5 mo-5
+exp1 T'as vraiment oublié que tu est asmathique?
+ch2 Tu vas pas courir pour si peu! Attends le prochain!
+csq1 pr-10 mo-5
+exp2 Le prochain à mis 20 minutes à arriver, tu as eu 30 minutes de retard...
+fincarte
 
-#id 38
+id 38
+desc Tu es fauché mais tous tes amis veulent aller au Burger King
+ch1 Tu fais le bonhomme et tu manges seul au Crous
+csq1 mo-2
+exp1 T'es chanceux, tu tombe pile sur le jour des Hamburgers/Frites
+ch2 Tu fais le mandiant et tu grattes tes potes
+csq2 mo+5 po-4
+exp2 Bien joué! Tu viens encore de manger gratuitement!
+fincarte
 
-#id 39
+id 39
+desc Tu dois vite rendre ton travail sur Chamilo dans 20 minutes!
+csq no-5 mo-10
+exp Window à fait une mise à jour qui a prit une demie heure!
+fincarte
 
-#id 40
+id 40
+desc Tu as une semaine de concours Jeux-vidéo la semaine prochaine! En plus, elle est facultative!
+csq mo-5 pr-5 no-5
+exp Faut pas croire tes potes... Elle était pas facultative...
+fincarte
 
-#id 41
-
+id 41
+desc Il y a une soirée médecine ce soir !
+ch1 Tu ne vas quand même pas rater cette belle occasion!
+csq1 mo+10 po+10 pr-10
+exp1 Tu as ramené un coup chez toi, mais tu t'es en retard...
+ch2 N'y vas pas! tu as CM demain!
+csq2 mo-10 po-5 pr+10
+exp2 Tu as bien fait! il ne fallait surtout pas rater ce cours sur les Arbres Binaires de Recherche
+fincarte
 #id 42
 
 #id 43
