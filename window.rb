@@ -1,6 +1,10 @@
 require 'gosu'
 require_relative 'cartes.rb'
 require_relative 'statut.rb'
+
+
+
+
 class Window < Gosu::Window
 
   COLORS =  {
@@ -17,18 +21,23 @@ class Window < Gosu::Window
   BUTTONEXITSIZE = [420,120]
   BUTTONCROIXPOS = [560,20,2]
   BUTTONCROIXSIZE = [35,35]
+  BUTTONRETOURPOS = [20,20,2]
+  BUTTONRETOURSIZE = [35,35]
 
   ESC = Gosu::Button::KbEscape
 
-  def initialize (width, height)
-    @cartes = Controleur.new.chargerCarte()
-    @statut = Statut.new(54,1,99,24)
+  def initialize (width, height, update_interval = 33.332)
+    @controleur = Controleur.new()
+    #@cartes = @controleur.chargerCarte()
+
 
     @Width = width
     @Height = height
     super width,height # Crée une fenêtre de taille height * width
-    @font = Gosu::Font.new(self, "assets/CaptainAmerica.ttf", 80)
+    @font = Gosu::Font.new(self, "assets/pixel.ttf", 80)
     @fontstatut = Gosu::Font.new(self, "Arial", 12)
+    @fontdesc = Gosu::Font.new(self, "Arial", 16)
+
     self.caption = "Etudiant Simulator 3003" # Nom de la fenêtre
     @menu = true
     @gamestarted = false
@@ -43,8 +52,9 @@ class Window < Gosu::Window
     @creditbutton = Gosu::Image.new('assets/buttonLong_blue.png')
     @creditbuttonpressed = Gosu::Image.new('assets/buttonLong_blue_pressed.png')
     @exitbutton = Gosu::Image.new('assets/buttonLong_blue.png')
-
+    @buttonchoix = Gosu::Image.new('assets/buttonchoix.png')
     @buttonexit = Gosu::Image.new('assets/buttonExit.png')
+    @buttonretour = Gosu::Image.new('assets/buttonRetour.png')
 
     @statutbackground = Gosu::Image.new('assets/status_brown_background.png')
     @barGreen_horizontalLeft=Gosu::Image.new('assets/barGreen_horizontalLeft.png')
@@ -65,15 +75,16 @@ class Window < Gosu::Window
   def draw
     @cursor.draw(mouse_x,mouse_y,50)
     if @gamestarted
+
       Gosu::draw_rect(0, 0, 640, 800, COLORS[:blue])
       @buttonexit.draw(560,20,2)
-
-      #AFFICHAGE DU STATUT
+    #  @buttonretour.draw(25,20,2)
+     #AFFICHAGE DU STATUT
       @statutbackground.draw(40,40,0)
       #AFFICHAGE DU STATUT MORAL
       @barGreen_horizontalLeft.draw(80,80,1)
       @fontstatut.draw("Moral",85,65,3,1,1,COLORS[:lightbrown])
-      @test = @statut.moral# / 10
+      @test = @controleur.statut.moral# / 10
       @x = 80
       for i in 0..@test
         @barGreen_horizontalMid.draw(@x,80,1)
@@ -86,7 +97,7 @@ class Window < Gosu::Window
       #AFFICHAGE DU STATUT NOTES
         @barBlue_horizontalMid.draw(80,120,1)
         @fontstatut.draw("Notes",85,105,3,1,1,COLORS[:lightbrown])
-        @test = @statut.notes# / 10
+        @test = @controleur.statut.notes# / 10
         @x = 80
         for i in 0..@test
           @barBlue_horizontalMid.draw(@x,120,1)
@@ -99,7 +110,7 @@ class Window < Gosu::Window
       #AFFICHAGE DU STATUT PRESENCE
         @barYellow_horizontalMid.draw(300,80,1)
         @fontstatut.draw("Pésence",305,65,3,1,1,COLORS[:lightbrown])
-        @test = @statut.presence# / 10
+        @test = @controleur.statut.presence# / 10
         @x = 300
         for i in 0..@test
           @barYellow_horizontalMid.draw(@x,80,1)
@@ -112,7 +123,7 @@ class Window < Gosu::Window
       #AFFICHAGE DU STATUT POPULARITE
         @barRed_horizontalMid.draw(300,120,1)
         @fontstatut.draw("Popularité",305,105,3,1,1,COLORS[:lightbrown])
-        @test = @statut.popularite# / 10
+        @test = @controleur.statut.popularite# / 10
         @x = 300
         for i in 0..@test
           @barRed_horizontalMid.draw(@x,120,1)
@@ -126,9 +137,18 @@ class Window < Gosu::Window
       #AFFICHAGE DE LA CARTE
       @cardbackground.draw(40,200,0)
       @cardpanelset.draw(60,220,1)
-      @fontstatut.draw(@cartes[0].desc,80,500,3,1,1,COLORS[:white])
+      #texteDesc = @controleur.cartepioche.desc
+      texteDesc = "breht htret r;t bkjnzkr abtk jthre jnt bre \n brtkretnjz tbrzbtzr tbrztb klrkrtjztjrjztjrztrz \n rbeyrear keb raehj hkjaevjr ae rrae hrae rh"
+      #@fontdesc.draw(texteDesc,80,500,3,1,1,COLORS[:white], mode = :default)
+      @controleur.cartepioche.texte.draw(80,500,3)
+      #@image = Gosu::Image.new('images/1.jpg')
+      #@image.draw(50,50,5)
       #AFFICHAGE DES CHOIX
       @statutbackground.draw(40,620,0)
+      @buttonchoix.draw(60,640,2)
+      @buttonchoix.draw(240,640,2)
+
+
 
 
     elsif @creditstarted
@@ -146,11 +166,11 @@ class Window < Gosu::Window
       #@panelsetbackground.draw(60,260,2)
 
       @startbutton.draw(BUTTONSTARTPOS[0],BUTTONSTARTPOS[1],BUTTONSTARTPOS[2])
-      @font.draw_rel("Jouer", @Width / 2, 360, 4, 0.5, 0.5)
+      @font.draw_rel("JOUER", @Width / 2, 360, 4, 0.5, 0.5)
       @creditbutton.draw(BUTTONCREDITPOS[0],BUTTONCREDITPOS[1],BUTTONCREDITPOS[2])
-      @font.draw_rel("Crédits", @Width / 2, 500, 4, 0.5, 0.5)
+      @font.draw_rel("CREDITS", @Width / 2, 500, 4, 0.5, 0.5)
       @exitbutton.draw(BUTTONEXITPOS[0],BUTTONEXITPOS[1],BUTTONEXITPOS[2])
-      @font.draw_rel("Quitter", @Width / 2, 640, 4, 0.5, 0.5)
+      @font.draw_rel("QUITTER", @Width / 2, 640, 4, 0.5, 0.5)
 
       Gosu::draw_rect(0, 0, 640, 800, COLORS[:blue])
 
@@ -163,6 +183,7 @@ class Window < Gosu::Window
       case
       when mouse_x > BUTTONSTARTPOS[0] && mouse_y > BUTTONSTARTPOS[1] && mouse_x < BUTTONSTARTPOS[0]+BUTTONSTARTSIZE[0] && mouse_y < BUTTONSTARTPOS[1]+BUTTONSTARTSIZE[1]
         @gamestarted = true
+        @controleur.gamestarted()
       when mouse_x > BUTTONCREDITPOS[0] && mouse_y > BUTTONCREDITPOS[1] && mouse_x < BUTTONCREDITPOS[0]+BUTTONCREDITSIZE[0] && mouse_y < BUTTONCREDITPOS[1]+BUTTONCREDITSIZE[1]
         @creditstarted = true
 
@@ -175,6 +196,7 @@ class Window < Gosu::Window
 
   def button_down(button)
     if button == Gosu::MS_LEFT
+      if !@gamestarted
       case
       when mouse_x > BUTTONEXITPOS[0] && mouse_y > BUTTONEXITPOS[1] && mouse_x < BUTTONEXITPOS[0]+BUTTONEXITSIZE[0] && mouse_y < BUTTONEXITPOS[1]+BUTTONEXITSIZE[1]
         puts "Bouton exit enfoncé."
@@ -188,9 +210,22 @@ class Window < Gosu::Window
         puts "Bouton CROIX enfoncé"
         @menu = true
         @gamestarted = false
+      end
+      end
+    end
+    if button == Gosu::MS_LEFT
+      if @gamestarted
+      case
+      when mouse_x > BUTTONCROIXPOS[0] && mouse_y > BUTTONCROIXPOS[1] && mouse_x < BUTTONCROIXPOS[0]+BUTTONCROIXSIZE[0] && mouse_y < BUTTONCROIXPOS[1]+BUTTONCROIXSIZE[1]
+        puts "Bouton CROIX enfoncé"
+        close
+      when mouse_x > BUTTONRETOURPOS[0] && mouse_y > BUTTONRETOURPOS[1] && mouse_x < BUTTONRETOURPOS[0]+BUTTONRETOURSIZE[0] && mouse_y < BUTTONRETOURPOS[1]+BUTTONRETOURSIZE[1]
+        puts "Bouton rettour enfoncé"
+        @menu = true
+        @gamestarted = false
 
       end
-
+    end
     end
 
   end

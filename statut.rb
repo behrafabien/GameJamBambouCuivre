@@ -16,7 +16,9 @@ class Statut
 
   end
 
-
+def getMoral
+  return moral
+end
 
 
   def defaite
@@ -72,7 +74,7 @@ class Statut
   def setMoral(moral)
     @moral = moral
   end
-  
+
   def getMoral
     return moral
   end
