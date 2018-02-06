@@ -1,11 +1,17 @@
 class Carte
-  attr_reader :id, :desc, :choix, :consequence, :texte
-  def initialize(id, desc, choix, consequence)
+
+  attr_reader :id, :desc, :choix, :consequence, :explications, :texte
+  def initialize(id, desc, choix, consequence, explications)
+
         @id = id
         @desc = desc
         @choix = []
         @consequence = []
+
         @texte = Gosu::Image.from_text(desc, 16)
+
+
+        @explications = []
 
   end
 
@@ -25,4 +31,7 @@ class Carte
         @consequence = new_consequence[]
   end
 
+  def explications=(new_explications)
+    @explications = new_explications[]
+  end
 end

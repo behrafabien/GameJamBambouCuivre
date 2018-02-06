@@ -41,6 +41,20 @@ def chargerCarte
         ch1 << " " <<  array[k]
         k = k+1
       end
+    when "csq1"
+      csq1 = ""
+      k = i+1
+      while array[k] != "exp1"
+        csq1 << " " <<  array[k]
+        k = k+1
+      end
+    when "exp1"
+      exp1 = ""
+      k = i+1
+      while array[k] != "ch2"
+        exp1 << " " << array[k]
+        k = k+1
+      end
     when "ch2"
       ch2 = ""
       k = i+1
@@ -48,34 +62,40 @@ def chargerCarte
         ch2 << " " <<  array[k]
         k = k+1
       end
-    when "csq"
-      csq = ""
-      k = i+1
-      while array[k] != "fincarte"
-        csq << " " <<  array[k]
-        k = k+1
-      end
-    when "csq1"
-      csq1 = ""
-      k = i+1
-      while array[k] != "csq2"
-        csq1 << " " <<  array[k]
-        k = k+1
-      end
     when "csq2"
       csq2 = ""
       k = i+1
-      while array[k] != "fincarte"
+      while array[k] != "exp2"
         csq2 << " " <<  array[k]
+        k = k+1
+      end
+    when "exp2"
+      exp2 = ""
+      k = i+1
+      while array[k] != "fincarte"
+        exp2 << " " << array[k]
+        k = k+1
+      end
+    when "csq"
+      uneConsequence = true
+      csq = ""
+      k = i+1
+      while array[k] != "exp"
+        csq << " " <<  array[k]
+        k = k+1
+      end
+    when "exp"
+      exp = ""
+      k = i+1
+      while array[k] != "fincarte"
+        exp << " " << array[k]
         k = k+1
       end
     when "fincarte"
       if uneConsequence
-        cartes.push(Carte.new(id,desc,[],[csq]))
-
+        cartes.push(Carte.new(id,desc,[],[csq],[exp]))
       else
-        cartes.push(Carte.new(id,desc,[ch1,ch2],[csq1,csq2]))
-
+        cartes.push(Carte.new(id,desc,[ch1,ch2],[csq1,csq2],[exp1,exp2]))
       end
     end
   end

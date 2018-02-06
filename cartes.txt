@@ -1,165 +1,205 @@
-#pr = présence , no = notes, po = popularité, mo = moral
+#pr = présence , no = notes, po = popularité, mo = moral, exp = explication
 
 id 1
 desc Il y a une soirée qui vient de s'organisée ce soir!
 ch1 Y aller
 csq1 no-6 po+7 mo+5
+exp1 Tu viens de te réveiller dans le lit d'un autre, tu ne sais vraiment pas où tu es...
 ch2 Réviser
 csq2 no+8 po-6 mo-5
+exp2 Apparemment la soirée était nulle, t'as bien fait de pas y aller
 fincarte
 
 id 2
 desc Le professeur qui te faisait cours vient d'être annoncé comme absent
 ch1 Go réviser!
 csq1 no+7 po-6
+exp1 Tu a pu t'avancer sur le cours et tu vas pouvoir poser des questions la prochaine fois
 ch2 Jouer à l'HTC Vive
 csq2 mo+8 po+9 no-8
+exp1 Tu t'es tellement amusé que tu n'as pas vu l'heure
 fincarte
 
 id 3
 desc Demain tu commences à 8h avec un CM!
 ch1 Soupirer et programmer le réveil
 csq1 no+9 mo-7 pr+10
+exp1 Tu n'as pas réussit a t'endormir et tu es fatigué mais tu y vas quand même
 ch2 Grosse flemme!
 csq2 mo+8 no-8 pr-10
+exp2 Tu as pu jouer à LOL toute la soirée, résultat, tu as perdu 2 divisions :/
 fincarte
 
 id 4
 desc "Sortez seulement de quoi écrire, Contrôle surprise!"
 ch1 Joyeux Hunger Games...
 csq1 no-5 mo-5
+exp1 Tu n'avais pas appris tes notions, tu vas avoir une mauvaise note
 ch2 Devenir le maître de la triche
 csq2 no-15 mo-10 po+6
+exp2 Tu t'es fait chopé entrain de tricher, tu as faillit te faire virer.
 fincarte
 
 id 5
 desc Il est midi, t'as sacrément faim mais le Crous est fermé
 ch1 Manger de l'air
 csq1 mo-5
+exp1 Tu vas en cours l'aprem avec l'envie de manger un bon burger
 ch2 Oh une pizzeria là-bas
+exp2 Elle était sacrément bonne
 csq2 mo+5
 fincarte
 
 id 6
 desc Après avoir fait Top 1 sur Fortnite, tu te rends compte que tu n'as rien révisé pour les partiels de la semaine prochaine...
-ch1 Tant pis t'aura un avenir dans l'E-Sport!
-csq1 no-30 po+12 mo+12
+ch1 Tant pis t'auras un avenir dans l'E-Sport!
+csq1 no-20 po+12 mo+12
+exp1 Tu as enchainé les Top et tu te crois aussi fort que Skyyart
 ch2 Go Ouvrir tes cours
-csq2 no+30 po-12 mo-12
+exp2 Tu commences à ouvrir tes cours puis tu te demandes pourquoi. Tu retournes jouer à Fortnite
+csq2 no-20 po-12 mo+12
 fincarte
 
 id 7
 desc Tu attends ton tram, et soudain les hauts-parleurs de l'arrêt annoncent qu'il a percuté une voiture
 ch1 Fais du sport et vas en cours à pied
-csq1 mo-6 pr+5 no+5
+csq1 mo-6 pr+5 no+5 po-15
+exp1 Tu arrives en cours tout transpirant et tu vas devoir finir la journée comme ça...
 ch2 Franchement, t'étais mieux dans ton lit...
 csq2 mo+6 pr-10 no-6
+exp2 Tu retournes finir ta nuit :3
 fincarte
 
 id 8
 desc Tu viens de te réveiller, tu ouvres les volets et tu vois qu'il pleut dehors
 ch1 Il n'est pas trop tard pour te recoucher...
 csq1 mo+10 no-5 pr-10
+exp1 Cette journée t'as permis de rattrapé tes heures de sommeil, tu te sens bien.
 ch2 Tant pis c'est pas la mort non plus
-csq2 mo-10 pr+10 no+7
+csq2 mo-10 pr+10 no+7 po-5
+exp2 Tu n'as pas de parapluie, tu arrives tout trempé à l'IUT et tu as attrapé froid.
 fincarte
 
 id 9
 desc Un mec t’as renversé de la bière dessus dans le tram alors que tu allais en cours
 ch1 Tu grognes et tu rentres chez toi afin de te changer
 csq1 mo-10 pr-5
+exp1 C'était ton jean préféré et tu vas devoir refaire une lessive X(.
 ch2 Tant pis, tu ne vas pas rentrer pour si peu!
 csq2 no+5 pr+5 mo-20 po-10
+exp2 Tu pues la bière et tes potes te le font remarqué.
 fincarte
 
 id 10
 desc Tes yeux viennent de s'ouvrir, et tu remarque que tu as 45 minutes de retard!
 ch1 C'était pas en cours important de toute façon...
 csq1 pr-10 mo+7
+exp1 Tu te rendors en attendant l'heure pour aller au prochain cours.
 ch2 C'est parti pour manger ton pitch en prenant ta douche
-csq2 pr+10 mo-10
+csq2 mo-10
+exp2 T'es arrivé qu'avec une 1h de retard et le prof t'as enlevé ton absence. Tout benef.
 fincarte
 
 id 11
 desc Le ciel est bleu, les oiseaux chantent, tout est parfait! A l'exception de cette fiente de pigeon qui vient d'attérir sur ton épaule...
 ch1 Impossible d'aller en cours comme ça!
 csq1 mo-5 pr-10 no-5 po+5
+exp1 Tu retournes chez toi te changer en vitesse mais tu arrives en retard.
 ch2 Tu n'es déjà pas en avance...
 csq2 mo-10 pr+10 po-10
+exp2 Tu essayes de nettoyer avec des kleenex mais tu as juste réussit à étaler.
 fincarte
 
 id 12
 desc Tu sais que demain t'as contrôle de Système d'Exploitation?
 ch1 Oh m*rde... aller OSEF!
 csq1 mo+10 no-20
+exp1 Tu révises pas et tu auras une mauvaise note. :/
 ch2 Euh... c'est quoi une fragmentation externe?
 csq2 no+5 mo-10
+exp2 Tu essayes de comprendre le cours mais c'est impossible.
 fincarte
 
 id 13
-desc Tu organises une soirée chez toi pour fêter la fin de partiels!
-csq1 po+20 mo+20
+desc Tu organises une soirée chez toi pour fêter la fin des partiels!
+csq po+20 mo+20
+exp Tout s'est bien passé à part qu'il reste du vomi sur ton canapé.
 fincarte
 
 id 14
 desc Un SDF te demande une pièce, tu ne vas quand même pas lui refuser ça!
-csq1 mo+10 po+10
+csq mo+10 po+10
+exp Tu as fait une bonne action mais tu n'as plus de monnaie pour prendre un café.
 fincarte
 
 id 15
-desc Un ami sur vient de te donné l'annale du partiel de l'année dernière sur le sujet que tu as demain!
+desc Un ami vient de te donner l'annale du partiel de l'année dernière sur le sujet que tu as demain!
 ch1 Tu partages à tes amis!
 csq1 po+7 mo-10 no+10
-ch2 Tu gardes ça pour toi, tu veux être majeur de promo!
+exp1 Tout le monde auras une bonne note et tout le monde sera content.
+ch2 Tu gardes ça pour toi, tu veux être major de promo!
 csq2 po-7 mo-10 no+10
+exp2 Au final tout le monde l'avait donc tout le monde aura une bonne note.
 fincarte
 
 id 16
 desc T'as faim? Tant mieux! Y a de la purée au Crous :D
 ch1 Tu pleurs en mangeant ta pizza...
 csq1 mo-10
+exp1 Elle n'a couté que 5€ donc ca va.
 ch2 Tu te prends pour Bear Grylls et tu y vas!
 csq2 mo-40
+exp2 Tu manges ta purée en pleurant.
 fincarte
 
 id 17
 desc Changement de salle au dernier moment, tu arrives en retard car tu attendais dans l'autre salle depuis 20 minutes
 csq1 mo-5 pr-10
+exp Tu te sens con car tout le monde le savait
 fincarte
 
 id 18
 desc Tu n'as rien à faire
 ch1 tu fais des paris de skins CS:GO
-csq1 mo+10
+csq1 mo-10
+exp1 Tu as perdu 20€ et tu hésites à continuer.
 ch2 tu joues à League of Legends!
 csq2 mo-10
+exp2 Impossible de gagner, que des trolls dans ta team.
 fincarte
 
 id 19
 desc Tu as dépensé trop d'argent cette semaine
 csq1 mo-10 po-10
+exp Tu es obligé de manger des pates et des céréales.
 fincarte
 
 id 20
 desc Tu n'as plus de pâtes chez toi
 ch1 Fait les courses feignasse!!!
 csq1 mo-5
+exp1 Le tram arrivait dans trop longtemps, tu as décidé de marcher.
 ch2 Domino's font pas une promo en ce moment?
 csq2 mo+0
+exp2 Tu trouves le numéro de Domino's et tu te fais livré. Miam miam
 fincarte
 
 id 21
 desc Tu as CM vendredi à 15h...
 ch1 J'ai un bus aussi...
 csq1 pr-10 mo+5 no-5 po+5
+exp1 Tu prends le bus pour rentrer plus tôt chez toi.
 ch2 Nan, j'ai vraiment un bus!
 csq2 pr-10 mo+5 no-5 po+5
+exp2 Tu prends le bus pour rentrer plus tôt chez toi.
 fincarte
 
 id 22
 desc Tu as malencontreusement avalé une madeleine de travers
 ch1 tant pis, tu toussera s'il le faut! Rates pas les cours!
 csq1 pr+10 no+10 mo-15
+exp1 Tu bois un peu d'eau et ca va mieux.
 ch2 Ca t'apprendra à vouloir gratter des certificats médicaux! Repose-toi...
 csq2 pr-10 no-5 mo-10
+exp2 Ptdr l'excuse.
 fincarte
