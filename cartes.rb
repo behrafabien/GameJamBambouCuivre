@@ -1,35 +1,44 @@
 class Carte
-  attr_reader :id, :desc, :choix, :consequence
-  def initialize(id, desc, choix, consequence)
+
+  attr_reader :id, :desc, :choix, :consequence, :explications, :texte
+  def initialize(id, desc, choix, consequence, explications)
+
         @id = id
         @desc = desc
-        @button = Gosu::Image.new('buttonLong_brown.png')
         @choix = []
         @consequence = []
-
-
-
-
-
-        @button = Gosu::Image.new('assets/buttonLong_blue2.png')
-  end
-
-  def draw
-    #Deux draw possible, si il y a deux choix, ou s'il y a qu'un choix
-    if @choix.length == 1
-
-    else
-
-    end
-
+        @explications = []
 
   end
+
+def retourLigne
+  descRetourLigne=""
+  longueur = 0
+  i = 0
+  @desc.split.each do |word|
+    puts longueur
+  case
+  when longueur != 6
+      descRetourLigne = descRetourLigne+word+' '
+      longueur = longueur+1
+
+  when longueur = 6
+    descRetourLigne = descRetourLigne+word+' '
+
+      longueur = 0
+      descRetourLigne = descRetourLigne+" \n "
+  end
+
+  end
+
+  @texte = Gosu::Image.from_text(descRetourLigne, 26)
+end
 
   def id=(new_id)
         @id = new_id
   end
 
-  def desc=(new_desc)
+  def getdesc=(new_desc)
         @desc = new_desc
   end
 
@@ -39,6 +48,10 @@ class Carte
 
   def consequence=(new_consequence)
         @consequence = new_consequence[]
+  end
+
+  def explications=(new_explications)
+    @explications = new_explications[]
   end
 
 end
