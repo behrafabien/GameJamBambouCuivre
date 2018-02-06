@@ -6,7 +6,18 @@ class Statut
     @notes=notes
     @popularite=popularite
     @moral = moral
+
+
+
+
   end
+
+  def draw
+
+  end
+
+
+
 
   def defaite
     if presence >=100
@@ -61,15 +72,9 @@ class Statut
   def setMoral(moral)
     @moral = moral
   end
+  
   def getMoral
     return moral
   end
 
-end
-
-#test
-stat = Statut.new(50,50,0,50)
-stat.affiche()
-if stat.defaite()!=false
-  puts stat.defaite()
 end

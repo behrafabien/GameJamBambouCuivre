@@ -6,11 +6,22 @@ class Carte
         @button = Gosu::Image.new('buttonLong_brown.png')
         @choix = []
         @consequence = []
+
+
+
+
+
+        @button = Gosu::Image.new('assets/buttonLong_blue2.png')
   end
 
   def draw
-    @button.draw(100,600,1)
-    @button.draw(320,600,1)
+    #Deux draw possible, si il y a deux choix, ou s'il y a qu'un choix
+    if @choix.length == 1
+
+    else
+
+    end
+
 
   end
 
