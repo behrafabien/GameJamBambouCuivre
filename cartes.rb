@@ -1,6 +1,6 @@
 class Carte
 
-  attr_reader :id, :desc, :choix1, :consequence1, :explications1, :texte, :choix2, :consequence2, :explication2, :textechoix1, :textechoix2
+  attr_reader :id, :desc, :choix1, :consequence1, :explications1, :texte, :choix2, :consequence2, :explication2, :textechoix1, :textechoix2, :image
   def initialize(id, desc, choix1, choix2, consequence1, consequence2, explications1,explications2)
     @textechoix1 = ""
     @textechoix2 = ""
@@ -12,6 +12,7 @@ class Carte
     @choix2 = choix2
     @consequence2 = consequence2
     @explications2 = explications2
+    @image = Gosu::Image.new('images/'+@id+'.jpg')
 
   end
 

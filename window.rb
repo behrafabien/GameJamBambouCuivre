@@ -113,9 +113,9 @@ class Window < Gosu::Window
       #texteDesc = @controleur.cartepioche.desc
       #@fontdesc.draw(texteDesc,80,500,3,1,1,COLORS[:white], mode = :default)
       @controleur.cartepioche.texte.draw(80,480,3)
-      @image = Gosu::Image.new('images/1.jpg')
+
     #  @image.draw_as_quad(80,240,COLORS[:white],80,500,COLORS[:white],550,500,COLORS[:white],550,240,COLORS[:white],5)
-      @image.draw_as_quad(540,240,COLORS[:white],80,240,COLORS[:white],80,460,COLORS[:white],540,460,COLORS[:white],5)
+      @controleur.cartepioche.image.draw_as_quad(540,240,COLORS[:white],80,240,COLORS[:white],80,460,COLORS[:white],540,460,COLORS[:white],5)
 
 
       #AFFICHAGE DES CHOIX
