@@ -22,7 +22,7 @@ def chargerCarte
   uneConsequence = false
 
   for i in 0..array.length()-1
-    #puts array[i]
+    puts array[i]
     case array[i]
     when "id"
       id = array[i+1]
