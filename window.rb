@@ -46,6 +46,7 @@ class Window < Gosu::Window
     @controleur = controleur
     @explication = false
     @choixclique = false
+    @win = false
 
     #Création de la fenêtre
     super width,height
@@ -57,6 +58,7 @@ class Window < Gosu::Window
     @fontdesc = Gosu::Font.new(self, "Arial", 16)
     @fontlife = Gosu::Font.new(self,"assets/pixel.ttf",50)
     @fontCredit = Gosu::Font.new(self,"assets/pixel.ttf",40)
+    @fontjours = Gosu::Font.new(self,"assets/pixel.ttf",20)
     #Musique
     @song = Gosu::Song.new("musiques/doom.mp3")
     @song.volume = 0.25
@@ -104,7 +106,7 @@ class Window < Gosu::Window
     #On vérifie si le joueur n'a pas perdu
     if !@controleur.statut.defaite
       # S'il n'a pas perdu on ne fais rien
-    else
+    elsif @controleur.statut.defaite
       # S'il a perdu, le jeu s'arrête et on reset les statuts
       @messagedefaite = @controleur.statut.defaite
       @gamestarted = false
@@ -112,7 +114,14 @@ class Window < Gosu::Window
       @menu = false
       @gameover = true
       @controleur.statut.reset()
-
+    elsif @controleur.joursrestant == 0
+      @messagewin = "Bravo, vous avez réussi votre semestre !"
+      @gamestarted = false
+      @explication = false
+      @menu = false
+      @gameover = false
+      @win = true
+      @controleur.statut.reset()
     end
   end
 
@@ -132,6 +141,8 @@ class Window < Gosu::Window
     elsif @explication
       self.drawStatut()
       self.drawExplication(@controleur.cartepioche,@choixchoisi)
+    elsif @win
+      self.drawWin(@messagewin)
     end
   end
 
@@ -190,8 +201,7 @@ end
 
 def drawMenu
   @font.draw_rel("IUT-2", @Width/2, 90, 4, 0.5, 0.5)
-  @fontlife.draw_rel("Life Simulator",@Width/2, 160, 4, 0.5, 0.5)
-
+  @fontlife.draw_rel("Life Simulator",@Width/2, 170, 4, 0.5, 0.5)
   @startbutton = @buttonnonpressed
   @creditbutton = @buttonnonpressed
   @exitbutton = @buttonnonpressed
@@ -209,7 +219,14 @@ end
 def drawGameOver(raison)
   @background.draw(0,0,0)
   @font.draw_rel("GAME OVER", @Width / 2, 40, 4, 0.5, 0.5)
-  @fontdesc.draw(@messagedefaite,60,200,4,1,1)
+  @fontjours.draw(@messagedefaite,60,200,4,1,1)
+  @menubutton.draw(BUTTONMENUPOS[0],BUTTONMENUPOS[1],BUTTONMENUPOS[2])
+end
+
+def drawWin(message)
+  @background.draw(0,0,0)
+  @font.draw_rel("VOUS AVEZ GAGNE", @width/2,50,4,0.5,0.5)
+  @fontjours.draw(message, 60,200,4,1,1)
   @menubutton.draw(BUTTONMENUPOS[0],BUTTONMENUPOS[1],BUTTONMENUPOS[2])
 end
 
@@ -217,55 +234,57 @@ def drawStatut
   #AFFICHAGE DU STATUT
    @statutbackground.draw(40,40,0)
    #AFFICHAGE DU STATUT MORAL
-   @barGreen_horizontalMid.draw(80,80,1)
-   @fontstatut.draw("Moral",85,65,3,1,1,COLORS[:lightbrown])
+   @fontjours.draw_rel("Jours restant : "+@controleur.joursrestant.to_s, @width / 2,60,3,0.5,0.5,COLORS[:lightbrown])
+
+   @barGreen_horizontalMid.draw(80,100,1)
+   @fontstatut.draw("Moral",85,85,3,1,1,COLORS[:lightbrown])
    @test = @controleur.statut.moral# / 10
    @x = 80
    for i in 0..@test
-     @barGreen_horizontalMid.draw(@x,80,1)
+     @barGreen_horizontalMid.draw(@x,100,1)
      @x = @x+2
    end
    for i in @test..99
-     @barBack_horizontalMid.draw(@x,80,1)
+     @barBack_horizontalMid.draw(@x,100,1)
      @x = @x+2
    end
    #AFFICHAGE DU STATUT NOTES
-     @barBlue_horizontalMid.draw(80,120,1)
-     @fontstatut.draw("Notes",85,105,3,1,1,COLORS[:lightbrown])
+     @barBlue_horizontalMid.draw(80,140,1)
+     @fontstatut.draw("Notes",85,125,3,1,1,COLORS[:lightbrown])
      @test = @controleur.statut.notes# / 10
      @x = 80
      for i in 0..@test
-       @barBlue_horizontalMid.draw(@x,120,1)
+       @barBlue_horizontalMid.draw(@x,140,1)
        @x = @x+2
      end
      for i in @test..99
-       @barBack_horizontalMid.draw(@x,120,1)
+       @barBack_horizontalMid.draw(@x,140,1)
        @x = @x+2
      end
    #AFFICHAGE DU STATUT PRESENCE
-     @barYellow_horizontalMid.draw(340,80,1)
-     @fontstatut.draw("Pésence",345,65,3,1,1,COLORS[:lightbrown])
+     @barYellow_horizontalMid.draw(340,100,1)
+     @fontstatut.draw("Pésence",345,85,3,1,1,COLORS[:lightbrown])
      @test = @controleur.statut.presence# / 10
      @x = 340
      for i in 0..@test
-       @barYellow_horizontalMid.draw(@x,80,1)
+       @barYellow_horizontalMid.draw(@x,100,1)
        @x = @x+2
      end
      for i in @test..99
-       @barBack_horizontalMid.draw(@x,80,1)
+       @barBack_horizontalMid.draw(@x,100,1)
        @x = @x+2
      end
    #AFFICHAGE DU STATUT POPULARITE
-     @barRed_horizontalMid.draw(340,120,1)
-     @fontstatut.draw("Popularité",345,105,3,1,1,COLORS[:lightbrown])
+     @barRed_horizontalMid.draw(340,140,1)
+     @fontstatut.draw("Popularité",345,125,3,1,1,COLORS[:lightbrown])
      @test = @controleur.statut.popularite# / 10
      @x = 340
      for i in 0..@test
-       @barRed_horizontalMid.draw(@x,120,1)
+       @barRed_horizontalMid.draw(@x,140,1)
        @x = @x+2
      end
      for i in @test..99
-       @barBack_horizontalMid.draw(@x,120,1)
+       @barBack_horizontalMid.draw(@x,140,1)
        @x = @x+2
      end
 end
@@ -350,6 +369,7 @@ end
       if button == Gosu::MS_LEFT
         if buttonPressed?(BUTTONMENUPOS,BUTTONMENUSIZE)
           @gameover = false
+          @win = false
           @menu = true
         end
       end

@@ -1,11 +1,12 @@
 class Controleur
 
-attr_reader :cartes, :cartepioche, :statut
+attr_reader :cartes, :cartepioche, :statut, :joursrestant
 
 def initialize
   @cartes = self.chargerCarte()
   @pioche = []
   @statut = Statut.new(50,50,50,50)
+  @joursrestant = 31
 end
 
 def chargerCarte
@@ -167,6 +168,9 @@ def gamestarted
     end
 
     @cartepioche = self.aleaCartes(@cartes)
+    @joursrestant = @joursrestant - 1
+
+
     int = @cartepioche.id.to_i - 1
     puts int
     @pioche.push(@cartes[int])
