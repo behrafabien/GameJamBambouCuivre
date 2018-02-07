@@ -30,8 +30,8 @@ class Window < Gosu::Window
   BUTTONCHOIXSIZE = [255,140]
   BUTTONCHOIXSIMPLEPOS = [60,630,2]
   BUTTONCHOIXSIMPLESIZE = [500,140]
-  BUTTONSUIVANTPOS = [450,620,3]
-  BUTTONSUIVANTSIZE = [45,49]
+  BUTTONSUIVANTPOS = [450,640,3]
+  BUTTONSUIVANTSIZE = [100,100]
 
   ESC = Gosu::Button::KbEscape
 
@@ -143,8 +143,8 @@ def drawExplication(carte, explication)
   carte.image.draw_as_quad(80,240,COLORS[:white],540,240,COLORS[:white],540,460,COLORS[:white],80,460,COLORS[:white],5)
   #AFFICHAGE DES CHOIX
   @statutbackground.draw(40,620,0)
-  @buttonsuivant.draw(450,620,0)
-  explication.draw(280,635,3)
+  @buttonsuivant.draw(450,640,0)
+  explication.draw(50,650,3)
 end
 
 def drawCarte(carte)
