@@ -35,7 +35,7 @@ desc "Sortez juste de quoi écrire, Contrôle surprise!"
 ch1 Joyeux Hunger Games...
 csq1 no-5 mo-5
 exp1 Tu n'avais pas appris tes notions, tu vas avoir une \n mauvaise note
-ch2 Go devenir le maître de la \n triche!\n
+ch2 Go devenir le maître de la \n triche!
 csq2 no-15 mo-10 po+6
 exp2 Tu t'es fait chopé entrain de tricher, \n tu as failli te faire virer.
 fincarte
@@ -95,27 +95,27 @@ desc Tes yeux viennent de s'ouvrir, et tu remarque que \n tu as 45 minutes de re
 ch1 C'était pas en cours \n important de toute \n façon...
 csq1 pr-10 mo+7
 exp1 Tu te rendors en attendant l'heure pour aller au \n prochain cours.
-ch2 C'est parti pour manger ton \n pitch en prenant ta douche.
+ch2 C'est parti pour manger \n ton pitch en prenant \n ta douche.
 csq2 mo-10
 exp2 T'es arrivé qu'avec une 1h de retard et le prof \n t'as enlevé ton absence. Tout benef.
 fincarte
 
 id 11
 desc Le ciel est bleu, les oiseaux chantent, tout est \n parfait! A l'exception de cette fiente de pigeon qui \n vient d'atterrir sur ton épaule...
-ch1 Impossible d'aller en cours \n comme ça!
+ch1 Impossible d'aller en \n cours comme ça!
 csq1 mo-5 pr-10 no-5 po+5
 exp1 Tu retournes chez toi te changer en vitesse mais \n tu arrives en retard.
-ch2 Tu n'es déjà pas en avance...
+ch2 Tu n'es déjà pas en \n avance...
 csq2 mo-10 pr+10 po-10
 exp2 Tu essayes de nettoyer avec des kleenex \n mais tu as juste réussit à étaler.
 fincarte
 
 id 12
-desc Tu sais que demain t'as contrôle de Système d'Exploitation?
+desc Tu sais que demain t'as contrôle de Système \n d'Exploitation?
 ch1 Oh m*rde... aller OSEF!
 csq1 mo+10 no-20
 exp1 Tu révises pas et tu auras une mauvaise note. :/
-ch2 Euh... c'est quoi une fragmentation externe?
+ch2 Euh... c'est quoi une \n fragmentation externe?
 csq2 no+5 mo-10
 exp2 Tu essayes de comprendre le cours mais c'est impossible.
 fincarte

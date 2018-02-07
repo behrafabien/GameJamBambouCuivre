@@ -49,13 +49,14 @@ class Window < Gosu::Window
 
     #Création de la fenêtre
     super width,height
-    self.caption = "Etudiant Simulator 3003" # Nom de la fenêtre
+    self.caption = "IUT-2 Life Simulator" # Nom de la fenêtre
 
     #Polices d'écriture
     @font = Gosu::Font.new(self, "assets/pixel.ttf", 80)
     @fontstatut = Gosu::Font.new(self, "Arial", 12)
     @fontdesc = Gosu::Font.new(self, "Arial", 16)
     @fontlife = Gosu::Font.new(self,"assets/pixel.ttf",50)
+    @fontCredit = Gosu::Font.new(self,"assets/pixel.ttf",40)
     #Musique
     @song = Gosu::Song.new("musiques/doom.mp3")
     @song.volume = 0.25
@@ -172,11 +173,19 @@ def drawCarte(carte)
 end
 
 def drawCredit
-  @font.draw_rel("Crédits", @Width / 2, 150, 1, 0.5, 0.5)
-  @fontlife.draw_rel("LUCA Deslot", @Width / 2, 175, 1, 0.5, 0.5)
-  @fontlife.draw_rel("Fabien Behra", @Width / 2, 200, 1, 0.5, 0.5)
-  @fontlife.draw_rel("Adrien Prat", @Width / 2, 225, 1, 0.5, 0.5)
-  @fontlife.draw_rel("Jessy Chenavas", @Width / 2, 250, 1, 0.5, 0.5)
+
+  @buttonretour.draw(20,20,2)
+  @font.draw_rel("Crédits", @Width / 2, 120,1,0.5,0.5)
+  @fontCredit.draw_rel("Luca DESLOT", @Width / 2, 190, 1, 0.5, 0.5)
+  @fontCredit.draw_rel("Fabien BEHRA", @Width / 2, 240, 1, 0.5, 0.5)
+  @fontCredit.draw_rel("Adrien PRAT", @Width / 2, 290, 1, 0.5, 0.5)
+  @fontCredit.draw_rel("Jessy CHENAVAS", @Width / 2, 340, 1, 0.5, 0.5)
+  @font.draw_rel("Musiques", @Width / 2, 440,1,0.5,0.5)
+  @fontCredit.draw_rel("Doom", @Width / 2, 500, 1, 0.5, 0.5)
+  @fontCredit.draw_rel("Carefree", @Width / 2, 560, 1, 0.5, 0.5)
+  @font.draw_rel("Images", @Width / 2, 660,1,0.5,0.5)
+  @fontCredit.draw_rel("Google Images", @Width / 2, 730, 1, 0.5, 0.5)
+
 end
 
 def drawMenu
@@ -288,7 +297,7 @@ end
   def button_down(button)
     case
       #Lorsque le jeu n'est pas lancé ( Pour les boutons du menu )
-    when !@gamestarted && !@gameover
+    when !@gamestarted && !@gameover && !@credits
         if button == Gosu::MS_LEFT
         case
         when buttonPressed?(BUTTONSTARTPOS,BUTTONSTARTSIZE)
@@ -344,7 +353,13 @@ end
           @menu = true
         end
       end
-
+  when @credits
+    if button == Gosu::MS_LEFT
+      if buttonPressed?(BUTTONRETOURPOS,BUTTONRETOURSIZE)
+        @credits = false
+        @menu = true
+      end
+    end
   end
 
 
