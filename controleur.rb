@@ -135,11 +135,17 @@ def chargerCarte
       else
         cartes.push(Carte.new(id,desc,ch1,ch2,csq1,csq2,exp1,exp2))
       end
-
+      uneConsequence = false
+      desc = ""
+      exp = ""
+      exp1 = ""
+      exp2 = ""
+      ch1 = ""
+      ch2 = ""
+      csq = ""
+      csq1 = ""
+      csq2 = ""
     end
-  end
-  for card in cartes
-    puts card.id + " : " + card.desc
   end
   return cartes
 end
