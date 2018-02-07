@@ -71,7 +71,7 @@ exp2 Tu retournes finir ta nuit :3
 fincarte
 
 id 8
-desc Tu viens de te réveiller, tu ouvres les volets \r\n et tu vois qu'il pleut dehors.
+desc Tu viens de te réveiller, tu ouvres les volets \n et tu vois qu'il pleut dehors.
 ch1 Il n'est pas trop tard pour te \n recoucher...
 csq1 mo+10 no-5 pr-10
 exp1 Cette journée t'as permis de rattrapé tes heures de sommeil, tu te sens bien.
