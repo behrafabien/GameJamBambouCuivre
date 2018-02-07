@@ -103,26 +103,31 @@ class Window < Gosu::Window
 
   def update
     #On vérifie si le joueur n'a pas perdu
-    if !@controleur.statut.defaite
-      # S'il n'a pas perdu on ne fais rien
-    elsif @controleur.statut.defaite
-      # S'il a perdu, le jeu s'arrête et on reset les statuts
-      @messagedefaite = @controleur.statut.defaite
-      @gamestarted = false
-      @explication = false
-      @menu = false
-      @gameover = true
-      @controleur.statut.reset()
-    elsif @controleur.joursrestant == 0
+    case
+    when @controleur.isWin
       @messagewin = "Bravo, vous avez réussi votre semestre !"
+      puts @messagewin
       @gamestarted = false
       @explication = false
       @menu = false
       @gameover = false
       @win = true
       @controleur.statut.reset()
+
+      when @controleur.statut.defaite
+        # S'il a perdu, le jeu s'arrête et on reset les statuts
+        @messagedefaite = @controleur.statut.defaite
+        @gamestarted = false
+        @explication = false
+        @menu = false
+        @gameover = true
+        @controleur.statut.reset()
+        @controleur.resetJours()
+      when !@controleur.statut.defaite
+        # S'il n'a pas perdu on ne fais rien
     end
   end
+
 
   def draw
     # On dessine le curseur au niveau de la position de la souris
@@ -216,7 +221,7 @@ end
 
 def drawWin(message)
   @background.draw(0,0,0)
-  @font.draw_rel("VOUS AVEZ GAGNE", @width/2,50,4,0.5,0.5)
+  @font.draw_rel("VOUS AVEZ GAGNE", @Width / 2, 80, 4, 0.5, 0.5)
   @fontjours.draw(message, 60,200,4,1,1)
   @menubutton.draw(BUTTONMENUPOS[0],BUTTONMENUPOS[1],BUTTONMENUPOS[2])
 end
