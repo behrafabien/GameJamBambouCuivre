@@ -72,6 +72,8 @@ class Window < Gosu::Window
         @exitbutton = Gosu::Image.new('assets/buttonLong_blue2.png')
         @menubutton = Gosu::Image.new('assets/buttonLong_blue2.png')
         @buttonpressed = Gosu::Image.new('assets/button_blue_pressed.png')
+        @buttonnonpressed = Gosu::Image.new('assets/buttonLong_blue2.png')
+
 
       #Images de loading
         @loadinggif = Gosu::Image.new('assets/loadinggif.gif')
@@ -92,6 +94,7 @@ class Window < Gosu::Window
         @barBack_horizontalMid=Gosu::Image.new('assets/barBack_horizontalMid2px.png')
         @cardbackground = Gosu::Image.new('assets/card_brown_background.png')
         @cardpanelset = Gosu::Image.new('assets/card_brown_panelset.png')
+
   end
 
 
@@ -102,12 +105,13 @@ class Window < Gosu::Window
       # S'il n'a pas perdu on ne fais rien
     else
       # S'il a perdu, le jeu s'arrête et on reset les statuts
-      puts @controleur.statut.defaite
+      @messagedefaite = @controleur.statut.defaite
       @gamestarted = false
       @explication = false
       @menu = false
       @gameover = true
       @controleur.statut.reset()
+
     end
   end
 
@@ -123,7 +127,7 @@ class Window < Gosu::Window
     elsif @menu
       self.drawMenu()
     elsif @gameover
-      self.drawGameOver()
+      self.drawGameOver(@controleur.statut.defaite)
     elsif @explication
       self.drawStatut()
       self.drawExplication(@controleur.cartepioche,@choixchoisi)
@@ -158,7 +162,7 @@ def drawCarte(carte)
   @statutbackground.draw(40,620,0)
   if carte.choix1 == ""
     @buttonchoixsimple.draw(60,630,2)
-    carte.textechoix1.draw(280,635,3)
+    carte.textechoix1.draw(280,680,3)
   else
     @buttonchoix.draw(50,630,2)
     carte.textechoix1.draw(55,635,3)
@@ -176,6 +180,9 @@ def drawCredit
 end
 
 def drawMenu
+  @startbutton = @buttonnonpressed
+  @creditbutton = @buttonnonpressed
+  @exitbutton = @buttonnonpressed
   @background.draw(0,0,0)
   @titlepanel.draw(100,40,1)
   @panelbackground.draw(40,240,1)
@@ -187,9 +194,10 @@ def drawMenu
   @font.draw_rel("QUITTER", @Width / 2, 640, 4, 0.5, 0.5)
 end
 
-def drawGameOver
+def drawGameOver(raison)
   @background.draw(0,0,0)
   @font.draw_rel("GAME OVER", @Width / 2, 40, 4, 0.5, 0.5)
+  @fontdesc.draw(@messagedefaite,60,200,4,1,1)
   @menubutton.draw(BUTTONMENUPOS[0],BUTTONMENUPOS[1],BUTTONMENUPOS[2])
 end
 

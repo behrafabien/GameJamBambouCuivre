@@ -4,6 +4,7 @@ attr_reader :cartes, :cartepioche, :statut
 
 def initialize
   @cartes = self.chargerCarte()
+  @pioche = []
   @statut = Statut.new(50,50,50,50)
 end
 
@@ -160,10 +161,17 @@ end
 
 def gamestarted
   #charge les cartes
-
+    if @cartes.length == 0
+      @cartes = @pioche
+      @pioche = []
+    end
 
     @cartepioche = self.aleaCartes(@cartes)
-
+    int = @cartepioche.id.to_i - 1
+    puts int
+    @pioche.push(@cartes[int])
+    @cartes.delete_at(int)
+    puts "Nombre de carte dans la pioche : "+@cartes.length.to_s
 
 #  end
 end
