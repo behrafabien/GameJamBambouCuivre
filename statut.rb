@@ -43,6 +43,9 @@ class Statut
     tempStr = charCsq[3]
     if charCsq[4] != nil
       tempStr=tempStr+charCsq[4]
+      if charCsq[5] != nil
+        tempStr=tempStr+charCsq[5]
+      end
     end
     val = tempStr.to_i
 
