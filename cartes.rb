@@ -17,17 +17,17 @@ class Carte
     @image = Gosu::Image.new('images/'+@id+'.jpg')
 
     if choix1 != ""
-      @textechoix1 = Gosu::Image.from_text(choix1,24)
-      @textechoix2 = Gosu::Image.from_text(choix2,24)
+      @textechoix1 = Gosu::Image.from_text(choix1,18)
+      @textechoix2 = Gosu::Image.from_text(choix2,18)
     else
-      @textechoix1 = Gosu::Image.from_text("OK!",24)
+      @textechoix1 = Gosu::Image.from_text("OK!",18)
     end
 
     if explications1 != ""
-      @textexplication1 = Gosu::Image.from_text(explications1,24)
-      @textexplication2 = Gosu::Image.from_text(explications2,24)
+      @textexplication1 = Gosu::Image.from_text(explications1,22)
+      @textexplication2 = Gosu::Image.from_text(explications2,22)
     else
-      @textexplication1 = Gosu::Image.from_text(explications1,24)
+      @textexplication1 = Gosu::Image.from_text(explications1,22)
     end
   end
 end
