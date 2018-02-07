@@ -225,7 +225,7 @@ def drawStatut
   #AFFICHAGE DU STATUT
    @statutbackground.draw(40,40,0)
    #AFFICHAGE DU STATUT MORAL
-   @fontjours.draw_rel("Jours restant : "+@controleur.joursrestant.to_s,@width/2,60,3,0.5,0.5,COLORS[:lightbrown])
+   @fontjours.draw("Jours restant : "+@controleur.joursrestant.to_s,280,60,3,1,1,COLORS[:lightbrown])
 
    @barGreen_horizontalMid.draw(80,100,1)
    @fontstatut.draw("Moral",85,85,3,1,1,COLORS[:lightbrown])
