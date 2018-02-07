@@ -5,9 +5,9 @@ attr_reader :cartes, :cartepioche, :statut
 def initialize
   @cartes = self.chargerCarte()
   for i in 0..@cartes.length-1
-
     @cartes[i].retourLigne()
     @cartes[i].retourLigneChoix()
+    @cartes[i].retourLigneConsequence()
   end
   @statut = Statut.new(50,50,50,50)
 end
