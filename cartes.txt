@@ -31,7 +31,7 @@ exp2 Tu as pu jouer à LOL toute la soirée, résultat, tu as perdu 2 divisions 
 fincarte
 
 id 4
-desc "Sortez seulement de quoi écrire, Contrôle surprise!"
+desc "Sortez juste de quoi écrire, Contrôle surprise!"
 ch1 Joyeux Hunger Games...
 csq1 no-5 mo-5
 exp1 Tu n'avais pas appris tes notions, tu vas avoir une mauvaise note
@@ -101,13 +101,13 @@ exp2 T'es arrivé qu'avec une 1h de retard et le prof t'as enlevé ton absence. 
 fincarte
 
 id 11
-desc Le ciel est bleu, les oiseaux chantent, tout est parfait! A l'exception de cette fiente de pigeon qui vient d'attérir sur ton épaule...
+desc Le ciel est bleu, les oiseaux chantent, tout est \n parfait! A l'exception de cette fiente de pigeon qui \n vient d'atterrir sur ton épaule...
 ch1 Impossible d'aller en cours comme ça!
 csq1 mo-5 pr-10 no-5 po+5
-exp1 Tu retournes chez toi te changer en vitesse mais tu arrives en retard.
+exp1 Tu retournes chez toi te changer en \n vitesse mais tu arrives en retard.
 ch2 Tu n'es déjà pas en avance...
 csq2 mo-10 pr+10 po-10
-exp2 Tu essayes de nettoyer avec des kleenex mais tu as juste réussit à étaler.
+exp2 Tu essayes de nettoyer avec des kleenex \n mais tu as juste réussit à étaler.
 fincarte
 
 id 12
@@ -137,7 +137,7 @@ desc Un ami vient de te donner l'annale du partiel \n de l'année dernière sur 
 ch1 Tu partages à tes amis!
 csq1 po+7 mo-10 no+10
 exp1 Tout le monde aura une bonne note et tout le monde sera content.
-ch2 Tu gardes ça pour toi, tu veux être \n major de promo!
+ch2 Tu gardes ça pour toi, tu \n veux être major de promo!
 csq2 po-7 mo-10 no+10
 exp2 Au final tout le monde l'avait donc tout le monde aura une bonne note.
 fincarte
@@ -196,10 +196,10 @@ fincarte
 
 id 22
 desc En prenant rapidement ton petit-déjeuner, \n Tu as avalé une madeleine de travers.
-ch1 Tant pis, tu tousseras s'il le faut! Ne Rates pas les cours!
+ch1 Tant pis, tu tousseras s'il le \n faut! Ne Rates pas les cours!
 csq1 pr+10 no+10 mo-15
 exp1 Tu bois un peu d'eau et ça va mieux.
-ch2 Cela t'apprendra à vouloir gratter des \n certificats médicaux! Repose-toi...
+ch2 Cela t'apprendra à vouloir \n gratter des certificats \n médicaux! Repose-toi...
 csq2 pr-10 no-5 mo-10
 exp2 Elle est belle l'excuse!
 fincarte
@@ -293,9 +293,9 @@ fincarte
 
 id 33
 desc DavidLafargePokémon fait un live durant le cours.
-ch1 C'est ton youtuber préféré tu peux pas rater son live
+ch1 C'est ton youtuber préféré \n tu ne peux pas rater son live!
 csq1 no-10 mo+15 po-15
-exp1 Il a ouvert des boosters avec des cartes hypers rares. En plus y avait MissJiarachi
+exp1 Il a ouvert des boosters avec des cartes \n hypers rares! En plus y avait MissJiarachi.
 ch2 Ce mec est un déchet.
 csq2 no+5
 exp2 Le cours s'est bien passé
