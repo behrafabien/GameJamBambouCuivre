@@ -15,6 +15,8 @@ class Window < Gosu::Window
 
   BUTTONSTARTPOS = [100,300,3]
   BUTTONSTARTSIZE = [420,120]
+  BUTTONMENUPOS = [100,300,3]
+  BUTTONMENUSIZE = [420,120]
   BUTTONCREDITPOS = [100,440,3]
   BUTTONCREDITSIZE = [420,120]
   BUTTONEXITPOS = [100,580,3]
@@ -32,137 +34,158 @@ class Window < Gosu::Window
   ESC = Gosu::Button::KbEscape
 
   def initialize (width, height, controleur)
-
-    #@cartes = @controleur.chargerCarte()
-
-    @controleur = controleur
-    for i in 0..@controleur.cartes.length-1
-      puts @controleur.cartes[i].desc
-      puts @controleur.cartes[i].choix1
-      puts @controleur.cartes[i].choix2
-
-
-    end
+    #VARIABLES
     @Width = width
     @Height = height
-    super width,height # Crée une fenêtre de taille height * width
+    @menu = true # On est au menu ?
+    @gamestarted = false # Le jeu a t'il commencé ?
+    @credits = false # On est au crédits ?
+    @gameover = false # On est a l'écran de game over ?
+    @controleur = controleur
+    @explications = ""
+    @explication = false
+
+    #Création de la fenêtre
+    super width,height
+    self.caption = "Etudiant Simulator 3003" # Nom de la fenêtre
+
+    #Polices d'écriture
     @font = Gosu::Font.new(self, "assets/pixel.ttf", 80)
     @fontstatut = Gosu::Font.new(self, "Arial", 12)
     @fontdesc = Gosu::Font.new(self, "Arial", 16)
 
-    self.caption = "Etudiant Simulator 3003" # Nom de la fenêtre
-    @menu = true
-    @gamestarted = false
-    @creditstarted = false
-    @background = Gosu::Image.new('assets/background.png')
-    @cursor = Gosu::Image.new('assets/cursorGauntlet_bronze.png')
-    @panelbackground = Gosu::Image.new('assets/panel_brown_background.png')
-    @panelsetbackground = Gosu::Image.new('assets/panelset_beige_background.png')
-    @titlepanel = Gosu::Image.new('assets/buttonTitle_blue.png')
+    #Musique
+    @song = Gosu::Song.new("musiques/doom.mp3")
+    @song.volume = 0.25
+    @song.play(true)
+    #Images
+      #Images du menu
+        @background = Gosu::Image.new('assets/background.png')
+        @cursor = Gosu::Image.new('assets/cursorGauntlet_bronze.png')
+        @panelbackground = Gosu::Image.new('assets/panel_brown_background.png')
+        @panelsetbackground = Gosu::Image.new('assets/panelset_beige_background.png')
+        @titlepanel = Gosu::Image.new('assets/buttonTitle_blue.png')
+        @startbutton = Gosu::Image.new('assets/buttonLong_blue2.png')
+        @creditbutton = Gosu::Image.new('assets/buttonLong_blue2.png')
+        @exitbutton = Gosu::Image.new('assets/buttonLong_blue2.png')
+        @menubutton = Gosu::Image.new('assets/buttonLong_blue2.png')
+        @buttonpressed = Gosu::Image.new('assets/button_blue_pressed.png')
 
-    @startbutton = Gosu::Image.new('assets/buttonLong_blue2.png')
-    @startbuttonpressed = Gosu::Image.new('assets/buttonLong_blue_pressed.png')
-    @creditbutton = Gosu::Image.new('assets/buttonLong_blue.png')
-    @creditbuttonpressed = Gosu::Image.new('assets/buttonLong_blue_pressed.png')
-    @exitbutton = Gosu::Image.new('assets/buttonLong_blue.png')
-    @buttonchoix = Gosu::Image.new('assets/buttonchoix.png')
-    @buttonchoixsimple = Gosu::Image.new('assets/buttonchoixsimple.png')
+      #Images de loading
+        @loadinggif = Gosu::Image.new('assets/loadinggif.gif')
+      #Images des crédits
 
-    @buttonexit = Gosu::Image.new('assets/buttonExit.png')
-    @buttonretour = Gosu::Image.new('assets/buttonRetour.png')
-
-    @statutbackground = Gosu::Image.new('assets/status_brown_background.png')
-    @barGreen_horizontalLeft=Gosu::Image.new('assets/barGreen_horizontalLeft.png')
-    @barGreen_horizontalMid=Gosu::Image.new('assets/barGreen_horizontalMid2px.png')
-    @barBlue_horizontalMid=Gosu::Image.new('assets/barBlue_horizontalMid2px.png')
-    @barYellow_horizontalMid=Gosu::Image.new('assets/barYellow_horizontalMid2px.png')
-    @barRed_horizontalMid=Gosu::Image.new('assets/barRed_horizontalMid2px.png')
-    @barBack_horizontalMid=Gosu::Image.new('assets/barBack_horizontalMid2px.png')
-
-    @cardbackground = Gosu::Image.new('assets/card_brown_background.png')
-    @cardpanelset = Gosu::Image.new('assets/card_brown_panelset.png')
+      #Images du jeu
+        @buttonchoix = Gosu::Image.new('assets/buttonchoix.png')
+        @buttonchoixsimple = Gosu::Image.new('assets/buttonchoixsimple.png')
+        @buttonexit = Gosu::Image.new('assets/buttonExit.png')
+        @buttonretour = Gosu::Image.new('assets/buttonRetour.png')
+        @statutbackground = Gosu::Image.new('assets/status_brown_background.png')
+        @barGreen_horizontalLeft=Gosu::Image.new('assets/barGreen_horizontalLeft.png')
+        @barGreen_horizontalMid=Gosu::Image.new('assets/barGreen_horizontalMid2px.png')
+        @barBlue_horizontalMid=Gosu::Image.new('assets/barBlue_horizontalMid2px.png')
+        @barYellow_horizontalMid=Gosu::Image.new('assets/barYellow_horizontalMid2px.png')
+        @barRed_horizontalMid=Gosu::Image.new('assets/barRed_horizontalMid2px.png')
+        @barBack_horizontalMid=Gosu::Image.new('assets/barBack_horizontalMid2px.png')
+        @cardbackground = Gosu::Image.new('assets/card_brown_background.png')
+        @cardpanelset = Gosu::Image.new('assets/card_brown_panelset.png')
   end
 
-  def update
-    if !@controleur.statut.defaite
 
+
+  def update
+    #On vérifie si le joueur n'a pas perdu
+    if !@controleur.statut.defaite
+      # S'il n'a pas perdu on ne fais rien
     else
+      # S'il a perdu, le jeu s'arrête et on reset les statuts
       @gamestarted = false
-      puts "Ta mere ta perdu salope"
+      @gameover = true
       @controleur.statut.reset()
     end
   end
 
   def draw
+    # On dessine le curseur au niveau de la position de la souris
     @cursor.draw(mouse_x,mouse_y,50)
+    # Si le jeu est lancé
     if @gamestarted
-
-
-
-
       Gosu::draw_rect(0, 0, 640, 800, COLORS[:blue])
-      #@buttonexit.draw(560,20,2)
-    @buttonretour.draw(25,20,2)
+      @buttonretour.draw(25,20,2)
 
-    # AFFICHAGE DU STATUT
-    self.drawStatut()
-
-      #AFFICHAGE DE LA CARTE
-      @cardbackground.draw(40,200,0)
-      @cardpanelset.draw(60,220,1)
-      #texteDesc = @controleur.cartepioche.desc
-      #@fontdesc.draw(texteDesc,80,500,3,1,1,COLORS[:white], mode = :default)
-      @controleur.cartepioche.texte.draw(80,480,3)
-
-    #  @image.draw_as_quad(80,240,COLORS[:white],80,500,COLORS[:white],550,500,COLORS[:white],550,240,COLORS[:white],5)
-      @controleur.cartepioche.image.draw_as_quad(80,240,COLORS[:white],540,240,COLORS[:white],540,460,COLORS[:white],80,460,COLORS[:white],5)
+      # AFFICHAGE DU STATUT
+      self.drawStatut()
+      self.drawCarte(@controleur.cartepioche)
+        #AFFICHAGE DE LA CARTE
 
 
-      #AFFICHAGE DES CHOIX
-      @statutbackground.draw(40,620,0)
-
-      if @controleur.cartepioche.choix1 == ""
-        @buttonchoixsimple.draw(60,630,2)
-        @controleur.cartepioche.textechoix1.draw(280,635,3)
-      else
-        @buttonchoix.draw(50,630,2)
-        @controleur.cartepioche.textechoix1.draw(55,635,3)
-        @buttonchoix.draw(315,630,2)
-        @controleur.cartepioche.textechoix2.draw(320,635,3)
-      end
-
-
-
-
-
-    elsif @creditstarted
-      @font.draw_rel("Crédits", @Width / 2, 150, 1, 0.5, 0.5)
-      @font.draw_rel("LUCA Deslot", @Width / 2, 175, 1, 0.5, 0.5)
-      @font.draw_rel("Fabien Behra", @Width / 2, 200, 1, 0.5, 0.5)
-      @font.draw_rel("Adrien Prat", @Width / 2, 225, 1, 0.5, 0.5)
-      @font.draw_rel("Jessy Chenavas", @Width / 2, 250, 1, 0.5, 0.5)
-
-
+    elsif @credits
+      self.drawCredit
     elsif @menu
-      @background.draw(0,0,0)
-      @titlepanel.draw(100,40,1)
-      @panelbackground.draw(40,240,1)
-      #@panelsetbackground.draw(60,260,2)
-
-      @startbutton.draw(BUTTONSTARTPOS[0],BUTTONSTARTPOS[1],BUTTONSTARTPOS[2])
-      @font.draw_rel("JOUER", @Width / 2, 360, 4, 0.5, 0.5)
-      @creditbutton.draw(BUTTONCREDITPOS[0],BUTTONCREDITPOS[1],BUTTONCREDITPOS[2])
-      @font.draw_rel("CREDITS", @Width / 2, 500, 4, 0.5, 0.5)
-      @exitbutton.draw(BUTTONEXITPOS[0],BUTTONEXITPOS[1],BUTTONEXITPOS[2])
-      @font.draw_rel("QUITTER", @Width / 2, 640, 4, 0.5, 0.5)
-
-      #Gosu::draw_rect(0, 0, 640, 800, COLORS[:blue])
-
+      self.drawMenu()
+    elsif @gameover
+      self.drawGameOver()
+    elsif @explication
+      self.drawExplication(@controleur.cartepioche, @explication)
     end
   end
 
-def drawStatut
+def drawExplication(carte, explication)
+  @cardbackground.draw(40,200,0)
+  @cardpanelset.draw(60,220,1)
+  carte.texte.draw(80,480,3)
+  carte.image.draw_as_quad(80,240,COLORS[:white],540,240,COLORS[:white],540,460,COLORS[:white],80,460,COLORS[:white],5)
+  #AFFICHAGE DES CHOIX
+  @statutbackground.draw(40,620,0)
+  @explication.draw(55,635,3)
 
+end
+
+def drawCarte(carte)
+  @cardbackground.draw(40,200,0)
+  @cardpanelset.draw(60,220,1)
+  carte.texte.draw(80,480,3)
+  carte.image.draw_as_quad(80,240,COLORS[:white],540,240,COLORS[:white],540,460,COLORS[:white],80,460,COLORS[:white],5)
+  #AFFICHAGE DES CHOIX
+  @statutbackground.draw(40,620,0)
+  if carte.choix1 == ""
+    @buttonchoixsimple.draw(60,630,2)
+    carte.textechoix1.draw(280,635,3)
+  else
+    @buttonchoix.draw(50,630,2)
+    carte.textechoix1.draw(55,635,3)
+    @buttonchoix.draw(315,630,2)
+    carte.textechoix2.draw(320,635,3)
+  end
+end
+
+def drawCredit
+  @font.draw_rel("Crédits", @Width / 2, 150, 1, 0.5, 0.5)
+  @font.draw_rel("LUCA Deslot", @Width / 2, 175, 1, 0.5, 0.5)
+  @font.draw_rel("Fabien Behra", @Width / 2, 200, 1, 0.5, 0.5)
+  @font.draw_rel("Adrien Prat", @Width / 2, 225, 1, 0.5, 0.5)
+  @font.draw_rel("Jessy Chenavas", @Width / 2, 250, 1, 0.5, 0.5)
+end
+
+def drawMenu
+  @background.draw(0,0,0)
+  @titlepanel.draw(100,40,1)
+  @panelbackground.draw(40,240,1)
+  @startbutton.draw(BUTTONSTARTPOS[0],BUTTONSTARTPOS[1],BUTTONSTARTPOS[2])
+  @font.draw_rel("JOUER", @Width / 2, 360, 4, 0.5, 0.5)
+  @creditbutton.draw(BUTTONCREDITPOS[0],BUTTONCREDITPOS[1],BUTTONCREDITPOS[2])
+  @font.draw_rel("CREDITS", @Width / 2, 500, 4, 0.5, 0.5)
+  @exitbutton.draw(BUTTONEXITPOS[0],BUTTONEXITPOS[1],BUTTONEXITPOS[2])
+  @font.draw_rel("QUITTER", @Width / 2, 640, 4, 0.5, 0.5)
+end
+
+def drawGameOver
+  @background.draw(0,0,0)
+  @font.draw_rel("GAME OVER", @Width / 2, 640, 4, 0.5, 0.5)
+  @menubutton.draw(BUTTONMENUPOS[0],BUTTONMENUPOS[1],BUTTONMENUPOS[2])
+end
+
+def drawStatut
   #AFFICHAGE DU STATUT
    @statutbackground.draw(40,40,0)
    #AFFICHAGE DU STATUT MORAL
@@ -217,7 +240,6 @@ def drawStatut
        @barBack_horizontalMid.draw(@x,120,1)
        @x = @x+2
      end
-
 end
 
 
@@ -230,7 +252,8 @@ end
         @gamestarted = true
         @controleur.gamestarted()
       when mouse_x > BUTTONCREDITPOS[0] && mouse_y > BUTTONCREDITPOS[1] && mouse_x < BUTTONCREDITPOS[0]+BUTTONCREDITSIZE[0] && mouse_y < BUTTONCREDITPOS[1]+BUTTONCREDITSIZE[1]
-        @creditstarted = true
+        @credits = true
+        @menu = false
 
       end
 
@@ -240,67 +263,82 @@ end
   end
 end
 
-  def button_down(button)
-    if button == Gosu::MS_LEFT
-      if !@gamestarted
-      case
-      when mouse_x > BUTTONEXITPOS[0] && mouse_y > BUTTONEXITPOS[1] && mouse_x < BUTTONEXITPOS[0]+BUTTONEXITSIZE[0] && mouse_y < BUTTONEXITPOS[1]+BUTTONEXITSIZE[1]
-        puts "Bouton exit enfoncé."
-        close
-      when mouse_x > BUTTONSTARTPOS[0] && mouse_y > BUTTONSTARTPOS[1] && mouse_x < BUTTONSTARTPOS[0]+BUTTONSTARTSIZE[0] && mouse_y < BUTTONSTARTPOS[1]+BUTTONSTARTSIZE[1]
-        puts "Clique start enfoncé."
 
-      when mouse_x > BUTTONCREDITPOS[0] && mouse_y > BUTTONCREDITPOS[1] && mouse_x < BUTTONCREDITPOS[0]+BUTTONCREDITSIZE[0] && mouse_y < BUTTONCREDITPOS[1]+BUTTONCREDITSIZE[1]
-        @creditbutton = @creditbuttonpressed
-        puts "Bouton crédit enfoncé"
-      when mouse_x > BUTTONCROIXPOS[0] && mouse_y > BUTTONCROIXPOS[1] && mouse_x < BUTTONCROIXPOS[0]+BUTTONCROIXSIZE[0] && mouse_y < BUTTONCROIXPOS[1]+BUTTONCROIXSIZE[1]
-        puts "Bouton CROIX enfoncé"
-        close
-      end
-      end
-    end
-    if button == Gosu::MS_LEFT
-      if @gamestarted
+
+  def button_down(button)
+    case
+      #Lorsque le jeu n'est pas lancé ( Pour les boutons du menu )
+      when !@gamestarted
+        if button == Gosu::MS_LEFT
+        case
+        when buttonPressed?(BUTTONSTARTPOS,BUTTONSTARTSIZE)
+          @startbutton = @buttonpressed
+        when buttonPressed?(BUTTONCREDITPOS,BUTTONCREDITSIZE)
+          @creditbutton = @buttonpressed
+        when buttonPressed?(BUTTONEXITPOS,BUTTONEXITSIZE)
+          @exitbutton = @buttonpressed
+          close
+        end
+        end
+
+      # Lorsque le jeu est lancé
+    when @gamestarted
+      if button == Gosu::MS_LEFT
       case
-      when mouse_x > BUTTONRETOURPOS[0] && mouse_y > BUTTONRETOURPOS[1] && mouse_x < BUTTONRETOURPOS[0]+BUTTONRETOURSIZE[0] && mouse_y < BUTTONRETOURPOS[1]+BUTTONRETOURSIZE[1]
-        puts "Bouton rettour enfoncé"
+      when buttonPressed?(BUTTONRETOURPOS,BUTTONRETOURSIZE)
         @menu = true
         @gamestarted = false
-
-
-
-      when mouse_x > BUTTONCHOIX1POS[0] && mouse_y > BUTTONCHOIX1POS[1] && mouse_x < BUTTONCHOIX1POS[0]+BUTTONCHOIXSIZE[0] && mouse_y < BUTTONCHOIX1POS[1]+BUTTONCHOIXSIZE[1]
-        puts "Bouton choix1 enfoncé"
+      # Pour chaque bouton de choix si on appuie dessus on execute les modifications du statut relative a ce choix,
+      # on repioche une carte pour passer a la suite
+      when buttonPressed?(BUTTONCHOIX1POS,BUTTONCHOIXSIZE)
         @controleur.statut.modifStatut(@controleur.cartepioche.consequence1)
-        @time = Gosu::milliseconds
-        @ttl = @time+5000
-        while @time < @ttl
-          @time = Gosu::milliseconds
-        end
+        @explications = @controleur.cartepioche.textexplication1
+        @explication = true
+        self.wait(0)
         @controleur.gamestarted()
-
-      when mouse_x > BUTTONCHOIX2POS[0] && mouse_y > BUTTONCHOIX2POS[1] && mouse_x < BUTTONCHOIX2POS[0]+BUTTONCHOIXSIZE[0] && mouse_y < BUTTONCHOIX2POS[1]+BUTTONCHOIXSIZE[1]
+      when buttonPressed?(BUTTONCHOIX2POS,BUTTONCHOIXSIZE)
         @controleur.statut.modifStatut(@controleur.cartepioche.consequence2)
-        @time = Gosu::milliseconds
-        @ttl = @time+5000
-        while @time < @ttl
-          @time = Gosu::milliseconds
-        end
+        @explications = @controleur.cartepioche.textexplication2
+        @explication = true
+        self.wait(0)
         @controleur.gamestarted()
-
-    when mouse_x > BUTTONCHOIXSIMPLEPOS[0] && mouse_y > BUTTONCHOIXSIMPLEPOS[1] && mouse_x < BUTTONCHOIXSIMPLEPOS[0]+BUTTONCHOIXSIMPLESIZE[0] && mouse_y < BUTTONCHOIXSIMPLEPOS[1]+BUTTONCHOIXSIMPLESIZE[1]
-          @controleur.statut.modifStatut(@controleur.cartepioche.consequence1)
-          @time = Gosu::milliseconds
-          @ttl = @time+5000
-          while @time < @ttl
-            @time = Gosu::milliseconds
-          end
-          @controleur.gamestarted()
-
+      when buttonPressed?(BUTTONCHOIXSIMPLEPOS,BUTTONCHOIXSIMPLESIZE)
+        @controleur.statut.modifStatut(@controleur.cartepioche.consequence1)
+        @explications = @controleur.cartepioche.textexplication1
+        @explication = true
+        self.wait(0)
+        @controleur.gamestarted()
       end
     end
-    end
+  when @gameover
+      if button == Gosu::MS_LEFT
+        if buttonPressed?(BUTTONMENUPOS,BUTTONMENUSIZE)
+          @gameover = false
+          @menu = true
+        end
+      end
 
   end
+
+
+
+end
+
+def buttonPressed?(buttonPos,buttonSize)
+  if mouse_x > buttonPos[0] && mouse_y > buttonPos[1] && mouse_x < buttonPos[0]+buttonSize[0] && mouse_y < buttonPos[1]+buttonSize[1]
+    return true
+  else
+    return false
+  end
+end
+
+
+def wait(waittime)
+  @time = Gosu::milliseconds
+  @ttl = @time+waittime
+  while @time < @ttl
+    @time = Gosu::milliseconds
+  end
+end
 
 end

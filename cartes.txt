@@ -44,7 +44,7 @@ id 5
 desc Il est midi, t'as sacrément faim mais le Crous est fermé
 ch1 Manger de l'air
 csq1 mo-5
-exp1 Tu vas en cours l'aprem avec l'envie de manger un bon burger
+exp1 Tu vas en cours l'aprem avec l'envie de manger un bon burger, tu fini par mourir de faim
 ch2 Oh une pizzeria là-bas
 exp2 Elle était sacrément bonne
 csq2 mo+5
@@ -55,9 +55,9 @@ desc Après avoir fait Top 1 sur Fortnite, tu te rends compte que tu n'as rien r
 ch1 Tant pis t'auras un avenir dans l'E-Sport!
 csq1 no-20 po+12 mo+12
 exp1 Tu as enchainé les Top et tu te crois aussi fort que Skyyart
-ch2 Go Ouvrir tes cours
-exp2 Tu commences à ouvrir tes cours puis tu te demandes pourquoi. Tu retournes jouer à Fortnite
+ch2 Go ouvrir tes cours
 csq2 no-20 po-12 mo+12
+exp2 Tu commences à ouvrir tes cours puis tu te demandes pourquoi. Tu retournes jouer à Fortnite
 fincarte
 
 id 7
@@ -359,6 +359,7 @@ csq mo-5 pr-5 no-5
 exp Faut pas croire tes potes... Elle était pas facultative...
 fincarte
 
+
 id 41
 desc Il y a une soirée médecine ce soir !
 ch1 Tu ne vas quand même pas rater cette belle occasion!
@@ -437,4 +438,4 @@ id 50
 desc Tu viens de finir ton projet scolaire avec 17/20
 csq mo+10 no+10
 exp Tu as fêté ça comme il le fallait! Bien joué!
-fincarte!
+fincarte
