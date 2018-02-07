@@ -14,7 +14,7 @@ id 2
 desc Le professeur qui te faisait cours vient d'être \n annoncé comme absent.
 ch1 Go réviser!
 csq1 no+7 po-6
-exp1 Tu a pu t'avancer sur le cours et tu vas pouvoir poser des questions la prochaine fois
+exp1 Tu as pu t'avancer sur le cours et tu vas pouvoir poser \n des questions la prochaine fois.
 ch2 Jouer à l'HTC Vive
 csq2 mo+8 po+9 no-8
 exp2 Tu t'es tellement amusé que tu n'as pas vu l'heure
@@ -34,7 +34,7 @@ id 4
 desc "Sortez juste de quoi écrire, Contrôle surprise!"
 ch1 Joyeux Hunger Games...
 csq1 no-5 mo-5
-exp1 Tu n'avais pas appris tes notions, tu vas  avoir une mauvaise note
+exp1 Tu n'avais pas appris tes notions, tu vas avoir une \n mauvaise note
 ch2 Go devenir le maître de la \n triche!\n
 csq2 no-15 mo-10 po+6
 exp2 Tu t'es fait chopé entrain de tricher, \n tu as failli te faire virer.
@@ -44,7 +44,7 @@ id 5
 desc Il est midi, t'as sacrément faim mais le Crous est \n fermé
 ch1 Go manger de l'air
 csq1 mo-5
-exp1 Tu vas en cours l'aprem avec l'envie de manger un bon burger, tu fini par mourir de faim
+exp1 Tu vas en cours l'aprem avec l'envie de manger un bon \n burger, la journée a été longue.
 ch2 Oh une pizzeria là-bas
 csq2 mo+5
 exp2 Elle était sacrément bonne
@@ -144,10 +144,10 @@ fincarte
 
 id 16
 desc T'as faim? Tant mieux! Y a de la purée au Crous :D
-ch1 Tu pleurs en mangeant ta pizza...
+ch1 Tu pleurs en mangeant ta \n pizza...
 csq1 mo-10
 exp1 Elle n'a couté que 5€ donc ca va.
-ch2 Tu te prends pour Bear Grylls et tu y vas!
+ch2 Tu te prends pour \n Bear Grylls et tu y vas!
 csq2 mo-40
 exp2 Tu manges ta purée en pleurant.
 fincarte
@@ -206,7 +206,7 @@ fincarte
 
 id 23
 desc Tes potes organisent un week-end à la montagne.
-ch1 Tu révises pour les partiels qui vont \n arriver.
+ch1 Tu révises pour les partiels \n qui vont arriver.
 csq1 pop-5 mo-10 no+10
 exp1 Tu as joué la moitié du temps au lieu de réviser.
 ch2 Tu vas t'éclater avec eux.
@@ -231,13 +231,13 @@ exp2 Tu penses à ton colis pendant toute l'après-midi...
 fincarte
 
 id 26
-desc Séance de AA de 17h à 19h. L'uitilité de cette séance te semble limitée.
+desc Séance de AA de 17h à 19h. \n L'utilité de cette séance te semble limitée.
 ch1 Y aller
 csq1 pr+5 mo-20
 exp1 Il n'y avait personne :/ et tu n'as rien appris
-ch2 Tu rentres chez toi et te détends devant une vidéo.
+ch2 Tu rentres chez toi et te \n détends devant une \n vidéo.
 csq2 pr-5 mo+10 no-5
-exp2 Tu t'es bien détendu
+exp2 Tu t'es bien détendu.
 fincarte
 
 id 27
@@ -260,13 +260,13 @@ exp2 Tu es tellement absent que tu ne sais même pas où est l'IUT.
 fincarte
 
 id 29
-desc Sylvain Pierre Durif, te propose de monter dans sa camionnette pour rencontrer le Christ Cosmique.
-ch1 Je monte dans la camionnette
+desc Sylvain Pierre Durif, te propose de monter dans \n sa camionnette pour rencontrer le Christ Cosmique.
+ch1 Tu montes dans sa \n camionnette ...
 csq1 mo-70
 exp1 Sylvain abuse de toi.
-ch2 Je refuse poliment
+ch2 Tu refuses poliment.
 csq2 mo-30
-exp2 Sylvain emporte un de tes amis à la place. Tu ne reverras plus jamais ton ami
+exp2 Sylvain emporte un de tes amis à la place. \n Tu ne le reverra plus jamais :/
 fincarte
 
 id 30
@@ -312,8 +312,8 @@ exp2 Tu as joué à Fortnite avec tes potes et \n tu as fait 5 Top1! Félicitati
 fincarte
 
 id 35
-desc Tu te rends compte que tu as fait ton contrôle de \n recursivité sans prendre en compte que la liste \n est triée.
-ch1 Oh! c'est pas grave, ça ne va \n pas enlever beaucoup de point!
+desc Tu te rends compte que tu as fait ton contrôle de \n récursivité sans prendre en compte que la liste \n est triée.
+ch1 Oh! c'est pas grave, ça ne \n va pas enlever beaucoup \n de point !
 csq1 no-8 mo-5
 exp1 Finalement ça enlevait quand même pas mal de point. \n Kappa ¯\_(ツ)_/¯
 
@@ -335,7 +335,7 @@ csq1 pr-5 mo-5
 exp1 T'as vraiment oublié que tu es asmathique ?
 ch2 Tu vas pas courir ! \n Attends le prochain.
 csq2 pr-10 mo-5
-exp2 Le prochain à mis 20 minutes à arriver, tu as eu 30 minutes de retard...
+exp2 Le prochain à mis 20 minutes à arriver, tu as eu \n 30 minutes de retard...
 fincarte
 
 id 38
