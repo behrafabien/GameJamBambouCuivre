@@ -4,7 +4,7 @@ class Carte
   def initialize(id, desc, choix1, choix2, consequence1, consequence2, explications1,explications2)
     @textechoix1 = ""
     @textechoix2 = ""
-    @texte = Gosu::Image.from_text(""+desc, 22)
+    @texte = Gosu::Image.from_text(""+desc, 24)
 
     @id = id
     @desc = desc.to_s
@@ -17,17 +17,17 @@ class Carte
     @image = Gosu::Image.new('images/'+@id+'.jpg')
 
     if choix1 != ""
-      @textechoix1 = Gosu::Image.from_text(choix1,18)
-      @textechoix2 = Gosu::Image.from_text(choix2,18)
+      @textechoix1 = Gosu::Image.from_text(choix1,22)
+      @textechoix2 = Gosu::Image.from_text(choix2,22)
     else
-      @textechoix1 = Gosu::Image.from_text("OK!",18)
+      @textechoix1 = Gosu::Image.from_text("OK!",22)
     end
 
     if explications1 != ""
-      @textexplication1 = Gosu::Image.from_text(explications1,22)
-      @textexplication2 = Gosu::Image.from_text(explications2,22)
+      @textexplication1 = Gosu::Image.from_text(explications1,24)
+      @textexplication2 = Gosu::Image.from_text(explications2,24)
     else
-      @textexplication1 = Gosu::Image.from_text(explications1,22)
+      @textexplication1 = Gosu::Image.from_text(explications1,24)
     end
   end
 

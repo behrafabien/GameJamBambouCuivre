@@ -112,10 +112,6 @@ class Window < Gosu::Window
   def draw
     # On dessine le curseur au niveau de la position de la souris
     @cursor.draw(mouse_x,mouse_y,5)
-    puts "explication : "
-    puts @explication
-    puts "menu : "
-    puts @menu
     # Si le jeu est lancé
     if @gamestarted && !@explication
       self.drawStatut()
