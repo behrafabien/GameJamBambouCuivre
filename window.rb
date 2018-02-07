@@ -30,6 +30,8 @@ class Window < Gosu::Window
   BUTTONCHOIXSIZE = [255,140]
   BUTTONCHOIXSIMPLEPOS = [60,630,2]
   BUTTONCHOIXSIMPLESIZE = [500,140]
+  BUTTONSUIVANTPOS = [450,620,3]
+  BUTTONSUIVANTSIZE = [45,49]
 
   ESC = Gosu::Button::KbEscape
 
@@ -42,8 +44,8 @@ class Window < Gosu::Window
     @credits = false # On est au crédits ?
     @gameover = false # On est a l'écran de game over ?
     @controleur = controleur
-    @explications = ""
     @explication = false
+    @choixclique = false
 
     #Création de la fenêtre
     super width,height
@@ -55,10 +57,9 @@ class Window < Gosu::Window
     @fontdesc = Gosu::Font.new(self, "Arial", 16)
 
     #Musique
-    @song = Gosu::Song.new("musiques/Carefree.mp3")
+    @song = Gosu::Song.new("musiques/doom.mp3")
     @song.volume = 0.25
     @song.play(true)
-
     #Images
       #Images du menu
         @background = Gosu::Image.new('assets/background.png')
@@ -77,7 +78,7 @@ class Window < Gosu::Window
       #Images des crédits
 
       #Images du jeu
-        @backgroundfeu = Gosu::Image.new('assets/buttonchoix.png')
+        @buttonsuivant = Gosu::Image.new('assets/buttonexplication.png')
         @buttonchoix = Gosu::Image.new('assets/buttonchoix.png')
         @buttonchoixsimple = Gosu::Image.new('assets/buttonchoixsimple.png')
         @buttonexit = Gosu::Image.new('assets/buttonExit.png')
@@ -101,6 +102,7 @@ class Window < Gosu::Window
       # S'il n'a pas perdu on ne fais rien
     else
       # S'il a perdu, le jeu s'arrête et on reset les statuts
+      puts @controleur.statut.defaite
       @gamestarted = false
       @gameover = true
       @controleur.statut.reset()
@@ -109,20 +111,15 @@ class Window < Gosu::Window
 
   def draw
     # On dessine le curseur au niveau de la position de la souris
-    @cursor.draw(mouse_x,mouse_y,50)
+    @cursor.draw(mouse_x,mouse_y,5)
+    puts "explication : "
+    puts @explication
+    puts "menu : "
+    puts @menu
     # Si le jeu est lancé
-    if @gamestarted
-      #Gosu::draw_rect(0, 0, 640, 800, COLORS[:blue])
-      @feu = Gosu::Image.new("assets/feu.jpg")
-      @feu.draw(0,0,0)
-      @buttonretour.draw(25,20,2)
-
-      # AFFICHAGE DU STATUT
+    if @gamestarted && !@explication
       self.drawStatut()
       self.drawCarte(@controleur.cartepioche)
-        #AFFICHAGE DE LA CARTE
-
-
     elsif @credits
       self.drawCredit
     elsif @menu
@@ -130,18 +127,38 @@ class Window < Gosu::Window
     elsif @gameover
       self.drawGameOver()
     elsif @explication
-
+      self.drawStatut()
+      self.drawExplication(@controleur.cartepioche,@choixchoisi)
     end
   end
 
-def drawCarte(carte)
+def drawExplication(carte, explication)
+  Gosu::draw_rect(0, 0, 640, 800, COLORS[:blue])
+  #@buttonexit.draw(560,20,2)   FERA BOUTON AIDE
+  @statutbackground.draw(40,40,0)
+  @buttonretour.draw(25,20,2)
   @cardbackground.draw(40,200,0)
   @cardpanelset.draw(60,220,1)
   carte.texte.draw(80,480,3)
   carte.image.draw_as_quad(80,240,COLORS[:white],540,240,COLORS[:white],540,460,COLORS[:white],80,460,COLORS[:white],5)
   #AFFICHAGE DES CHOIX
   @statutbackground.draw(40,620,0)
-  if carte.choix2 == ""
+  @buttonsuivant.draw(450,620,0)
+  explication.draw(280,635,3)
+end
+
+def drawCarte(carte)
+  Gosu::draw_rect(0, 0, 640, 800, COLORS[:blue])
+  #@buttonexit.draw(560,20,2)   FERA BOUTON AIDE
+  @statutbackground.draw(40,40,0)
+  @buttonretour.draw(25,20,2)
+  @cardbackground.draw(40,200,0)
+  @cardpanelset.draw(60,220,1)
+  carte.texte.draw(80,480,3)
+  carte.image.draw_as_quad(80,240,COLORS[:white],540,240,COLORS[:white],540,460,COLORS[:white],80,460,COLORS[:white],5)
+  #AFFICHAGE DES CHOIX
+  @statutbackground.draw(40,620,0)
+  if carte.choix1 == ""
     @buttonchoixsimple.draw(60,630,2)
     carte.textechoix1.draw(280,635,3)
   else
@@ -182,7 +199,7 @@ def drawStatut
   #AFFICHAGE DU STATUT
    @statutbackground.draw(40,40,0)
    #AFFICHAGE DU STATUT MORAL
-   @barGreen_horizontalLeft.draw(80,80,1)
+   @barGreen_horizontalMid.draw(80,80,1)
    @fontstatut.draw("Moral",85,65,3,1,1,COLORS[:lightbrown])
    @test = @controleur.statut.moral# / 10
    @x = 80
@@ -208,10 +225,10 @@ def drawStatut
        @x = @x+2
      end
    #AFFICHAGE DU STATUT PRESENCE
-     @barYellow_horizontalMid.draw(300,80,1)
-     @fontstatut.draw("Pésence",305,65,3,1,1,COLORS[:lightbrown])
+     @barYellow_horizontalMid.draw(340,80,1)
+     @fontstatut.draw("Pésence",345,65,3,1,1,COLORS[:lightbrown])
      @test = @controleur.statut.presence# / 10
-     @x = 300
+     @x = 340
      for i in 0..@test
        @barYellow_horizontalMid.draw(@x,80,1)
        @x = @x+2
@@ -221,10 +238,10 @@ def drawStatut
        @x = @x+2
      end
    #AFFICHAGE DU STATUT POPULARITE
-     @barRed_horizontalMid.draw(300,120,1)
-     @fontstatut.draw("Popularité",305,105,3,1,1,COLORS[:lightbrown])
+     @barRed_horizontalMid.draw(340,120,1)
+     @fontstatut.draw("Popularité",345,105,3,1,1,COLORS[:lightbrown])
      @test = @controleur.statut.popularite# / 10
-     @x = 300
+     @x = 340
      for i in 0..@test
        @barRed_horizontalMid.draw(@x,120,1)
        @x = @x+2
@@ -243,11 +260,7 @@ end
       case
       when mouse_x > BUTTONSTARTPOS[0] && mouse_y > BUTTONSTARTPOS[1] && mouse_x < BUTTONSTARTPOS[0]+BUTTONSTARTSIZE[0] && mouse_y < BUTTONSTARTPOS[1]+BUTTONSTARTSIZE[1]
         @gamestarted = true
-        @song.play(false)
-        @song.volume = 0
-        @doomsong = Gosu::Song.new("musiques/doom.mp3")
-        @doomsong.volume = 0.25
-        @doomsong.play(true)
+        @menu = false
         @controleur.gamestarted()
       when mouse_x > BUTTONCREDITPOS[0] && mouse_y > BUTTONCREDITPOS[1] && mouse_x < BUTTONCREDITPOS[0]+BUTTONCREDITSIZE[0] && mouse_y < BUTTONCREDITPOS[1]+BUTTONCREDITSIZE[1]
         @credits = true
@@ -282,34 +295,35 @@ end
       # Lorsque le jeu est lancé
     when @gamestarted
       if button == Gosu::MS_LEFT
-      case
-      when buttonPressed?(BUTTONRETOURPOS,BUTTONRETOURSIZE)
-        @song.play(true)
-        @song.volume = 0.25
-        @doomsong.play(false)
-        @menu = true
-        @gamestarted = false
-      # Pour chaque bouton de choix si on appuie dessus on execute les modifications du statut relative a ce choix,
-      # on repioche une carte pour passer a la suite
-      when buttonPressed?(BUTTONCHOIX1POS,BUTTONCHOIXSIZE)
-        @controleur.statut.modifStatut(@controleur.cartepioche.consequence1)
-        @explications = @controleur.cartepioche.textexplication1
-        @explication = true
-        self.wait(0)
-        @controleur.gamestarted()
-      when buttonPressed?(BUTTONCHOIX2POS,BUTTONCHOIXSIZE)
-        @controleur.statut.modifStatut(@controleur.cartepioche.consequence2)
-        @explications = @controleur.cartepioche.textexplication2
-        @explication = true
-        self.wait(0)
-        @controleur.gamestarted()
-      when buttonPressed?(BUTTONCHOIXSIMPLEPOS,BUTTONCHOIXSIMPLESIZE)
-        @controleur.statut.modifStatut(@controleur.cartepioche.consequence1)
-        @explications = @controleur.cartepioche.textexplication1
-        @explication = true
-        self.wait(0)
-        @controleur.gamestarted()
-      end
+        if !@explication
+          case
+            when buttonPressed?(BUTTONRETOURPOS,BUTTONRETOURSIZE)
+              @menu = true
+              @gamestarted = false
+            when buttonPressed?(BUTTONCHOIX1POS,BUTTONCHOIXSIZE)
+              @controleur.statut.modifStatut(@controleur.cartepioche.consequence1)
+              self.wait(0)
+              @choixchoisi = @controleur.cartepioche.textexplication1
+              @explication = true
+            when buttonPressed?(BUTTONCHOIX2POS,BUTTONCHOIXSIZE)
+              @controleur.statut.modifStatut(@controleur.cartepioche.consequence2)
+              self.wait(0)
+              @choixchoisi = @controleur.cartepioche.textexplication2
+              @explication = true
+            when buttonPressed?(BUTTONCHOIXSIMPLEPOS,BUTTONCHOIXSIMPLESIZE)
+              @controleur.statut.modifStatut(@controleur.cartepioche.consequence1)
+              self.wait(0)
+              @choixchoisi = @controleur.cartepioche.textexplication1
+              @explication = true
+          end
+        else
+          if buttonPressed?(BUTTONSUIVANTPOS,BUTTONSUIVANTSIZE)
+            @explication = false
+            @choixchoisi = false
+            @controleur.gamestarted()
+
+          end
+        end
     end
   when @gameover
       if button == Gosu::MS_LEFT
