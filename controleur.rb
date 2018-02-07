@@ -29,87 +29,117 @@ def chargerCarte
     when "id"
       id = array[i+1]
     when "desc"
-      desc = ""
+      String desc = ""
       k = i+1
       while array[k] != "ch1" && array[k] != "csq"
-        desc.to_s << " " <<  array[k].to_s
+        if array[k]!='\n'
+          desc << " " << array[k]
+        else
+          desc << " " << "\n"
+        end
         k = k+1
       end
     when "ch1"
-      @ch1 = ""
+      String ch1 = ""
       k = i+1
       while array[k] != "csq1"
-        @ch1 << " " <<  array[k]
+        if array[k]!='\n'
+          ch1 << " " << array[k]
+        else
+          ch1 << " " << "\n"
+        end
         k = k+1
       end
 
     when "csq1"
-      csq1 = ""
+      String csq1 = ""
       k = i+1
       while array[k] != "exp1"
-        csq1 << " " <<  array[k]
+        if array[k]!='\n'
+          csq1 << " " << array[k]
+        else
+          csq1 << " " << "\n"
+        end
         k = k+1
       end
     when "exp1"
-      exp1 = ""
+      String exp1 = ""
       k = i+1
       while array[k] != "ch2"
-        exp1 << " " << array[k]
+        if array[k]!='\n'
+          exp1 << " " << array[k]
+        else
+          exp1 << " " << "\n"
+        end
         k = k+1
       end
     when "ch2"
-      @ch2 = ""
+      String ch2 = ""
       k = i+1
       while array[k] != "csq2"
-        @ch2 << " " <<  array[k]
+        if array[k]!='\n'
+          ch2 << " " << array[k]
+        else
+          ch2 << " " << "\n"
+        end
         k = k+1
       end
     when "csq2"
-      csq2 = ""
+      String csq2 = ""
       k = i+1
       while array[k] != "exp2"
-        csq2 << " " <<  array[k]
+        if array[k]!='\n'
+          csq2 << " " << array[k]
+        else
+          csq2 << " " << "\n"
+        end
         k = k+1
       end
     when "exp2"
-      exp2 = ""
+      String exp2 = ""
       k = i+1
       while array[k] != "fincarte"
-        exp2 << " " << array[k]
+        if array[k]!='\n'
+          exp2 << " " << array[k]
+        else
+          exp2 << " " << "\n"
+        end
         k = k+1
       end
     when "csq"
       uneConsequence = true
-      csq = ""
+      String csq = ""
       k = i+1
       while array[k] != "exp"
-        csq << " " <<  array[k]
+        if array[k]!='\n'
+          csq << " " << array[k]
+        else
+          csq << " " << "\n"
+        end
         k = k+1
       end
     when "exp"
-      exp = ""
+      String exp = ""
       k = i+1
       while array[k] != "fincarte"
-        exp.to_s << " " << array[k].to_s
+        if array[k]!='\n'
+          exp << " " << array[k]
+        else
+          exp << " " << "\n"
+        end
         k = k+1
       end
     when "fincarte"
       if uneConsequence
-        cartes.push(Carte.new(id,desc,@ch1,@ch2,csq,csq,exp,exp))
+        cartes.push(Carte.new(id,desc,ch1,ch2,csq,csq,exp,exp))
       else
-        cartes.push(Carte.new(id,desc,@ch1,@ch2,csq1,csq2,exp1,exp2))
+        cartes.push(Carte.new(id,desc,ch1,ch2,csq1,csq2,exp1,exp2))
       end
-      uneConsequence = false
-      desc = ""
-      @ch1 = ""
-      @ch2 = ""
-      csq = ""
-      exp = ""
-      csq1 = ""
-      csq2 = ""
-      exp2 = ""
-      exp1 = ""
+
     end
+  end
+  for card in cartes
+    puts card.id + " : " + card.desc
   end
   return cartes
 end
