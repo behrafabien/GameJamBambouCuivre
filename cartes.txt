@@ -22,7 +22,7 @@ fincarte
 
 id 3
 desc Demain tu commences à 8h avec un CM!
-ch1 Soupirer et programmer le réveil
+ch1 Soupirer et programmer le \n réveil
 csq1 no+9 mo-7 pr+10
 exp1 Tu n'as pas réussit a t'endormir et tu es fatigué mais tu y vas quand même
 ch2 Grosse flemme!
@@ -31,13 +31,13 @@ exp2 Tu as pu jouer à LOL toute la soirée, résultat, tu as perdu 2 divisions 
 fincarte
 
 id 4
-desc "Sortez seulement de quoi écrire, Contrôle surprise!"
+desc "Sortez juste de quoi écrire, Contrôle surprise!"
 ch1 Joyeux Hunger Games...
 csq1 no-5 mo-5
-exp1 Tu n'avais pas appris tes notions, tu vas avoir une mauvaise note
-ch2 Go devenir le maître de la triche!
+exp1 Tu n'avais pas appris tes notions, tu vas  avoir une mauvaise note
+ch2 Go devenir le maître de la \n triche!\n
 csq2 no-15 mo-10 po+6
-exp2 Tu t'es fait chopé entrain de tricher, tu as faillit te faire virer.
+exp2 Tu t'es fait chopé entrain de tricher, \n tu as failli te faire virer.
 fincarte
 
 id 5
@@ -81,13 +81,13 @@ exp2 Tu n'as pas de parapluie, tu arrives tout trempé à l'IUT et tu as attrap�
 fincarte
 
 id 9
-desc Un mec t’as renversé de la bière dessus dans le tram alors que tu allais en cours
-ch1 Tu grognes et tu rentres chez toi afin de te changer
+desc Un mec t’as renversé de la bière dessus dans le \n tram alors que tu allais en cours.
+ch1 Tu grognes et tu rentres \n chez toi pour te changer.
 csq1 mo-10 pr-5
-exp1 C'était ton jean préféré et tu vas devoir refaire une lessive X(.
-ch2 Tant pis, tu ne vas pas rentrer pour si peu!
+exp1 C'était ton jean préféré et tu vas devoir refaire \n une lessive X(.
+ch2 Tant pis, tu ne vas pas \n rentrer pour si peu!
 csq2 no+5 pr+5 mo-20 po-10
-exp2 Tu pues la bière et tes potes te le font remarqué.
+exp2 Tu pues la bière et tes potes te le font remarquer.
 fincarte
 
 id 10
@@ -101,13 +101,13 @@ exp2 T'es arrivé qu'avec une 1h de retard et le prof t'as enlevé ton absence. 
 fincarte
 
 id 11
-desc Le ciel est bleu, les oiseaux chantent, tout est parfait! A l'exception de cette fiente de pigeon qui vient d'attérir sur ton épaule...
+desc Le ciel est bleu, les oiseaux chantent, tout est \n parfait! A l'exception de cette fiente de pigeon qui \n vient d'atterrir sur ton épaule...
 ch1 Impossible d'aller en cours comme ça!
 csq1 mo-5 pr-10 no-5 po+5
-exp1 Tu retournes chez toi te changer en vitesse mais tu arrives en retard.
+exp1 Tu retournes chez toi te changer en \n vitesse mais tu arrives en retard.
 ch2 Tu n'es déjà pas en avance...
 csq2 mo-10 pr+10 po-10
-exp2 Tu essayes de nettoyer avec des kleenex mais tu as juste réussit à étaler.
+exp2 Tu essayes de nettoyer avec des kleenex \n mais tu as juste réussit à étaler.
 fincarte
 
 id 12
@@ -121,9 +121,9 @@ exp2 Tu essayes de comprendre le cours mais c'est impossible.
 fincarte
 
 id 13
-desc Tu organises une soirée chez toi pour fêter la fin des partiels!
+desc Tu organises une soirée chez toi pour fêter la fin \n des partiels!
 csq po+20 mo+20
-exp Tout s'est bien passé à part qu'il reste du vomi sur ton canapé.
+exp Tout s'est bien passé, à part qu'il reste \n du vomi sur ton canapé.
 fincarte
 
 id 14
@@ -137,7 +137,7 @@ desc Un ami vient de te donner l'annale du partiel \n de l'année dernière sur 
 ch1 Tu partages à tes amis!
 csq1 po+7 mo-10 no+10
 exp1 Tout le monde aura une bonne note et tout le monde sera content.
-ch2 Tu gardes ça pour toi, tu veux être \n major de promo!
+ch2 Tu gardes ça pour toi, tu \n veux être major de promo!
 csq2 po-7 mo-10 no+10
 exp2 Au final tout le monde l'avait donc tout le monde aura une bonne note.
 fincarte
@@ -153,17 +153,17 @@ exp2 Tu manges ta purée en pleurant.
 fincarte
 
 id 17
-desc Changement de salle au dernier moment, tu arrives \n en retard car tu attendais dans l'autre salle \n depuis 20 minutes
+desc Changement de salle au dernier moment, tu \n arrives en retard car tu attendais dans l'autre salle \n depuis 20 minutes
 csq mo-5 pr-10
 exp Tu te sens bête car tout le monde le savait.
 fincarte
 
 id 18
-desc Tu n'as rien à faire
-ch1 Tu fais des paris de skins CS:GO
+desc Tu n'as rien à faire.
+ch1 Tu fais des paris CS:GO.
 csq1 mo-10
 exp1 Tu as perdu 20€ et tu hésites à continuer.
-ch2 Tu joues à League of Legends!
+ch2 Tu joues à LoL!
 csq2 mo-10
 exp2 Impossible de gagner, que des trolls dans ta team.
 fincarte
@@ -175,13 +175,13 @@ exp Tu es obligé de manger des pates et des céréales.
 fincarte
 
 id 20
-desc Tu n'as plus de pâtes chez toi
+desc Tu n'as plus de pâtes chez toi.
 ch1 Fais les courses feignasse!
 csq1 mo-5
-exp1 Le tram arrivait dans trop longtemps, tu as décidé de marcher.
-ch2 Domino's font pas une promo en ce \n moment?
+exp1 Après avoir marché jusqu'au magasin, \n tu t'es rendu compte qu'il était dimanche!
+ch2 Domino's font pas une \n promo en ce moment?
 csq2 mo+10
-exp2 Tu trouves le numéro de Domino's et tu te fais livré. Miam miam
+exp2 Tu trouves le numéro de Domino's et tu te \n fait livrer. Miam miam!
 fincarte
 
 id 21
@@ -196,10 +196,10 @@ fincarte
 
 id 22
 desc En prenant rapidement ton petit-déjeuner, \n Tu as avalé une madeleine de travers.
-ch1 Tant pis, tu tousseras s'il le faut! Ne Rates pas les cours!
+ch1 Tant pis, tu tousseras s'il le \n faut! Ne Rates pas les cours!
 csq1 pr+10 no+10 mo-15
 exp1 Tu bois un peu d'eau et ça va mieux.
-ch2 Cela t'apprendra à vouloir gratter des \n certificats médicaux! Repose-toi...
+ch2 Cela t'apprendra à vouloir \n gratter des certificats \n médicaux! Repose-toi...
 csq2 pr-10 no-5 mo-10
 exp2 Elle est belle l'excuse!
 fincarte
@@ -280,22 +280,22 @@ exp2 Tu as de la chance, il y a beaucoup de mec dans la promo...
 fincarte
 
 id 31
-desc Le prof d'architecture est absent le jour du controle
+desc Le proffesseur d'architecture est absent le jour du \n controle
 csq mo+25
-exp Tu en profite pour rentrer chez toi et regarder un live
+exp Tu en profite pour rentrer chez toi et regarder un live.
 fincarte
 
 id 32
 desc Tu trouves un billet de 500 par terre!
 csq mo+30
-exp Tu vas pouvoir t'acheter des skins CS:GO
+exp Tu vas pouvoir t'acheter des skins CS:GO!
 fincarte
 
 id 33
 desc DavidLafargePokémon fait un live durant le cours.
-ch1 C'est ton youtuber préféré tu peux pas rater son live
+ch1 C'est ton youtuber préféré \n tu ne peux pas rater son live!
 csq1 no-10 mo+15 po-15
-exp1 Il a ouvert des boosters avec des cartes hypers rares. En plus y avait MissJiarachi
+exp1 Il a ouvert des boosters avec des cartes \n hypers rares! En plus y avait MissJiarachi.
 ch2 Ce mec est un déchet.
 csq2 no+5
 exp2 Le cours s'est bien passé
@@ -303,12 +303,12 @@ fincarte
 
 id 34
 desc Tu as un projet à rendre la semaine prochaine, \n et tu n'es pas en avance...
-ch1 Sacrifier le jeudi aprèm pour taffer \n le projet.
+ch1 Sacrifier le jeudi aprèm pour \n taffer le projet.
 csq1 no+5 mo-5
-exp1 Tu as réussit une partie sur laquelle tu bloquais la veille
-ch2 Le jeudi aprèm c'est fait pour s'amuser
+exp1 Tu as réussi une partie sur laquelle tu \n bloquais la veille.
+ch2 Le jeudi aprèm c'est fait \n pour s'amuser.
 csq2 no-5 mo+10 po+5
-exp2 Tu as joué à Fortnite avec tes potes et tu as fait 5 Top1
+exp2 Tu as joué à Fortnite avec tes potes et \n tu as fait 5 Top1! Félicitations!
 fincarte
 
 id 35
@@ -324,7 +324,7 @@ fincarte
 id 36
 desc Tu viens d'acheter pour 1000€ de Bitcoin \n 20 minutes avant qu'il perde 50%...
 csq mo-10
-exp Tu pleures toutes les larmes de ton corps
+exp Tu pleures toutes les larmes de ton corps :'(
 fincarte
 
 id 37
@@ -338,36 +338,36 @@ exp2 Le prochain à mis 20 minutes à arriver, tu as eu 30 minutes de retard...
 fincarte
 
 id 38
-desc Tu es fauché mais tous tes amis veulent aller au Burger King
-ch1 Tu fais le bonhomme et tu manges seul au Crous
+desc Tu es fauché mais tous tes amis veulent aller \n au Burger King
+ch1 Tu fais le bonhomme et tu \n manges seul au Crous :'(
 csq1 mo-2
-exp1 T'es chanceux, tu tombe pile sur le jour des Hamburgers/Frites
-ch2 Tu fais le mandiant et tu grattes tes potes
+exp1 T'es chanceux, tu tombe pile sur le jour des \n Hamburgers/Frites.
+ch2 Tu fais le mandiant et tu \n grattes tes potes.
 csq2 mo+5 po-4
-exp2 Bien joué! Tu viens encore de manger gratuitement!
+exp2 Bien joué! Tu viens encore de manger \n gratuitement!
 fincarte
 
 id 39
 desc Tu dois vite rendre ton travail sur Chamilo dans \n 20 minutes!
 csq no-5 mo-10
-exp Window à fait une mise à jour qui a prit une demie heure!
+exp Window à fait une mise à jour qui a prit \n une demie heure!
 fincarte
 
 id 40
 desc Tu as une semaine de concours Jeux-vidéo la \n semaine prochaine! \n En plus, elle est facultative!
 csq mo-5 pr-5 no-5
-exp Faut pas croire tes potes... Elle était pas facultative...
+exp Faut pas croire tes potes... Elle n'était pas facultative...
 fincarte
 
 
 id 41
 desc Il y a une soirée médecine ce soir !
-ch1 Tu ne vas quand même pas rater cette \n belle occasion!
+ch1 Tu ne vas quand même pas \n rater cette belle \n occasion!
 csq1 mo+10 po+10 pr-10
-exp1 Tu as ramené un coup d'un soir chez toi, mais le lendemain tu ne t'es pas réveillé(e) à l'heure...
-ch2 N'y vas pas! Tu as CM demain matin!
+exp1 Tu as ramené un coup d'un soir chez toi, mais le \n lendemain tu ne t'es pas réveillé(e) à l'heure...
+ch2 N'y vas pas! \n Tu as CM demain matin!
 csq2 mo-10 po-5 pr+10
-exp2 Tu as bien fait! il ne fallait surtout pas rater ce cours sur les Arbres Binaires de Recherche
+exp2 Tu as bien fait! il ne fallait surtout pas rater \n ce cours sur les Arbres Binaires de Recherche.
 fincarte
 
 id 42
@@ -379,7 +379,7 @@ fincarte
 id 43
 desc Tu as eu 03/20 sur les limites de fonctions. \n C'était pourtant trivial!
 csq no-10 mo-5
-exp Tu regettes amèrement ta filière STI2D au bac...
+exp Tu regrettes amèrement ton Bac STI2D...
 fincarte
 
 id 44
@@ -404,7 +404,7 @@ fincarte
 
 id 46
 desc Tu vois ton bus arriver mais il est bondé!
-ch1 Tant pis! Il faut que tu ailles en cours!
+ch1 Tant pis! \n Il faut que tu ailles en cours!
 csq1 mo-5 pr+5
 exp1 Pas mal la douche à la sueur! Pas mal....
 ch2 C'est mort! Tu tiens à ton odorat \n et tu ne prends pas le bus.
