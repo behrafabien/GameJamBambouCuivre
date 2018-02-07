@@ -130,20 +130,9 @@ class Window < Gosu::Window
     elsif @gameover
       self.drawGameOver()
     elsif @explication
-      self.drawExplication(@controleur.cartepioche, @explication)
+
     end
   end
-
-def drawExplication(carte, explication)
-  @cardbackground.draw(40,200,0)
-  @cardpanelset.draw(60,220,1)
-  carte.texte.draw(80,480,3)
-  carte.image.draw_as_quad(80,240,COLORS[:white],540,240,COLORS[:white],540,460,COLORS[:white],80,460,COLORS[:white],5)
-  #AFFICHAGE DES CHOIX
-  @statutbackground.draw(40,620,0)
-  @explication.draw(55,635,3)
-
-end
 
 def drawCarte(carte)
   @cardbackground.draw(40,200,0)
@@ -152,7 +141,7 @@ def drawCarte(carte)
   carte.image.draw_as_quad(80,240,COLORS[:white],540,240,COLORS[:white],540,460,COLORS[:white],80,460,COLORS[:white],5)
   #AFFICHAGE DES CHOIX
   @statutbackground.draw(40,620,0)
-  if carte.choix1 == ""
+  if carte.choix2 == ""
     @buttonchoixsimple.draw(60,630,2)
     carte.textechoix1.draw(280,635,3)
   else
@@ -298,7 +287,6 @@ end
         @song.play(true)
         @song.volume = 0.25
         @doomsong.play(false)
-        @doomsong.volume = 0
         @menu = true
         @gamestarted = false
       # Pour chaque bouton de choix si on appuie dessus on execute les modifications du statut relative a ce choix,
