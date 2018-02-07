@@ -437,4 +437,4 @@ id 50
 desc Tu viens de finir ton projet scolaire avec 17/20
 csq mo+10 no+10
 exp Tu as fêté ça comme il le fallait! Bien joué!
-fincarte!
+fincarte

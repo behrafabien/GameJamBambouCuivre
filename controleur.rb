@@ -95,7 +95,7 @@ def chargerCarte
       exp = ""
       k = i+1
       while array[k] != "fincarte"
-        exp << " " << array[k]
+        exp.to_s << " " << array[k].to_s
         k = k+1
       end
     when "fincarte"
