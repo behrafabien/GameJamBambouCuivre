@@ -55,9 +55,10 @@ class Window < Gosu::Window
     @fontdesc = Gosu::Font.new(self, "Arial", 16)
 
     #Musique
-    @song = Gosu::Song.new("musiques/doom.mp3")
+    @song = Gosu::Song.new("musiques/Carefree.mp3")
     @song.volume = 0.25
     @song.play(true)
+
     #Images
       #Images du menu
         @background = Gosu::Image.new('assets/background.png')
@@ -76,6 +77,7 @@ class Window < Gosu::Window
       #Images des crédits
 
       #Images du jeu
+        @backgroundfeu = Gosu::Image.new('assets/buttonchoix.png')
         @buttonchoix = Gosu::Image.new('assets/buttonchoix.png')
         @buttonchoixsimple = Gosu::Image.new('assets/buttonchoixsimple.png')
         @buttonexit = Gosu::Image.new('assets/buttonExit.png')
@@ -110,7 +112,9 @@ class Window < Gosu::Window
     @cursor.draw(mouse_x,mouse_y,50)
     # Si le jeu est lancé
     if @gamestarted
-      Gosu::draw_rect(0, 0, 640, 800, COLORS[:blue])
+      #Gosu::draw_rect(0, 0, 640, 800, COLORS[:blue])
+      @feu = Gosu::Image.new("assets/feu.jpg")
+      @feu.draw(0,0,0)
       @buttonretour.draw(25,20,2)
 
       # AFFICHAGE DU STATUT
@@ -250,6 +254,11 @@ end
       case
       when mouse_x > BUTTONSTARTPOS[0] && mouse_y > BUTTONSTARTPOS[1] && mouse_x < BUTTONSTARTPOS[0]+BUTTONSTARTSIZE[0] && mouse_y < BUTTONSTARTPOS[1]+BUTTONSTARTSIZE[1]
         @gamestarted = true
+        @song.play(false)
+        @song.volume = 0
+        @doomsong = Gosu::Song.new("musiques/doom.mp3")
+        @doomsong.volume = 0.25
+        @doomsong.play(true)
         @controleur.gamestarted()
       when mouse_x > BUTTONCREDITPOS[0] && mouse_y > BUTTONCREDITPOS[1] && mouse_x < BUTTONCREDITPOS[0]+BUTTONCREDITSIZE[0] && mouse_y < BUTTONCREDITPOS[1]+BUTTONCREDITSIZE[1]
         @credits = true
@@ -286,6 +295,10 @@ end
       if button == Gosu::MS_LEFT
       case
       when buttonPressed?(BUTTONRETOURPOS,BUTTONRETOURSIZE)
+        @song.play(true)
+        @song.volume = 0.25
+        @doomsong.play(false)
+        @doomsong.volume = 0
         @menu = true
         @gamestarted = false
       # Pour chaque bouton de choix si on appuie dessus on execute les modifications du statut relative a ce choix,
