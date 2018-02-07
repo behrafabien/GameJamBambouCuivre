@@ -15,7 +15,7 @@ class Window < Gosu::Window
 
   BUTTONSTARTPOS = [100,300,3]
   BUTTONSTARTSIZE = [420,120]
-  BUTTONMENUPOS = [100,300,3]
+  BUTTONMENUPOS = [100,600,3]
   BUTTONMENUSIZE = [420,120]
   BUTTONCREDITPOS = [100,440,3]
   BUTTONCREDITSIZE = [420,120]
@@ -62,7 +62,7 @@ class Window < Gosu::Window
     @song.play(true)
     #Images
       #Images du menu
-        @background = Gosu::Image.new('assets/background.png')
+        @background = Gosu::Image.new('assets/BG.png')
         @cursor = Gosu::Image.new('assets/cursorGauntlet_bronze.png')
         @panelbackground = Gosu::Image.new('assets/panel_brown_background.png')
         @panelsetbackground = Gosu::Image.new('assets/panelset_beige_background.png')
@@ -104,6 +104,8 @@ class Window < Gosu::Window
       # S'il a perdu, le jeu s'arrête et on reset les statuts
       puts @controleur.statut.defaite
       @gamestarted = false
+      @explication = false
+      @menu = false
       @gameover = true
       @controleur.statut.reset()
     end
@@ -111,7 +113,7 @@ class Window < Gosu::Window
 
   def draw
     # On dessine le curseur au niveau de la position de la souris
-    @cursor.draw(mouse_x,mouse_y,5)
+    @cursor.draw(mouse_x,mouse_y,50)
     # Si le jeu est lancé
     if @gamestarted && !@explication
       self.drawStatut()
@@ -187,7 +189,7 @@ end
 
 def drawGameOver
   @background.draw(0,0,0)
-  @font.draw_rel("GAME OVER", @Width / 2, 640, 4, 0.5, 0.5)
+  @font.draw_rel("GAME OVER", @Width / 2, 40, 4, 0.5, 0.5)
   @menubutton.draw(BUTTONMENUPOS[0],BUTTONMENUPOS[1],BUTTONMENUPOS[2])
 end
 
@@ -252,7 +254,7 @@ end
 
   def button_up(button)
     if button == Gosu::MS_LEFT
-      if !@gamestarted
+      if !@gamestarted && !@gameover
       case
       when mouse_x > BUTTONSTARTPOS[0] && mouse_y > BUTTONSTARTPOS[1] && mouse_x < BUTTONSTARTPOS[0]+BUTTONSTARTSIZE[0] && mouse_y < BUTTONSTARTPOS[1]+BUTTONSTARTSIZE[1]
         @gamestarted = true
@@ -275,7 +277,7 @@ end
   def button_down(button)
     case
       #Lorsque le jeu n'est pas lancé ( Pour les boutons du menu )
-      when !@gamestarted
+    when !@gamestarted && !@gameover
         if button == Gosu::MS_LEFT
         case
         when buttonPressed?(BUTTONSTARTPOS,BUTTONSTARTSIZE)
