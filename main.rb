@@ -4,5 +4,5 @@ require_relative 'controleur.rb'
 WindowWidth = 620
 WindowHeight = 800
 @controleur = Controleur.new()
-window = Window.new(WindowWidth, WindowHeight, @controleur)
+window = Window.new(WindowWidth, WindowHeight ,@controleur)
 window.show
