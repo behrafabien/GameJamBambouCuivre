@@ -404,7 +404,7 @@ fincarte
 
 id 46
 desc Tu vois ton bus arriver mais il est bondé!
-ch1 Tant pis! Il faut que tu ailles en cours!
+ch1 Tant pis! \n Il faut que tu ailles en cours!
 csq1 mo-5 pr+5
 exp1 Pas mal la douche à la sueur! Pas mal....
 ch2 C'est mort! Tu tiens à ton odorat \n et tu ne prends pas le bus.
