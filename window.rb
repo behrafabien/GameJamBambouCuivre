@@ -55,7 +55,7 @@ class Window < Gosu::Window
     @font = Gosu::Font.new(self, "assets/pixel.ttf", 80)
     @fontstatut = Gosu::Font.new(self, "Arial", 12)
     @fontdesc = Gosu::Font.new(self, "Arial", 16)
-
+    @fontlife = Gosu::Font.new(self,"assets/pixel.ttf",50)
     #Musique
     @song = Gosu::Song.new("musiques/doom.mp3")
     @song.volume = 0.25
@@ -173,13 +173,16 @@ end
 
 def drawCredit
   @font.draw_rel("Crédits", @Width / 2, 150, 1, 0.5, 0.5)
-  @font.draw_rel("LUCA Deslot", @Width / 2, 175, 1, 0.5, 0.5)
-  @font.draw_rel("Fabien Behra", @Width / 2, 200, 1, 0.5, 0.5)
-  @font.draw_rel("Adrien Prat", @Width / 2, 225, 1, 0.5, 0.5)
-  @font.draw_rel("Jessy Chenavas", @Width / 2, 250, 1, 0.5, 0.5)
+  @fontlife.draw_rel("LUCA Deslot", @Width / 2, 175, 1, 0.5, 0.5)
+  @fontlife.draw_rel("Fabien Behra", @Width / 2, 200, 1, 0.5, 0.5)
+  @fontlife.draw_rel("Adrien Prat", @Width / 2, 225, 1, 0.5, 0.5)
+  @fontlife.draw_rel("Jessy Chenavas", @Width / 2, 250, 1, 0.5, 0.5)
 end
 
 def drawMenu
+  @font.draw_rel("IUT-2", @Width/2, 90, 4, 0.5, 0.5)
+  @fontlife.draw_rel("Life Simulator",@Width/2, 160, 4, 0.5, 0.5)
+
   @startbutton = @buttonnonpressed
   @creditbutton = @buttonnonpressed
   @exitbutton = @buttonnonpressed
