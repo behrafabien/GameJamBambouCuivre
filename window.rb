@@ -58,7 +58,10 @@ class Window < Gosu::Window
     @fontFin = Gosu::Font.new(self,"assets/pixel.ttf",60)
     @fontjours = Gosu::Font.new(self,"assets/pixel.ttf",20)
     #Musique
-    @song = Gosu::Song.new("musiques/doom.mp3")
+    @doomsong = Gosu::Song.new("musiques/doom.mp3")
+    @doomsong.volume = 0.25
+    @doomsong.play(false)
+    @song = Gosu::Song.new("musiques/Carefree.mp3")
     @song.volume = 0.25
     @song.play(true)
     #Images
@@ -243,7 +246,8 @@ class Window < Gosu::Window
     #AFFICHAGE DU STATUT
     @statutbackground.draw(40,40,0)
     #AFFICHAGE DU STATUT MORAL
-    @fontjours.draw("Jours restants : "+@controleur.joursrestant.to_s,280,60,3,1,1,COLORS[:lightbrown])
+    texteJours  = "Jours restants : "+@controleur.joursrestant.to_s
+    @fontjours.draw(texteJours,220,60,3,1,1,COLORS[:lightbrown])
 
     @barGreen_horizontalMid.draw(80,100,1)
     @fontstatut.draw("Moral",85,85,3,1,1,COLORS[:lightbrown])
@@ -304,13 +308,15 @@ class Window < Gosu::Window
     if button == Gosu::MS_LEFT
       if !@gamestarted && !@gameover
         case
-        when mouse_x > BUTTONSTARTPOS[0] && mouse_y > BUTTONSTARTPOS[1] && mouse_x < BUTTONSTARTPOS[0]+BUTTONSTARTSIZE[0] && mouse_y < BUTTONSTARTPOS[1]+BUTTONSTARTSIZE[1]
+        when buttonPressed?(BUTTONSTARTPOS,BUTTONSTARTSIZE)
           @gamestarted = true
           @menu = false
           @controleur.gamestarted()
-        when mouse_x > BUTTONCREDITPOS[0] && mouse_y > BUTTONCREDITPOS[1] && mouse_x < BUTTONCREDITPOS[0]+BUTTONCREDITSIZE[0] && mouse_y < BUTTONCREDITPOS[1]+BUTTONCREDITSIZE[1]
+          @startbutton = @buttonnonpressed
+        when buttonPressed?(BUTTONCREDITPOS,BUTTONCREDITSIZE)
           @credits = true
           @menu = false
+          @creditbutton = @buttonnonpressed
         end
       end
     end
@@ -324,6 +330,8 @@ class Window < Gosu::Window
         case
         when buttonPressed?(BUTTONSTARTPOS,BUTTONSTARTSIZE)
           @startbutton = @buttonpressed
+          @song.play(false)
+          @doomsong.play(true)
         when buttonPressed?(BUTTONCREDITPOS,BUTTONCREDITSIZE)
           @creditbutton = @buttonpressed
         when buttonPressed?(BUTTONEXITPOS,BUTTONEXITSIZE)
@@ -340,6 +348,9 @@ class Window < Gosu::Window
           when buttonPressed?(BUTTONRETOURPOS,BUTTONRETOURSIZE)
             @menu = true
             @gamestarted = false
+            @doomsong.play(false)
+            @song.play(true)
+
           when buttonPressed?(BUTTONCHOIX1POS,BUTTONCHOIXSIZE)
             @controleur.statut.modifStatut(@controleur.cartepioche.consequence1)
             self.wait(0)
@@ -376,6 +387,8 @@ class Window < Gosu::Window
           @gameover = false
           @win = false
           @menu = true
+          @song.play(true)
+          @doomsong.play(false)
         end
       end
 
