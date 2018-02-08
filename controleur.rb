@@ -6,7 +6,7 @@ def initialize
   @cartes = self.chargerCarte()
   @pioche = []
   @statut = Statut.new(50,50,50,50)
-  @joursrestant = 31
+  @joursrestant = 5
 end
 
 def chargerCarte
@@ -162,27 +162,28 @@ end
 
 def gamestarted
   #charge les cartes
-    if @cartes.length == 0
-      @cartes = @pioche
-      @pioche = []
-    end
 
     @cartepioche = self.aleaCartes(@cartes)
     @joursrestant = @joursrestant - 1
 
 
-    int = @cartepioche.id.to_i - 1
-    puts int
-    @pioche.push(@cartes[int])
-    @cartes.delete_at(int)
-    puts "Nombre de carte dans la pioche : "+@cartes.length.to_s
 
 #  end
 end
 
+def resetJours
+  @joursrestant = 5
+end
 
-
-
+def isWin
+  puts @joursrestant
+  puts @joursrestant == 0
+  if @joursrestant.to_i == 1
+    return true
+  else
+    return false
+  end
+end
 
 
 
