@@ -15,6 +15,7 @@ class Carte
     @consequence2 = consequence2.to_s
     @explications2 = explications2.to_s
     @image = Gosu::Image.new('images/'+@id+'.jpg')
+    puts "Carte n°"<< @id<< "/50 OK!"
 
 
     if choix1 != ""

@@ -10,6 +10,7 @@ def initialize
 end
 
 def chargerCarte
+  
     array = []
     cartes = []
     File.open("cartes.txt") do |file|
