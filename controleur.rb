@@ -2,21 +2,14 @@ class Controleur
 
   attr_reader :cartes, :cartepioche, :statut, :joursrestant
 
-<<<<<<< HEAD
-def initialize
-  @cartes = self.chargerCarte()
-  @pioche = []
-  @statut = Statut.new(50,50,50,50)
-  @joursrestant = 30
-end
-=======
+
   def initialize
     @cartes = self.chargerCarte()
     @pioche = []
     @statut = Statut.new(50,50,50,50)
     @joursrestant = 31
   end
->>>>>>> b7172cb94e7e97f7b6c61ee1ae7b3d5bd2127bd4
+
 
   def chargerCarte
 

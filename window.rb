@@ -44,7 +44,7 @@ class Window < Gosu::Window
     @explication = false
     @choixclique = false
     @win = false
-
+    @firstlaunch = true
     #Création de la fenêtre
     super width,height
     self.caption = "IUT-2 Life Simulator" # Nom de la fenêtre
@@ -129,6 +129,10 @@ class Window < Gosu::Window
     # On dessine le curseur au niveau de la position de la souris
     @cursor.draw(mouse_x,mouse_y,50)
     # Si le jeu est lancé
+    if @firstlaunch
+      self.drawCredit
+      @firstlaunch = false
+    end
     if @gamestarted && !@explication
       self.drawStatut()
       self.drawCarte(@controleur.cartepioche)
