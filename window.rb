@@ -58,6 +58,7 @@ class Window < Gosu::Window
     @fontdesc = Gosu::Font.new(self, "Arial", 16)
     @fontlife = Gosu::Font.new(self,"assets/pixel.ttf",50)
     @fontCredit = Gosu::Font.new(self,"assets/pixel.ttf",40)
+    @fontFin = Gosu::Font.new(self,"assets/pixel.ttf",60)
     @fontjours = Gosu::Font.new(self,"assets/pixel.ttf",20)
     #Musique
     @song = Gosu::Song.new("musiques/doom.mp3")
@@ -233,13 +234,15 @@ def drawGameOver(raison)
   @font.draw_rel("GAME OVER", @Width / 2, 40, 4, 0.5, 0.5)
   @fontjours.draw(@messagedefaite,60,200,4,1,1)
   @menubutton.draw(BUTTONMENUPOS[0],BUTTONMENUPOS[1],BUTTONMENUPOS[2])
+  @font.draw_rel("MENU", @Width / 2, 660, 4, 0.5, 0.5)
 end
 
 def drawWin(message)
   @background.draw(0,0,0)
-  @font.draw_rel("VOUS AVEZ GAGNE", @Width / 2, 80, 4, 0.5, 0.5)
+  @fontFin.draw_rel("VOUS AVEZ GAGNE !", @Width / 2, 80, 4, 0.5, 0.5)
   @fontjours.draw(message, 60,200,4,1,1)
   @menubutton.draw(BUTTONMENUPOS[0],BUTTONMENUPOS[1],BUTTONMENUPOS[2])
+  @font.draw_rel("MENU", @Width / 2, 660, 4, 0.5, 0.5)
 end
 
 def drawStatut

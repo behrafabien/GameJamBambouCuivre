@@ -31,7 +31,5 @@ class Carte
     else
       @textexplication1 = Gosu::Image.from_text(explications1,24)
     end
-
-    puts "La carte numero "+id+" a bien été chargé."
   end
 end
