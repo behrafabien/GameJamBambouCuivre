@@ -104,6 +104,12 @@ class Window < Gosu::Window
 
   def update
     #On vérifie si le joueur n'a pas perdu
+    puts "Menu : "+@menu.to_s
+    puts "gamestarted : "+@gamestarted.to_s
+    puts "credits : "+@credits.to_s
+    puts "gameover : "+@gameover.to_s
+    puts "win : "+@win.to_s
+
     case
       when @controleur.isWin
         @messagewin = "Bravo, vous avez réussi votre semestre !"
@@ -114,6 +120,7 @@ class Window < Gosu::Window
         @gameover = false
         @win = true
         @controleur.statut.reset()
+        @controleur.resetJours()
 
       when @controleur.statut.defaite && !@controleur.isWin
         # S'il a perdu, le jeu s'arrête et on reset les statuts
@@ -321,7 +328,7 @@ end
   def button_down(button)
     case
       #Lorsque le jeu n'est pas lancé ( Pour les boutons du menu )
-    when !@gamestarted && !@gameover && !@credits &&!@win
+    when !@gamestarted && !@gameover && !@credits && !@win
         if button == Gosu::MS_LEFT
         case
         when buttonPressed?(BUTTONSTARTPOS,BUTTONSTARTSIZE)
@@ -372,7 +379,7 @@ end
     end
 
 
-  when @gameover
+  when @gameover || @win
       if button == Gosu::MS_LEFT
         if buttonPressed?(BUTTONMENUPOS,BUTTONMENUSIZE)
           @gameover = false
@@ -380,16 +387,7 @@ end
           @menu = true
         end
       end
-    when @win
-        if button == Gosu::MS_LEFT
-          if buttonPressed?(BUTTONMENUPOS,BUTTONMENUSIZE)
-            puts "bite"
-            @gameover = false
-            @menu = true
-            @win = false
 
-          end
-        end
     when @credits
       if button == Gosu::MS_LEFT
         if buttonPressed?(BUTTONRETOURPOS,BUTTONRETOURSIZE)
