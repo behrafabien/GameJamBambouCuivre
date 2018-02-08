@@ -246,7 +246,7 @@ class Window < Gosu::Window
     #AFFICHAGE DU STATUT
     @statutbackground.draw(40,40,0)
     #AFFICHAGE DU STATUT MORAL
-    texteJours  = "Jours restant : "+@controleur.joursrestant.to_s
+    texteJours  = "Jours restants : "+@controleur.joursrestant.to_s
     @fontjours.draw(texteJours,220,60,3,1,1,COLORS[:lightbrown])
 
     @barGreen_horizontalMid.draw(80,100,1)
