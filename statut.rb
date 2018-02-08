@@ -1,30 +1,39 @@
 class Statut
-  attr_accessor :presence, :notes, :popularite, :moral
+  attr_accessor :presence, :notes, :popularite, :moral, :defaiteMaxPresent
 
   def initialize(presence,notes,popularite,moral)
     @presence=presence
     @notes=notes
     @popularite=popularite
     @moral = moral
+
+    @defaiteMaxPresent = Gosu::Image.from_text("Quel dommage, en voulant aller en cours, \n tu t'es préscipité, et tu t'es fait renversé \n par une voiture! Rien ne sert de courir \n il faut partir à point!",22)
+    @defaiteMinPresent = Gosu::Image.from_text("Malheureusement, tes absences répétés t ont \n transformé en fantôme, plus personne de l'IUT \n ne sait qui tu es!",22)
+    @defaiteMaxNotes = Gosu::Image.from_text("Le deuxième de promo t'en veut, devenu instable \n après un partiel de Système d'Exploitation, il t'as poignardé afin de prendre ta place!",22)
+    @defaiteMinNotes = Gosu::Image.from_text("A la vue de tes résultats, tu as décidé d'intégrer \n les Carrières Juridiques, étonnement tu \n es premier de leur promo!",22)
+    @defaiteMaxPopularite = Gosu::Image.from_text("Tu es tellement apprécié des gens, qu'ils \n ont décidé de te sacrifier au grand dieu de la fête!",22)
+    @defaiteMinPopularite = Gosu::Image.from_text("Si seul, tu te lances dans une carrière de youtuber \n où tu y fera des dégustations et des pranks \n sur Minecraft",22)
+    @defaiteMaxMoral = Gosu::Image.from_text("Tu es si joyeux que tu décides de dire OUI \n à tout ce que l'on te demande, tu finis pauvre après \n avoir donné ta maison et tout ton argent à l'église de la Scientologie",22)
+    @defaiteMinMoral = Gosu::Image.from_text("Tu as passé la semaine à coder un jeu sur un langage \n que tu ne connaissais pas, tu te retrouves avec \n le moral au plus bas, tu tombes en dépression",22)
   end
 
   def defaite
     if presence >=100
-      return "Quel dommage, en voulant aller en cours, \n tu t'es préscipité, et tu t'es fait renversé \n par une voiture! Rien ne sert de courir \n il faut partir à point!"
+      return @defaiteTropPresent
     elsif presence <=0
-      return "Malheureusement, vos absences répétés vous \n ont transformé en fantôme, plus personne de l'IUT \n ne sait qui vous êtes!"
+      return @defaitePasPresent
     elsif notes >=100
-      return "Le deuxième de promo vous en veut, devenu instable \n après un partiel de Système d'Exploitation, il vous a poignardé afin de prendre votre place!"
+      return @defaiteMaxNotes
     elsif notes <= 0
-      return "A la vue de vos résultats, vous avez décidé d'intégrer \n les Carrières Juridiques, étonnement vous \n êtes premier de leur promo!"
+      return @defaiteMinNotes
     elsif popularite >=100
-      return "Vous êtes tellement apprécié des gens, qu'ils \n ont décidé de vous sacrifier au grand dieu de la fête!"
+      return @defaiteMaxPopularite
     elsif popularite <= 0
-      return "Si seul, vous vous lancez dans une carrière de youtuber \n où vous y ferez des dégustations et des pranks \n sur Minecraft"
+      return @defaiteMinPopularite
     elsif moral >=100
-      return "Vous êtes si joyeux que vous décidé de dire OUI \n à tout ce que l'on vous demande, vous finissez pauvre après \n avoir donné votre maison et tout votre argent à l'église de la Scientologie"
+      return @defaiteMaxMoral
     elsif moral <=0
-      return "Vous avez passé la semaine à coder un jeu sur un langage \n que vous ne connaissiez pas, vous vous retrouvez avec \n le moral au plus bas, vous tombez en dépression"
+      return @defaiteMinMoral
     else
       return false
     end
@@ -87,7 +96,7 @@ class Statut
   end
 
   def modifStatut(consequences)
-     tabCsqs = []
+    tabCsqs = []
     consequences.split.each do |word|
       tabCsqs.push(word)
     end # tabCsqs contient tous les mots du type mo+5 no-6 etc...
@@ -104,7 +113,7 @@ class Statut
   end
   def getNotes
     return notes
- end
+  end
 
   def setPresence(presence)
     @presence = presence
