@@ -1,5 +1,5 @@
 class Statut
-  attr_accessor :presence, :notes, :popularite, :moral
+  attr_accessor :presence, :notes, :popularite, :moral, :defaiteMaxPresent
 
   def initialize(presence,notes,popularite,moral)
     @presence=presence

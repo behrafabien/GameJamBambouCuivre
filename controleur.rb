@@ -170,7 +170,7 @@ class Controleur
   end
 
   def resetJours
-    @joursrestant = 5
+    @joursrestant = 31
   end
 
   def isWin

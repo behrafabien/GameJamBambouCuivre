@@ -101,7 +101,6 @@ class Window < Gosu::Window
     case
     when @controleur.isWin
       @messagewin = "Bravo, vous avez réussi votre semestre !"
-      puts @messagewin
       @gamestarted = false
       @explication = false
       @menu = false
@@ -110,7 +109,7 @@ class Window < Gosu::Window
       @controleur.statut.reset()
       @controleur.resetJours()
 
-    when @controleur.statut.defaite && !@controleur.isWin
+    when @controleur.statut.defaite != false && !@controleur.isWin
       # S'il a perdu, le jeu s'arrête et on reset les statuts
       @messagedefaite = @controleur.statut.defaite
       @gamestarted = false
@@ -131,6 +130,10 @@ class Window < Gosu::Window
     # Si le jeu est lancé
     if @firstlaunch
       self.drawCredit
+      self.drawCarte(@controleur.cartes[0])
+      self.drawStatut()
+      self.drawGameOver(@controleur.statut.defaiteMaxPresent)
+      self.drawWin(" ")
       @firstlaunch = false
     end
     if @gamestarted && !@explication
@@ -141,7 +144,7 @@ class Window < Gosu::Window
     elsif @menu
       self.drawMenu()
     elsif @gameover
-      self.drawGameOver(@controleur.statut.defaite)
+      self.drawGameOver(@messagedefaite)
     elsif @explication
       self.drawStatut()
       self.drawExplication(@controleur.cartepioche,@choixchoisi)
@@ -206,12 +209,11 @@ class Window < Gosu::Window
   def drawMenu
     @font.draw_rel("IUT-2", @Width/2, 90, 4, 0.5, 0.5)
     @fontlife.draw_rel("Life Simulator",@Width/2, 170, 4, 0.5, 0.5)
-    @startbutton = @buttonnonpressed
+    @startbutton = @startbutton
     @creditbutton = @buttonnonpressed
     @exitbutton = @buttonnonpressed
     @background.draw(0,0,0)
     @titlepanel.draw(100,40,1)
-    @panelbackground.draw(40,240,1)
     @startbutton.draw(BUTTONSTARTPOS[0],BUTTONSTARTPOS[1],BUTTONSTARTPOS[2])
     @font.draw_rel("JOUER", @Width / 2, 360, 4, 0.5, 0.5)
     @creditbutton.draw(BUTTONCREDITPOS[0],BUTTONCREDITPOS[1],BUTTONCREDITPOS[2])
@@ -223,7 +225,7 @@ class Window < Gosu::Window
   def drawGameOver(raison)
     @background.draw(0,0,0)
     @font.draw_rel("GAME OVER", @Width / 2, 100, 4, 0.5, 0.5)
-    @messagedefaite.draw(100,300,3)
+    raison.draw(100,300,3)
     #@fontjours.draw(@messagedefaite,60,200,4,1,1)
     @menubutton.draw(BUTTONMENUPOS[0],BUTTONMENUPOS[1],BUTTONMENUPOS[2])
     @font.draw_rel("MENU", @Width / 2, 660, 4, 0.5, 0.5)
