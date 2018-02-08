@@ -112,8 +112,11 @@ class Window < Gosu::Window
       @controleur.statut.reset()
       @controleur.resetJours()
 
-    when @controleur.statut.defaite != false && !@controleur.isWin
+    when !@controleur.isWin && @controleur.statut.defaite != false
       # S'il a perdu, le jeu s'arrête et on reset les statuts
+
+
+      puts @controleur.statut.defaite
       @messagedefaite = @controleur.statut.defaite
       @gamestarted = false
       @explication = false
@@ -121,6 +124,7 @@ class Window < Gosu::Window
       @gameover = true
       @controleur.statut.reset()
       @controleur.resetJours()
+
     when !@controleur.statut.defaite
       # S'il n'a pas perdu on ne fais rien
     end
@@ -229,7 +233,6 @@ class Window < Gosu::Window
     @background.draw(0,0,0)
     @font.draw_rel("GAME OVER", @Width / 2, 100, 4, 0.5, 0.5)
     raison.draw(100,300,3)
-    #@fontjours.draw(@messagedefaite,60,200,4,1,1)
     @menubutton.draw(BUTTONMENUPOS[0],BUTTONMENUPOS[1],BUTTONMENUPOS[2])
     @font.draw_rel("MENU", @Width / 2, 660, 4, 0.5, 0.5)
   end
@@ -387,8 +390,9 @@ class Window < Gosu::Window
           @gameover = false
           @win = false
           @menu = true
-          @song.play(true)
           @doomsong.play(false)
+          @song.play(true)
+
         end
       end
 
