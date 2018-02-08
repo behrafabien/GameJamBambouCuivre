@@ -117,7 +117,7 @@ csq1 mo+10 no-20
 exp1 Tu révises pas et tu auras une mauvaise note. :/
 ch2 Euh... c'est quoi une \n fragmentation externe?
 csq2 no+5 mo-10
-exp2 Tu essayes de comprendre le cours mais c'est \n impossible.
+exp2 Tu essayes de comprendre le cours mais c'est impossible.
 fincarte
 
 id 13
