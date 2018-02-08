@@ -105,17 +105,17 @@ class Window < Gosu::Window
   def update
     #On vérifie si le joueur n'a pas perdu
     case
-    when @controleur.isWin
-      @messagewin = "Bravo, vous avez réussi votre semestre !"
-      puts @messagewin
-      @gamestarted = false
-      @explication = false
-      @menu = false
-      @gameover = false
-      @win = true
-      @controleur.statut.reset()
+      when @controleur.isWin
+        @messagewin = "Bravo, vous avez réussi votre semestre !"
+        puts @messagewin
+        @gamestarted = false
+        @explication = false
+        @menu = false
+        @gameover = false
+        @win = true
+        @controleur.statut.reset()
 
-      when @controleur.statut.defaite
+      when @controleur.statut.defaite && !@controleur.isWin
         # S'il a perdu, le jeu s'arrête et on reset les statuts
         @messagedefaite = @controleur.statut.defaite
         @gamestarted = false
@@ -321,7 +321,7 @@ end
   def button_down(button)
     case
       #Lorsque le jeu n'est pas lancé ( Pour les boutons du menu )
-    when !@gamestarted && !@gameover && !@credits
+    when !@gamestarted && !@gameover && !@credits &&!@win
         if button == Gosu::MS_LEFT
         case
         when buttonPressed?(BUTTONSTARTPOS,BUTTONSTARTSIZE)
@@ -370,6 +370,8 @@ end
           end
         end
     end
+
+
   when @gameover
       if button == Gosu::MS_LEFT
         if buttonPressed?(BUTTONMENUPOS,BUTTONMENUSIZE)
@@ -378,14 +380,24 @@ end
           @menu = true
         end
       end
-  when @credits
-    if button == Gosu::MS_LEFT
-      if buttonPressed?(BUTTONRETOURPOS,BUTTONRETOURSIZE)
-        @credits = false
-        @menu = true
+    when @win
+        if button == Gosu::MS_LEFT
+          if buttonPressed?(BUTTONMENUPOS,BUTTONMENUSIZE)
+            puts "bite"
+            @gameover = false
+            @menu = true
+            @win = false
+
+          end
+        end
+    when @credits
+      if button == Gosu::MS_LEFT
+        if buttonPressed?(BUTTONRETOURPOS,BUTTONRETOURSIZE)
+          @credits = false
+          @menu = true
+        end
       end
     end
-  end
 
 
 
