@@ -10,6 +10,7 @@ def initialize
 end
 
 def chargerCarte
+
     array = []
     cartes = []
     File.open("cartes.txt") do |file|
@@ -176,8 +177,6 @@ def resetJours
 end
 
 def isWin
-  puts @joursrestant
-  puts @joursrestant == 0
   if @joursrestant.to_i == 1
     return true
   else
