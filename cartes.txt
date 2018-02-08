@@ -7,35 +7,35 @@ csq1 no-6 po+7 mo+5
 exp1 Tu viens de te réveiller dans le lit d'une autre personne, tu ne sais vraiment pas où tu es...
 ch2 Tu préfères réviser chez toi.
 csq2 no+8 po-6 mo-5
-exp2 Apparemment la soirée était nulle, t'as bien fait de pas y aller
+exp2 Apparemment la soirée était nulle, t'as bien fait de ne \n pas y aller
 fincarte
 
 id 2
-desc Le professeur qui te faisait cours vient d'être annoncé comme absent
+desc Le professeur qui te faisait cours vient d'être \n annoncé comme absent.
 ch1 Go réviser!
 csq1 no+7 po-6
-exp1 Tu a pu t'avancer sur le cours et tu vas pouvoir poser des questions la prochaine fois
+exp1 Tu as pu t'avancer sur le cours et tu vas pouvoir poser \n des questions la prochaine fois.
 ch2 Jouer à l'HTC Vive
 csq2 mo+8 po+9 no-8
-exp1 Tu t'es tellement amusé que tu n'as pas vu l'heure
+exp2 Tu t'es tellement amusé que tu n'as pas vu l'heure
 fincarte
 
 id 3
 desc Demain tu commences à 8h avec un CM!
-ch1 Soupirer et programmer le \n réveil
+ch1 Tu Soupires et programmes \n ton réveil.
 csq1 no+9 mo-7 pr+10
-exp1 Tu n'as pas réussit a t'endormir et tu es fatigué mais tu y vas quand même
+exp1 Tu n'as pas réussit a t'endormir et tu es fatigué mais \n tu y vas quand même
 ch2 Grosse flemme!
 csq2 mo+8 no-8 pr-10
-exp2 Tu as pu jouer à LOL toute la soirée, résultat, tu as perdu 2 divisions :/
+exp2 Tu as pu jouer à LOL toute la soirée. \n Résultat : tu as perdu 2 divisions :/
 fincarte
 
 id 4
 desc "Sortez juste de quoi écrire, Contrôle surprise!"
 ch1 Joyeux Hunger Games...
 csq1 no-5 mo-5
-exp1 Tu n'avais pas appris tes notions, tu vas  avoir une mauvaise note
-ch2 Go devenir le maître de la \n triche!\n
+exp1 Tu n'avais pas appris tes notions, tu vas avoir une \n mauvaise note
+ch2 Go devenir le maître de la \n triche!
 csq2 no-15 mo-10 po+6
 exp2 Tu t'es fait chopé entrain de tricher, \n tu as failli te faire virer.
 fincarte
@@ -44,40 +44,40 @@ id 5
 desc Il est midi, t'as sacrément faim mais le Crous est \n fermé
 ch1 Go manger de l'air
 csq1 mo-5
-exp1 Tu vas en cours l'aprem avec l'envie de manger un bon burger, tu fini par mourir de faim
+exp1 Tu vas en cours l'aprem avec l'envie de manger un bon \n burger, la journée a été longue.
 ch2 Oh une pizzeria là-bas
 csq2 mo+5
 exp2 Elle était sacrément bonne
 fincarte
 
 id 6
-desc Après avoir fait Top 1 sur Fortnite, tu te rends compte que tu n'as rien révisé pour les partiels de la semaine prochaine...
-ch1 Tant pis t'auras un avenir dans l'E-Sport!
+desc Après avoir fait Top 1 sur Fortnite, tu te rends \n compte que tu n'as rien révisé pour les \n partiels de la semaine prochaine...
+ch1 Tant pis t'auras un avenir \n dans l'E-Sport !
 csq1 no-20 po+12 mo+12
-exp1 Tu as enchainé les Top et tu te crois aussi fort que Skyyart
+exp1 Tu as enchainé les Top et tu te crois aussi fort \n que Skyyart
 ch2 Go ouvrir tes cours
 csq2 no-20 po-12 mo+12
-exp2 Tu commences à ouvrir tes cours puis tu te demandes pourquoi. Tu retournes jouer à Fortnite
+exp2 Tu commences à ouvrir tes cours puis tu te demandes \n pourquoi. \n Tu retournes jouer à Fortnite.
 fincarte
 
 id 7
-desc Tu attends ton tram, et soudain les hauts-parleurs de l'arrêt annoncent qu'il a percuté une voiture
-ch1 Fais du sport et vas en cours à pied
+desc Tu attends ton tram, et soudain les hauts-parleurs \n de l'arrêt annoncent qu'il a percuté une voiture.
+ch1 Fais du sport et vas en \n cours à pied.
 csq1 mo-6 pr+5 no+5 po-15
-exp1 Tu arrives en cours tout transpirant et tu vas devoir finir la journée comme ça...
-ch2 Franchement, t'étais mieux dans ton lit...
+exp1 Tu arrives en cours tout transpirant et tu vas devoir \n finir la journée comme ça...
+ch2 Franchement, t'étais mieux \n dans ton lit...
 csq2 mo+6 pr-10 no-6
-exp2 Tu retournes finir ta nuit :3
+exp2 Tu retournes dans ton lit pour finir ta nuit :3
 fincarte
 
 id 8
 desc Tu viens de te réveiller, tu ouvres les volets \n et tu vois qu'il pleut dehors.
 ch1 Il n'est pas trop tard pour te \n recoucher...
 csq1 mo+10 no-5 pr-10
-exp1 Cette journée t'as permis de rattrapé tes heures de sommeil, tu te sens bien.
-ch2 Tant pis! Ce n'est pas la mort non plus.
+exp1 Cette journée t'as permi de rattraper tes heures \n de sommeil, tu te sens bien.
+ch2 Tant pis ! Ce n'est pas la \n mort non plus.
 csq2 mo-10 pr+10 no+7 po-5
-exp2 Tu n'as pas de parapluie, tu arrives tout trempé à l'IUT et tu as attrapé froid.
+exp2 Tu n'as pas de parapluie, tu arrives tout trempé à l'IUT \n et tu as attrapé froid.
 fincarte
 
 id 9
@@ -91,31 +91,31 @@ exp2 Tu pues la bière et tes potes te le font remarquer.
 fincarte
 
 id 10
-desc Tes yeux viennent de s'ouvrir, et tu remarque que tu as 45 minutes de retard!
-ch1 C'était pas en cours important de toute façon...
+desc Tes yeux viennent de s'ouvrir, et tu remarque que \n tu as 45 minutes de retard!
+ch1 C'était pas en cours \n important de toute \n façon...
 csq1 pr-10 mo+7
-exp1 Tu te rendors en attendant l'heure pour aller au prochain cours.
-ch2 C'est parti pour manger ton pitch en prenant ta douche
+exp1 Tu te rendors en attendant l'heure pour aller au \n prochain cours.
+ch2 C'est parti pour manger \n ton pitch en prenant \n ta douche.
 csq2 mo-10
-exp2 T'es arrivé qu'avec une 1h de retard et le prof t'as enlevé ton absence. Tout benef.
+exp2 T'es arrivé qu'avec une 1h de retard et le prof \n t'as enlevé ton absence. Tout benef.
 fincarte
 
 id 11
 desc Le ciel est bleu, les oiseaux chantent, tout est \n parfait! A l'exception de cette fiente de pigeon qui \n vient d'atterrir sur ton épaule...
-ch1 Impossible d'aller en cours comme ça!
+ch1 Impossible d'aller en \n cours comme ça!
 csq1 mo-5 pr-10 no-5 po+5
-exp1 Tu retournes chez toi te changer en \n vitesse mais tu arrives en retard.
-ch2 Tu n'es déjà pas en avance...
+exp1 Tu retournes chez toi te changer en vitesse mais \n tu arrives en retard.
+ch2 Tu n'es déjà pas en \n avance...
 csq2 mo-10 pr+10 po-10
 exp2 Tu essayes de nettoyer avec des kleenex \n mais tu as juste réussit à étaler.
 fincarte
 
 id 12
-desc Tu sais que demain t'as contrôle de Système d'Exploitation?
+desc Tu sais que demain t'as contrôle de Système \n d'Exploitation?
 ch1 Oh m*rde... aller OSEF!
 csq1 mo+10 no-20
 exp1 Tu révises pas et tu auras une mauvaise note. :/
-ch2 Euh... c'est quoi une fragmentation externe?
+ch2 Euh... c'est quoi une \n fragmentation externe?
 csq2 no+5 mo-10
 exp2 Tu essayes de comprendre le cours mais c'est impossible.
 fincarte
@@ -127,27 +127,27 @@ exp Tout s'est bien passé, à part qu'il reste \n du vomi sur ton canapé.
 fincarte
 
 id 14
-desc Un SDF te demande une pièce, tu ne vas quand même pas lui refuser ça!
+desc Un SDF te demande une pièce, tu ne vas quand \n même pas lui refuser ça!
 csq mo+10 po+10
-exp Tu as fait une bonne action mais tu n'as plus de monnaie pour prendre un café.
+exp Tu as fait une bonne action mais tu n'as plus de \n monnaie pour prendre un café.
 fincarte
 
 id 15
-desc Un ami vient de te donner l'annale du partiel \n de l'année dernière sur le sujet que tu \n as demain!
+desc Un ami vient de te donner l'annale du partiel \n de l'année dernière sur le sujet que tu as \n demain!
 ch1 Tu partages à tes amis!
 csq1 po+7 mo-10 no+10
-exp1 Tout le monde aura une bonne note et tout le monde sera content.
+exp1 Tout le monde aura une bonne note et tout le monde \n sera content.
 ch2 Tu gardes ça pour toi, tu \n veux être major de promo!
 csq2 po-7 mo-10 no+10
-exp2 Au final tout le monde l'avait donc tout le monde aura une bonne note.
+exp2 Au final tout le monde l'avait donc tout le monde aura \n une bonne note.
 fincarte
 
 id 16
 desc T'as faim? Tant mieux! Y a de la purée au Crous :D
-ch1 Tu pleurs en mangeant ta pizza...
+ch1 Tu pleurs en mangeant ta \n pizza...
 csq1 mo-10
 exp1 Elle n'a couté que 5€ donc ca va.
-ch2 Tu te prends pour Bear Grylls et tu y vas!
+ch2 Tu te prends pour \n Bear Grylls et tu y vas!
 csq2 mo-40
 exp2 Tu manges ta purée en pleurant.
 fincarte
@@ -181,7 +181,7 @@ csq1 mo-5
 exp1 Après avoir marché jusqu'au magasin, \n tu t'es rendu compte qu'il était dimanche!
 ch2 Domino's font pas une \n promo en ce moment?
 csq2 mo+10
-exp2 Tu trouves le numéro de Domino's et tu te \n fait livrer. Miam miam!
+exp2 Tu trouves le numéro de Domino's et tu te fait livrer. \n Miam miam!
 fincarte
 
 id 21
@@ -196,7 +196,7 @@ fincarte
 
 id 22
 desc En prenant rapidement ton petit-déjeuner, \n Tu as avalé une madeleine de travers.
-ch1 Tant pis, tu tousseras s'il le \n faut! Ne Rates pas les cours!
+ch1 Tant pis, tu tousseras s'il le \n faut ! \n Ne Rates pas les cours!
 csq1 pr+10 no+10 mo-15
 exp1 Tu bois un peu d'eau et ça va mieux.
 ch2 Cela t'apprendra à vouloir \n gratter des certificats \n médicaux! Repose-toi...
@@ -206,7 +206,7 @@ fincarte
 
 id 23
 desc Tes potes organisent un week-end à la montagne.
-ch1 Tu révises pour les partiels qui vont \n arriver.
+ch1 Tu révises pour les partiels \n qui vont arriver.
 csq1 pop-5 mo-10 no+10
 exp1 Tu as joué la moitié du temps au lieu de réviser.
 ch2 Tu vas t'éclater avec eux.
@@ -221,8 +221,8 @@ exp Tu es content :))
 fincarte
 
 id 25
-desc Une commande Amazon vient d'arriver dans ton \n relais colis préféré, impatient tu te demandes \n si les cours sont plus important que ce colis
-ch1 Sécher les cours et récupérer le colis
+desc Une commande Amazon vient d'arriver dans ton \n relais colis préféré, impatient tu te demandes \n si les cours sont plus important que ce colis...
+ch1 Sécher les cours et \n récupérer le colis.
 csq1 pr-10 mo+5
 exp1 Tu vas pouvoir t'amuser avec ca que tu as commandé
 ch2 Attendre la fin des cours
@@ -231,13 +231,13 @@ exp2 Tu penses à ton colis pendant toute l'après-midi...
 fincarte
 
 id 26
-desc Séance de AA de 17h à 19h. L'uitilité de cette séance te semble limitée.
+desc Séance de AA de 17h à 19h. \n L'utilité de cette séance te semble limitée.
 ch1 Y aller
 csq1 pr+5 mo-20
 exp1 Il n'y avait personne :/ et tu n'as rien appris
-ch2 Tu rentres chez toi et te détends devant une vidéo.
+ch2 Tu rentres chez toi et te \n détends devant une \n vidéo.
 csq2 pr-5 mo+10 no-5
-exp2 Tu t'es bien détendu
+exp2 Tu t'es bien détendu.
 fincarte
 
 id 27
@@ -251,7 +251,7 @@ exp2 Tu as pu jouer à GTA à la place.
 
 id 28
 desc Tu as gagné à la loterie.
-ch1 C'est bien tu auras nourriture illimitée \n au Crous :3
+ch1 C'est bien tu auras nourriture \n illimitée au Crous :3
 csq1 mo+25 po+30
 exp1 Tu continues ton DUT.
 ch2 Tu pars au Bahamas.
@@ -260,27 +260,27 @@ exp2 Tu es tellement absent que tu ne sais même pas où est l'IUT.
 fincarte
 
 id 29
-desc Sylvain Pierre Durif, te propose de monter dans sa camionnette pour rencontrer le Christ Cosmique.
-ch1 Je monte dans la camionnette
+desc Sylvain Pierre Durif, te propose de monter dans \n sa camionnette pour rencontrer le Christ Cosmique.
+ch1 Tu montes dans sa \n camionnette ...
 csq1 mo-70
 exp1 Sylvain abuse de toi.
-ch2 Je refuse poliment
+ch2 Tu refuses poliment.
 csq2 mo-30
-exp2 Sylvain emporte un de tes amis à la place. Tu ne reverras plus jamais ton ami
+exp2 Sylvain emporte un de tes amis à la place. \n Tu ne le reverra plus jamais :/
 fincarte
 
 id 30
 desc C'est la Saint-Valentin et tu es en DUT Info...
 ch1 Tu es un homme.
 csq1 mo-10 pop-5
-exp1 Tu as passé ta soirée à baver sur les photos de profil des femmes sur Tinder.
+exp1 Tu as passé ta soirée à baver sur les photos de profil \n des femmes sur Tinder.
 ch2 Tu es une femme.
 csq2 pop+20
-exp2 Tu as de la chance, il y a beaucoup de mec dans la promo...
+exp2 Tu as de la chance, il y a beaucoup de mec dans \n la promo...
 fincarte
 
 id 31
-desc Le proffesseur d'architecture est absent le jour du \n controle
+desc Le professeur d'architecture est absent le jour du \n controle
 csq mo+25
 exp Tu en profite pour rentrer chez toi et regarder un live.
 fincarte
@@ -312,13 +312,14 @@ exp2 Tu as joué à Fortnite avec tes potes et \n tu as fait 5 Top1! Félicitati
 fincarte
 
 id 35
-desc Tu te rends compte que tu as fait ton contrôle de recursivité sans prendre est compte que la liste est triée
-ch1 Oh! c'est pas grave, ça va pas enlever beaucoup de point!
+desc Tu te rends compte que tu as fait ton contrôle de \n récursivité sans prendre en compte que la liste \n est triée.
+ch1 Oh! c'est pas grave, ça ne \n va pas enlever beaucoup \n de point !
 csq1 no-8 mo-5
-exp1 Finalement ça enlevait quand même pas mal de point...Kappa
-ch2 M*rde! Il faut que tu refasses tout le contrôle!
+exp1 Finalement ça enlevait quand même pas mal de point. \n Kappa ¯\_(ツ)_/¯
+
+ch2 M*rde! Il faut que tu refasses \n tout le contrôle!
 csq2 no+2 mo-5
-exp2 Tu n'as pas eu le temps de tout refaire, mais tu as quand même réussi à sauver la mise!
+exp2 Tu n'as pas eu le temps de tout refaire, mais tu as \n quand même réussi à sauver la mise!
 fincarte
 
 id 36
@@ -328,13 +329,13 @@ exp Tu pleures toutes les larmes de ton corps :'(
 fincarte
 
 id 37
-desc Tu viens de rater ton bus à 5 secondes près!
-ch1 Tu cours pour le rattraper!
+desc Tu viens de rater ton bus à 5 secondes près !
+ch1 Tu cours pour le rattraper.
 csq1 pr-5 mo-5
-exp1 T'as vraiment oublié que tu est asmathique?
-ch2 Tu vas pas courir pour si peu! \n Attends le prochain!
+exp1 T'as vraiment oublié que tu es asmathique ?
+ch2 Tu vas pas courir ! \n Attends le prochain.
 csq2 pr-10 mo-5
-exp2 Le prochain à mis 20 minutes à arriver, tu as eu 30 minutes de retard...
+exp2 Le prochain à mis 20 minutes à arriver, tu as eu \n 30 minutes de retard...
 fincarte
 
 id 38
@@ -344,7 +345,7 @@ csq1 mo-2
 exp1 T'es chanceux, tu tombe pile sur le jour des \n Hamburgers/Frites.
 ch2 Tu fais le mandiant et tu \n grattes tes potes.
 csq2 mo+5 po-4
-exp2 Bien joué! Tu viens encore de manger \n gratuitement!
+exp2 Bien joué! Tu viens encore de manger gratuitement !
 fincarte
 
 id 39
@@ -383,21 +384,21 @@ exp Tu regrettes amèrement ton Bac STI2D...
 fincarte
 
 id 44
-desc Tu recherche un stage mais aucune entreprise ne veut te prendre :/
-ch1 Tu t'investis 2 fois plus et tu postules à tout !
+desc Tu recherche un stage mais aucune entreprise ne \n veut te prendre :/
+ch1 Tu t'investis 2 fois plus et tu \n postules à tout ce que \n tu trouves !
 csq1 no+5 mo+5
-exp1 Ta persévérance à finie par payer! Tu as trouvé ton stage, et dans une bonne boîte en plus!
-ch2 Pas grave! Pas de stage si je ne suis pas payé au SMIC!
+exp1 Ta persévérance à fini par payer! Tu as trouvé ton \n stage, et dans une bonne boîte en plus!
+ch2 Pas grave! Pas de stage si \n tu n'es' pas payé au SMIC!
 csq2 no-5 mo-5
-exp2 Parce que tu as vraiment crû que tu valais le SMIC???
+exp2 Parce que tu as vraiment crû que tu valais le SMIC ?
 fincarte
 
 id 45
-desc Tu demandes de l'aide sur le Discord de la GameJam, \n mais tu te fait bannir instantanément...
-ch1 Tu portes plainte pour cet abus \n de pouvoir!
+desc Tu demandes de l'aide sur le Discord de la \n GameJam, mais tu te fait bannir direct...
+ch1 Tu portes plainte pour cet \n abus de pouvoir!
 csq1 mo-5
-exp1 Finalement c'est peut-être pas si mal Carrière Juridiques!
-ch2 Tu créé 26 comptes différents et \n tu continues d'em***der les modos!
+exp1 C'est peut-être pas si mal Carrière Juridiques!
+ch2 Tu créé 26 comptes \n différents et tu \n continues d'em***der les \n modos!
 csq2 mo+5
 exp2 Tu t'es fait ban 26 fois! Bien joué!
 fincarte
@@ -407,15 +408,15 @@ desc Tu vois ton bus arriver mais il est bondé!
 ch1 Tant pis! \n Il faut que tu ailles en cours!
 csq1 mo-5 pr+5
 exp1 Pas mal la douche à la sueur! Pas mal....
-ch2 C'est mort! Tu tiens à ton odorat \n et tu ne prends pas le bus.
+ch2 C'est mort! Tu tiens à ton \n odorat et tu ne prends \n pas le bus.
 csq2 mo+5 pr-5
-exp2 T'as eu raison! Un peu d'air frais ça n'a jamais fait de mal :D
+exp2 T'as eu raison! Un peu d'air frais ça n'a jamais fait de \n mal :D
 fincarte
 
 id 47
 desc Tu viens de glisser sur une feuille par terre \n et tu tombes dans une flaque d'eau!
 csq pr-10 mo-10 po-5
-exp C'est le Karma qui te rattrape! Fallait pas faire full-team sur CS hier soir!
+exp C'est le Karma qui te rattrape! Fallait pas faire full-team \n sur CS hier soir!
 fincarte
 
 id 48

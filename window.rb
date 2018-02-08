@@ -46,16 +46,19 @@ class Window < Gosu::Window
     @controleur = controleur
     @explication = false
     @choixclique = false
+    @win = false
 
     #Création de la fenêtre
     super width,height
-    self.caption = "Etudiant Simulator 3003" # Nom de la fenêtre
+    self.caption = "IUT-2 Life Simulator" # Nom de la fenêtre
 
     #Polices d'écriture
     @font = Gosu::Font.new(self, "assets/pixel.ttf", 80)
     @fontstatut = Gosu::Font.new(self, "Arial", 12)
     @fontdesc = Gosu::Font.new(self, "Arial", 16)
-
+    @fontlife = Gosu::Font.new(self,"assets/pixel.ttf",50)
+    @fontCredit = Gosu::Font.new(self,"assets/pixel.ttf",40)
+    @fontjours = Gosu::Font.new(self,"assets/pixel.ttf",20)
     #Musique
     @song = Gosu::Song.new("musiques/doom.mp3")
     @song.volume = 0.25
@@ -72,6 +75,8 @@ class Window < Gosu::Window
         @exitbutton = Gosu::Image.new('assets/buttonLong_blue2.png')
         @menubutton = Gosu::Image.new('assets/buttonLong_blue2.png')
         @buttonpressed = Gosu::Image.new('assets/button_blue_pressed.png')
+        @buttonnonpressed = Gosu::Image.new('assets/buttonLong_blue2.png')
+
 
       #Images de loading
         @loadinggif = Gosu::Image.new('assets/loadinggif.gif')
@@ -92,24 +97,38 @@ class Window < Gosu::Window
         @barBack_horizontalMid=Gosu::Image.new('assets/barBack_horizontalMid2px.png')
         @cardbackground = Gosu::Image.new('assets/card_brown_background.png')
         @cardpanelset = Gosu::Image.new('assets/card_brown_panelset.png')
+
   end
 
 
 
   def update
     #On vérifie si le joueur n'a pas perdu
-    if !@controleur.statut.defaite
-      # S'il n'a pas perdu on ne fais rien
-    else
-      # S'il a perdu, le jeu s'arrête et on reset les statuts
-      puts @controleur.statut.defaite
+    case
+    when @controleur.isWin
+      @messagewin = "Bravo, vous avez réussi votre semestre !"
+      puts @messagewin
       @gamestarted = false
       @explication = false
       @menu = false
-      @gameover = true
+      @gameover = false
+      @win = true
       @controleur.statut.reset()
+
+      when @controleur.statut.defaite
+        # S'il a perdu, le jeu s'arrête et on reset les statuts
+        @messagedefaite = @controleur.statut.defaite
+        @gamestarted = false
+        @explication = false
+        @menu = false
+        @gameover = true
+        @controleur.statut.reset()
+        @controleur.resetJours()
+      when !@controleur.statut.defaite
+        # S'il n'a pas perdu on ne fais rien
     end
   end
+
 
   def draw
     # On dessine le curseur au niveau de la position de la souris
@@ -123,10 +142,12 @@ class Window < Gosu::Window
     elsif @menu
       self.drawMenu()
     elsif @gameover
-      self.drawGameOver()
+      self.drawGameOver(@controleur.statut.defaite)
     elsif @explication
       self.drawStatut()
       self.drawExplication(@controleur.cartepioche,@choixchoisi)
+    elsif @win
+      self.drawWin(@messagewin)
     end
   end
 
@@ -158,7 +179,7 @@ def drawCarte(carte)
   @statutbackground.draw(40,620,0)
   if carte.choix1 == ""
     @buttonchoixsimple.draw(60,630,2)
-    carte.textechoix1.draw(280,635,3)
+    carte.textechoix1.draw(280,680,3)
   else
     @buttonchoix.draw(50,630,2)
     carte.textechoix1.draw(55,635,3)
@@ -168,14 +189,27 @@ def drawCarte(carte)
 end
 
 def drawCredit
-  @font.draw_rel("Crédits", @Width / 2, 150, 1, 0.5, 0.5)
-  @font.draw_rel("LUCA Deslot", @Width / 2, 175, 1, 0.5, 0.5)
-  @font.draw_rel("Fabien Behra", @Width / 2, 200, 1, 0.5, 0.5)
-  @font.draw_rel("Adrien Prat", @Width / 2, 225, 1, 0.5, 0.5)
-  @font.draw_rel("Jessy Chenavas", @Width / 2, 250, 1, 0.5, 0.5)
+
+  @buttonretour.draw(20,20,2)
+  @font.draw_rel("Crédits", @Width / 2, 120,1,0.5,0.5)
+  @fontCredit.draw_rel("Luca DESLOT", @Width / 2, 190, 1, 0.5, 0.5)
+  @fontCredit.draw_rel("Fabien BEHRA", @Width / 2, 240, 1, 0.5, 0.5)
+  @fontCredit.draw_rel("Adrien PRAT", @Width / 2, 290, 1, 0.5, 0.5)
+  @fontCredit.draw_rel("Jessy CHENAVAS", @Width / 2, 340, 1, 0.5, 0.5)
+  @font.draw_rel("Musiques", @Width / 2, 440,1,0.5,0.5)
+  @fontCredit.draw_rel("Doom", @Width / 2, 500, 1, 0.5, 0.5)
+  @fontCredit.draw_rel("Carefree", @Width / 2, 560, 1, 0.5, 0.5)
+  @font.draw_rel("Images", @Width / 2, 660,1,0.5,0.5)
+  @fontCredit.draw_rel("Google Images", @Width / 2, 730, 1, 0.5, 0.5)
+
 end
 
 def drawMenu
+  @font.draw_rel("IUT-2", @Width/2, 90, 4, 0.5, 0.5)
+  @fontlife.draw_rel("Life Simulator",@Width/2, 170, 4, 0.5, 0.5)
+  @startbutton = @buttonnonpressed
+  @creditbutton = @buttonnonpressed
+  @exitbutton = @buttonnonpressed
   @background.draw(0,0,0)
   @titlepanel.draw(100,40,1)
   @panelbackground.draw(40,240,1)
@@ -187,9 +221,17 @@ def drawMenu
   @font.draw_rel("QUITTER", @Width / 2, 640, 4, 0.5, 0.5)
 end
 
-def drawGameOver
+def drawGameOver(raison)
   @background.draw(0,0,0)
   @font.draw_rel("GAME OVER", @Width / 2, 40, 4, 0.5, 0.5)
+  @fontjours.draw(@messagedefaite,60,200,4,1,1)
+  @menubutton.draw(BUTTONMENUPOS[0],BUTTONMENUPOS[1],BUTTONMENUPOS[2])
+end
+
+def drawWin(message)
+  @background.draw(0,0,0)
+  @font.draw_rel("VOUS AVEZ GAGNE", @Width / 2, 80, 4, 0.5, 0.5)
+  @fontjours.draw(message, 60,200,4,1,1)
   @menubutton.draw(BUTTONMENUPOS[0],BUTTONMENUPOS[1],BUTTONMENUPOS[2])
 end
 
@@ -197,55 +239,57 @@ def drawStatut
   #AFFICHAGE DU STATUT
    @statutbackground.draw(40,40,0)
    #AFFICHAGE DU STATUT MORAL
-   @barGreen_horizontalMid.draw(80,80,1)
-   @fontstatut.draw("Moral",85,65,3,1,1,COLORS[:lightbrown])
+   @fontjours.draw("Jours restant : "+@controleur.joursrestant.to_s,280,60,3,1,1,COLORS[:lightbrown])
+
+   @barGreen_horizontalMid.draw(80,100,1)
+   @fontstatut.draw("Moral",85,85,3,1,1,COLORS[:lightbrown])
    @test = @controleur.statut.moral# / 10
    @x = 80
    for i in 0..@test
-     @barGreen_horizontalMid.draw(@x,80,1)
+     @barGreen_horizontalMid.draw(@x,100,1)
      @x = @x+2
    end
    for i in @test..99
-     @barBack_horizontalMid.draw(@x,80,1)
+     @barBack_horizontalMid.draw(@x,100,1)
      @x = @x+2
    end
    #AFFICHAGE DU STATUT NOTES
-     @barBlue_horizontalMid.draw(80,120,1)
-     @fontstatut.draw("Notes",85,105,3,1,1,COLORS[:lightbrown])
+     @barBlue_horizontalMid.draw(80,140,1)
+     @fontstatut.draw("Notes",85,125,3,1,1,COLORS[:lightbrown])
      @test = @controleur.statut.notes# / 10
      @x = 80
      for i in 0..@test
-       @barBlue_horizontalMid.draw(@x,120,1)
+       @barBlue_horizontalMid.draw(@x,140,1)
        @x = @x+2
      end
      for i in @test..99
-       @barBack_horizontalMid.draw(@x,120,1)
+       @barBack_horizontalMid.draw(@x,140,1)
        @x = @x+2
      end
    #AFFICHAGE DU STATUT PRESENCE
-     @barYellow_horizontalMid.draw(340,80,1)
-     @fontstatut.draw("Pésence",345,65,3,1,1,COLORS[:lightbrown])
+     @barYellow_horizontalMid.draw(340,100,1)
+     @fontstatut.draw("Pésence",345,85,3,1,1,COLORS[:lightbrown])
      @test = @controleur.statut.presence# / 10
      @x = 340
      for i in 0..@test
-       @barYellow_horizontalMid.draw(@x,80,1)
+       @barYellow_horizontalMid.draw(@x,100,1)
        @x = @x+2
      end
      for i in @test..99
-       @barBack_horizontalMid.draw(@x,80,1)
+       @barBack_horizontalMid.draw(@x,100,1)
        @x = @x+2
      end
    #AFFICHAGE DU STATUT POPULARITE
-     @barRed_horizontalMid.draw(340,120,1)
-     @fontstatut.draw("Popularité",345,105,3,1,1,COLORS[:lightbrown])
+     @barRed_horizontalMid.draw(340,140,1)
+     @fontstatut.draw("Popularité",345,125,3,1,1,COLORS[:lightbrown])
      @test = @controleur.statut.popularite# / 10
      @x = 340
      for i in 0..@test
-       @barRed_horizontalMid.draw(@x,120,1)
+       @barRed_horizontalMid.draw(@x,140,1)
        @x = @x+2
      end
      for i in @test..99
-       @barBack_horizontalMid.draw(@x,120,1)
+       @barBack_horizontalMid.draw(@x,140,1)
        @x = @x+2
      end
 end
@@ -277,7 +321,7 @@ end
   def button_down(button)
     case
       #Lorsque le jeu n'est pas lancé ( Pour les boutons du menu )
-    when !@gamestarted && !@gameover
+    when !@gamestarted && !@gameover && !@credits
         if button == Gosu::MS_LEFT
         case
         when buttonPressed?(BUTTONSTARTPOS,BUTTONSTARTSIZE)
@@ -330,10 +374,17 @@ end
       if button == Gosu::MS_LEFT
         if buttonPressed?(BUTTONMENUPOS,BUTTONMENUSIZE)
           @gameover = false
+          @win = false
           @menu = true
         end
       end
-
+  when @credits
+    if button == Gosu::MS_LEFT
+      if buttonPressed?(BUTTONRETOURPOS,BUTTONRETOURSIZE)
+        @credits = false
+        @menu = true
+      end
+    end
   end
 
 
