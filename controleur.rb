@@ -6,7 +6,7 @@ def initialize
   @cartes = self.chargerCarte()
   @pioche = []
   @statut = Statut.new(50,50,50,50)
-  @joursrestant = 5
+  @joursrestant = 30
 end
 
 def chargerCarte

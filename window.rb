@@ -231,7 +231,7 @@ end
 def drawGameOver(raison)
   @background.draw(0,0,0)
   @font.draw_rel("GAME OVER", @Width / 2, 40, 4, 0.5, 0.5)
-  @fontjours.draw(@messagedefaite,60,200,4,1,1)
+  @fontjours.draw("bte",60,200,4,1,1)
   @menubutton.draw(BUTTONMENUPOS[0],BUTTONMENUPOS[1],BUTTONMENUPOS[2])
 end
 
