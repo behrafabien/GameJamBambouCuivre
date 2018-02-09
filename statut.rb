@@ -13,7 +13,7 @@ class Statut
     @defaiteMinNotes = Gosu::Image.from_text("A la vue de tes résultats, tu as décidé d'intégrer \n les Carrières Juridiques, étonnement tu \n es premier de leur promo!",22)
     @defaiteMaxPopularite = Gosu::Image.from_text("Tu es tellement apprécié des gens, qu'ils \n ont décidé de te sacrifier au grand dieu de la fête!",22)
     @defaiteMinPopularite = Gosu::Image.from_text("Si seul, tu te lances dans une carrière de youtuber \n où tu y fera des dégustations et des pranks \n sur Minecraft",22)
-    @defaiteMaxMoral = Gosu::Image.from_text("Tu es si joyeux que tu décides de dire OUI \n à tout ce que l'on te demande, tu finis pauvre après \n avoir donné ta maison et tout ton argent à l'église de la Scientologie",22)
+    @defaiteMaxMoral = Gosu::Image.from_text("Tu es si joyeux que tu décides de dire OUI \n à tout ce que l'on te demande, tu finis pauvre après \n avoir donné ta maison et tout ton argent à l'église \n de la Scientologie",22)
     @defaiteMinMoral = Gosu::Image.from_text("Tu as passé la semaine à coder un jeu sur un langage \n que tu ne connaissais pas, tu te retrouves avec \n le moral au plus bas, tu tombes en dépression",22)
   end
 
