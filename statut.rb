@@ -19,9 +19,9 @@ class Statut
 
   def defaite
     if presence >=100
-      return @defaiteTropPresent
+      return @defaiteMaxPresent
     elsif presence <=0
-      return @defaitePasPresent
+      return @defaiteMinPresent
     elsif notes >=100
       return @defaiteMaxNotes
     elsif notes <= 0
